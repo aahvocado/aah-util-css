@@ -1,0 +1,32 @@
+@all-colors: white, black, litegray, gray, darkgray, navy, darknavy, blue, skyblue, overcastblue, limegreen, green, pink, red, darkred;
+
+@tg-white: #FFF;
+@tg-black: #333333;
+@tg-litegray: #bebebe;
+@tg-gray: #ccd0d8;
+@tg-darkgray: #7b7b7b;
+@tg-navy: #5b6883;
+@tg-darknavy: #485165;
+@tg-blue: #a7caea;
+@tg-skyblue: #bbecff;
+@tg-overcastblue: #596a71;
+@tg-limegreen: #91f1b9;
+@tg-green: #17a552;
+@tg-pink: #efbbff;
+@tg-red: #ff89a2;
+@tg-darkred: #cc566f;
+
+each(@all-colors, {
+  .color-@{value} {
+    color: ~"@{tg-@{value}}";
+  }
+  .bg-@{value} {
+    background-color: ~"@{tg-@{value}}";
+  }
+  .borcolor-@{value} {
+    border-color: ~"@{tg-@{value}}";
+  }
+});
+
+@tg-disabled-bg: #dadada;
+@tg-disabled-color: #777777;

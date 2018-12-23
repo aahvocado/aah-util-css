@@ -1,0 +1,30 @@
+{
+  "name": "aah-util-css",
+  "version": "1.0.0",
+  "description": "utility css classes by aahvocado",
+  "main": "main.css",
+  "files": [
+    "styles",
+    "main.css"
+  ],
+  "scripts": {
+    "compile": "lessc main.less main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/aahvocado/aah-util-css.git"
+  },
+  "keywords": [
+    "css",
+    "less"
+  ],
+  "author": "Daniel Xiao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aahvocado/aah-util-css/issues"
+  },
+  "homepage": "https://github.com/aahvocado/aah-util-css#readme",
+  "devDependencies": {
+    "less": "^3.9.0"
+  }
+}
