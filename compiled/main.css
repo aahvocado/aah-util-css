@@ -246,6 +246,19 @@
   example:
   .generate-border-width(2) will output .bor-2 { border-width: 2px; }
 */
+/*
+  for each color defined the `@all-colors` ,
+    this will generate the following utility css
+
+  eg:
+   @all-colors: 'primary';
+   @color-primary: #FFF;
+
+
+   .color-primary { color: #FFF; }
+   .bg-primary { background-color: #FFF; }
+   .borcolor-primary { border-color: #FFF; }
+*/
 .color-white {
   color: #FFF;
 }
@@ -272,114 +285,6 @@
 }
 .borcolor-litegray {
   border-color: #bebebe;
-}
-.color-gray {
-  color: #ccd0d8;
-}
-.bg-gray {
-  background-color: #ccd0d8;
-}
-.borcolor-gray {
-  border-color: #ccd0d8;
-}
-.color-darkgray {
-  color: #7b7b7b;
-}
-.bg-darkgray {
-  background-color: #7b7b7b;
-}
-.borcolor-darkgray {
-  border-color: #7b7b7b;
-}
-.color-navy {
-  color: #5b6883;
-}
-.bg-navy {
-  background-color: #5b6883;
-}
-.borcolor-navy {
-  border-color: #5b6883;
-}
-.color-darknavy {
-  color: #485165;
-}
-.bg-darknavy {
-  background-color: #485165;
-}
-.borcolor-darknavy {
-  border-color: #485165;
-}
-.color-blue {
-  color: #a7caea;
-}
-.bg-blue {
-  background-color: #a7caea;
-}
-.borcolor-blue {
-  border-color: #a7caea;
-}
-.color-skyblue {
-  color: #bbecff;
-}
-.bg-skyblue {
-  background-color: #bbecff;
-}
-.borcolor-skyblue {
-  border-color: #bbecff;
-}
-.color-overcastblue {
-  color: #596a71;
-}
-.bg-overcastblue {
-  background-color: #596a71;
-}
-.borcolor-overcastblue {
-  border-color: #596a71;
-}
-.color-limegreen {
-  color: #91f1b9;
-}
-.bg-limegreen {
-  background-color: #91f1b9;
-}
-.borcolor-limegreen {
-  border-color: #91f1b9;
-}
-.color-green {
-  color: #17a552;
-}
-.bg-green {
-  background-color: #17a552;
-}
-.borcolor-green {
-  border-color: #17a552;
-}
-.color-pink {
-  color: #efbbff;
-}
-.bg-pink {
-  background-color: #efbbff;
-}
-.borcolor-pink {
-  border-color: #efbbff;
-}
-.color-red {
-  color: #ff89a2;
-}
-.bg-red {
-  background-color: #ff89a2;
-}
-.borcolor-red {
-  border-color: #ff89a2;
-}
-.color-darkred {
-  color: #cc566f;
-}
-.bg-darkred {
-  background-color: #cc566f;
-}
-.borcolor-darkred {
-  border-color: #cc566f;
 }
 .flex-row {
   display: flex;
