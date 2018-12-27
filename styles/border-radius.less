@@ -1,5 +1,3 @@
-@baseRadius: 5px;
-
 // create border-radius for 0, 5, 10, 15
 .generate-all-border-radius(5);
 
@@ -19,17 +17,17 @@
 */
 .generate-border-radius(@num) {
   .borradius-@{num} {
-    border-radius: @num * @baseRadius;
+    border-radius: @num * @baseBorderRadius;
   }
 }
 .generate-border-radius-top(@num) {
   .borradius-b-@{num} {
-    border-radius: @num * @baseRadius @num * @baseRadius 0 0;
+    border-radius: @num * @baseBorderRadius @num * @baseBorderRadius 0 0;
   }
 }
 .generate-border-radius-bottom(@num) {
   .borradius-t-@{num} {
-    border-radius: 0 0 @num * @baseRadius @num * @baseRadius;
+    border-radius: 0 0 @num * @baseBorderRadius @num * @baseBorderRadius;
   }
 }
 
