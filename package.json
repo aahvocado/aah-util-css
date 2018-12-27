@@ -2,13 +2,14 @@
   "name": "aah-util-css",
   "version": "1.0.0",
   "description": "utility css classes by aahvocado",
-  "main": "main.css",
+  "main": "compiled/main.css",
   "files": [
     "styles",
-    "main.css"
+    "compiled"
   ],
   "scripts": {
-    "compile": "lessc main.less main.css"
+    "start": "npm run compiled",
+    "compile": "lessc main.less compiled/main.css"
   },
   "repository": {
     "type": "git",
