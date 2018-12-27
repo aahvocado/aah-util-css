@@ -1,9 +1,9 @@
 /*
-  for each color defined the `@all-colors` ,
+  for each color defined the `@allColors` ,
     this will generate the following utility css
 
   eg:
-   @all-colors: 'primary';
+   @allColors: 'primary';
    @color-primary: #FFF;
 
 
@@ -11,14 +11,32 @@
    .bg-primary { background-color: #FFF; }
    .borcolor-primary { border-color: #FFF; }
 */
-each(@all-colors, {
-  .color-@{value} {
-    color: ~"@{color-@{value}}";
-  }
-  .bg-@{value} {
-    background-color: ~"@{color-@{value}}";
-  }
-  .borcolor-@{value} {
-    border-color: ~"@{color-@{value}}";
-  }
+each(@allColors, {
+  .generate-color(@value);
 });
+
+.generate-color(@colorName) {
+  @colorDefinition: 'color-@{colorName}';
+
+  .generate-color-styles(@colorName, @@colorDefinition);
+  .generate-color-styles(~'@{colorName}-lighter', lighten(@@colorDefinition, 10%));
+  .generate-color-styles(~'@{colorName}-lightest', lighten(@@colorDefinition, 25%));
+  .generate-color-styles(~'@{colorName}-darker', darken(@@colorDefinition, 10%));
+  .generate-color-styles(~'@{colorName}-darkest', darken(@@colorDefinition, 25%));
+}
+
+/*
+  param - @name - name of resulting css
+  param - @color - (hex) color to use
+*/
+.generate-color-styles(@name, @color) {
+  .color-@{name} {
+    color: @color;
+  }
+  .bg-@{name} {
+    background-color: @color;
+  }
+  .borcolor-@{name} {
+    border-color: @color;
+  }
+}

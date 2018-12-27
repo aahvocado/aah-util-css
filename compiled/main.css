@@ -247,11 +247,11 @@
   .generate-border-width(2) will output .bor-2 { border-width: 2px; }
 */
 /*
-  for each color defined the `@all-colors` ,
+  for each color defined the `@allColors` ,
     this will generate the following utility css
 
   eg:
-   @all-colors: 'primary';
+   @allColors: 'primary';
    @color-primary: #FFF;
 
 
@@ -259,6 +259,231 @@
    .bg-primary { background-color: #FFF; }
    .borcolor-primary { border-color: #FFF; }
 */
+.color-primary {
+  color: #F8B195;
+}
+.bg-primary {
+  background-color: #F8B195;
+}
+.borcolor-primary {
+  border-color: #F8B195;
+}
+.color-primary-lighter {
+  color: #fbd4c5;
+}
+.bg-primary-lighter {
+  background-color: #fbd4c5;
+}
+.borcolor-primary-lighter {
+  border-color: #fbd4c5;
+}
+.color-primary-lightest {
+  color: #ffffff;
+}
+.bg-primary-lightest {
+  background-color: #ffffff;
+}
+.borcolor-primary-lightest {
+  border-color: #ffffff;
+}
+.color-primary-darker {
+  color: #f58e65;
+}
+.bg-primary-darker {
+  background-color: #f58e65;
+}
+.borcolor-primary-darker {
+  border-color: #f58e65;
+}
+.color-primary-darkest {
+  color: #f0591d;
+}
+.bg-primary-darkest {
+  background-color: #f0591d;
+}
+.borcolor-primary-darkest {
+  border-color: #f0591d;
+}
+.color-secondary {
+  color: #F67280;
+}
+.bg-secondary {
+  background-color: #F67280;
+}
+.borcolor-secondary {
+  border-color: #F67280;
+}
+.color-secondary-lighter {
+  color: #f9a2ab;
+}
+.bg-secondary-lighter {
+  background-color: #f9a2ab;
+}
+.borcolor-secondary-lighter {
+  border-color: #f9a2ab;
+}
+.color-secondary-lightest {
+  color: #feeaec;
+}
+.bg-secondary-lightest {
+  background-color: #feeaec;
+}
+.borcolor-secondary-lightest {
+  border-color: #feeaec;
+}
+.color-secondary-darker {
+  color: #f34255;
+}
+.bg-secondary-darker {
+  background-color: #f34255;
+}
+.borcolor-secondary-darker {
+  border-color: #f34255;
+}
+.color-secondary-darkest {
+  color: #db0e24;
+}
+.bg-secondary-darkest {
+  background-color: #db0e24;
+}
+.borcolor-secondary-darkest {
+  border-color: #db0e24;
+}
+.color-tertiary {
+  color: #C06C84;
+}
+.bg-tertiary {
+  background-color: #C06C84;
+}
+.borcolor-tertiary {
+  border-color: #C06C84;
+}
+.color-tertiary-lighter {
+  color: #cf90a2;
+}
+.bg-tertiary-lighter {
+  background-color: #cf90a2;
+}
+.borcolor-tertiary-lighter {
+  border-color: #cf90a2;
+}
+.color-tertiary-lightest {
+  color: #e6c5cf;
+}
+.bg-tertiary-lightest {
+  background-color: #e6c5cf;
+}
+.borcolor-tertiary-lightest {
+  border-color: #e6c5cf;
+}
+.color-tertiary-darker {
+  color: #ae4b67;
+}
+.bg-tertiary-darker {
+  background-color: #ae4b67;
+}
+.borcolor-tertiary-darker {
+  border-color: #ae4b67;
+}
+.color-tertiary-darkest {
+  color: #793447;
+}
+.bg-tertiary-darkest {
+  background-color: #793447;
+}
+.borcolor-tertiary-darkest {
+  border-color: #793447;
+}
+.color-fourth {
+  color: #6C5B7B;
+}
+.bg-fourth {
+  background-color: #6C5B7B;
+}
+.borcolor-fourth {
+  border-color: #6C5B7B;
+}
+.color-fourth-lighter {
+  color: #867297;
+}
+.bg-fourth-lighter {
+  background-color: #867297;
+}
+.borcolor-fourth-lighter {
+  border-color: #867297;
+}
+.color-fourth-lightest {
+  color: #ac9eb7;
+}
+.bg-fourth-lightest {
+  background-color: #ac9eb7;
+}
+.borcolor-fourth-lightest {
+  border-color: #ac9eb7;
+}
+.color-fourth-darker {
+  color: #52455e;
+}
+.bg-fourth-darker {
+  background-color: #52455e;
+}
+.borcolor-fourth-darker {
+  border-color: #52455e;
+}
+.color-fourth-darkest {
+  color: #2c2532;
+}
+.bg-fourth-darkest {
+  background-color: #2c2532;
+}
+.borcolor-fourth-darkest {
+  border-color: #2c2532;
+}
+.color-fifth {
+  color: #355C7D;
+}
+.bg-fifth {
+  background-color: #355C7D;
+}
+.borcolor-fifth {
+  border-color: #355C7D;
+}
+.color-fifth-lighter {
+  color: #4476a1;
+}
+.bg-fifth-lighter {
+  background-color: #4476a1;
+}
+.borcolor-fifth-lighter {
+  border-color: #4476a1;
+}
+.color-fifth-lightest {
+  color: #6f9cc2;
+}
+.bg-fifth-lightest {
+  background-color: #6f9cc2;
+}
+.borcolor-fifth-lightest {
+  border-color: #6f9cc2;
+}
+.color-fifth-darker {
+  color: #264259;
+}
+.bg-fifth-darker {
+  background-color: #264259;
+}
+.borcolor-fifth-darker {
+  border-color: #264259;
+}
+.color-fifth-darkest {
+  color: #0f1a23;
+}
+.bg-fifth-darkest {
+  background-color: #0f1a23;
+}
+.borcolor-fifth-darkest {
+  border-color: #0f1a23;
+}
 .color-white {
   color: #FFF;
 }
@@ -267,6 +492,42 @@
 }
 .borcolor-white {
   border-color: #FFF;
+}
+.color-white-lighter {
+  color: #ffffff;
+}
+.bg-white-lighter {
+  background-color: #ffffff;
+}
+.borcolor-white-lighter {
+  border-color: #ffffff;
+}
+.color-white-lightest {
+  color: #ffffff;
+}
+.bg-white-lightest {
+  background-color: #ffffff;
+}
+.borcolor-white-lightest {
+  border-color: #ffffff;
+}
+.color-white-darker {
+  color: #e6e6e6;
+}
+.bg-white-darker {
+  background-color: #e6e6e6;
+}
+.borcolor-white-darker {
+  border-color: #e6e6e6;
+}
+.color-white-darkest {
+  color: #bfbfbf;
+}
+.bg-white-darkest {
+  background-color: #bfbfbf;
+}
+.borcolor-white-darkest {
+  border-color: #bfbfbf;
 }
 .color-black {
   color: #333333;
@@ -277,15 +538,46 @@
 .borcolor-black {
   border-color: #333333;
 }
-.color-litegray {
-  color: #bebebe;
+.color-black-lighter {
+  color: #4d4d4d;
 }
-.bg-litegray {
-  background-color: #bebebe;
+.bg-black-lighter {
+  background-color: #4d4d4d;
 }
-.borcolor-litegray {
-  border-color: #bebebe;
+.borcolor-black-lighter {
+  border-color: #4d4d4d;
 }
+.color-black-lightest {
+  color: #737373;
+}
+.bg-black-lightest {
+  background-color: #737373;
+}
+.borcolor-black-lightest {
+  border-color: #737373;
+}
+.color-black-darker {
+  color: #1a1a1a;
+}
+.bg-black-darker {
+  background-color: #1a1a1a;
+}
+.borcolor-black-darker {
+  border-color: #1a1a1a;
+}
+.color-black-darkest {
+  color: #000000;
+}
+.bg-black-darkest {
+  background-color: #000000;
+}
+.borcolor-black-darkest {
+  border-color: #000000;
+}
+/*
+  param - @name - name of resulting css
+  param - @color - (hex) color to use
+*/
 .flex-row {
   display: flex;
   flex-direction: row;
