@@ -4,7 +4,7 @@
   "description": "utility css classes by aahvocado",
   "main": "compiled/main.css",
   "files": [
-    "definitions.less",
+    "utitilies.less",
     "styles",
     "compiled"
   ],
