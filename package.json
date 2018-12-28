@@ -3,11 +3,6 @@
   "version": "1.0.0",
   "description": "utility css classes by aahvocado",
   "main": "compiled/main.css",
-  "files": [
-    "utitilies.less",
-    "styles",
-    "compiled"
-  ],
   "scripts": {
     "start": "npm run compile",
     "compile": "lessc main.less compiled/main.css"
