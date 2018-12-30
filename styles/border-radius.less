@@ -1,42 +1,62 @@
-// create border-radius for 0, 5, 10, 15
+@borradiusKey: borradius;
+
+// creates n instances of border radius
 .generate-all-border-radius(5);
-
-// mixin for create all instances of margin
 .generate-all-border-radius(@n, @i: 0) when (@i =< @n) {
-  .generate-border-radius(@i);
-  .generate-border-radius-top(@i);
-  .generate-border-radius-bottom(@i);
+  .gen-border-radius-corners(@i);
 
-  // recursive loop
+  // recursively call
   .generate-all-border-radius(@n, (@i + 1));
 };
 
-/*
-  example:
-  .generate-margin(2) will output .mar-2 { margin: 10px; }
-*/
-.generate-border-radius(@num) {
-  .borradius-@{num} {
-    border-radius: @num * @baseBorderRadius;
+.gen-border-radius-corners(@num) {
+  @borradiusSize: @num * @baseBorderRadius;
+
+  // all corners
+  .@{borradiusKey}-@{num} {
+    border-radius: @borradiusSize;
   }
-}
-.generate-border-radius-top(@num) {
-  .borradius-b-@{num} {
-    border-radius: @num * @baseBorderRadius @num * @baseBorderRadius 0 0;
+
+  // corners
+  .@{borradiusKey}-tl-@{num} {
+    border-top-left-radius: @borradiusSize;
   }
-}
-.generate-border-radius-bottom(@num) {
-  .borradius-t-@{num} {
-    border-radius: 0 0 @num * @baseBorderRadius @num * @baseBorderRadius;
+
+  .@{borradiusKey}-tr-@{num} {
+    border-top-right-radius: @borradiusSize;
+  }
+
+  .@{borradiusKey}-bl-@{num} {
+    border-bottom-left-radius: @borradiusSize;
+  }
+
+  .@{borradiusKey}-br-@{num} {
+    border-bottom-right-radius: @borradiusSize;
+  }
+
+  // sides
+  .@{borradiusKey}-l-@{num} {
+    border-top-left-radius: @borradiusSize;
+    border-bottom-left-radius: @borradiusSize;
+  }
+  .@{borradiusKey}-r-@{num} {
+    border-top-right-radius: @borradiusSize;
+    border-bottom-right-radius: @borradiusSize;
+  }
+  .@{borradiusKey}-t-@{num} {
+    border-top-left-radius: @borradiusSize;
+    border-top-right-radius: @borradiusSize;
+  }
+  .@{borradiusKey}-d-@{num} {
+    border-bottom-left-radius: @borradiusSize;
+    border-bottom-right-radius: @borradiusSize;
   }
 }
 
-//
+// other
 .borradius-round {
   border-radius: 50%;
 }
-
-//
 .borcolor-transparent {
   border-color: transparent;
 }
