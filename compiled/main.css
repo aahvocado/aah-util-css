@@ -374,109 +374,109 @@
   example:
   .generate-border-width(2) will output .bor-2 { border-width: 2px; }
 */
-.boxshadow-b-1 {
+.boxshadow-b-1-primary {
   box-shadow: 0 3px #0A0024;
 }
-.boxshadow-b-1 {
+.boxshadow-b-1-secondary {
   box-shadow: 0 3px #001926;
 }
-.boxshadow-b-1 {
+.boxshadow-b-1-tertiary {
   box-shadow: 0 3px #F08400;
 }
-.boxshadow-b-1 {
+.boxshadow-b-1-fourth {
   box-shadow: 0 3px #E3DB96;
 }
-.boxshadow-b-1 {
+.boxshadow-b-1-fifth {
   box-shadow: 0 3px #DE4D3A;
 }
-.boxshadow-b-1 {
+.boxshadow-b-1-white {
   box-shadow: 0 3px #FFF;
 }
-.boxshadow-b-1 {
+.boxshadow-b-1-black {
   box-shadow: 0 3px #333333;
 }
-.boxshadow-b-2 {
+.boxshadow-b-2-primary {
   box-shadow: 0 6px #0A0024;
 }
-.boxshadow-b-2 {
+.boxshadow-b-2-secondary {
   box-shadow: 0 6px #001926;
 }
-.boxshadow-b-2 {
+.boxshadow-b-2-tertiary {
   box-shadow: 0 6px #F08400;
 }
-.boxshadow-b-2 {
+.boxshadow-b-2-fourth {
   box-shadow: 0 6px #E3DB96;
 }
-.boxshadow-b-2 {
+.boxshadow-b-2-fifth {
   box-shadow: 0 6px #DE4D3A;
 }
-.boxshadow-b-2 {
+.boxshadow-b-2-white {
   box-shadow: 0 6px #FFF;
 }
-.boxshadow-b-2 {
+.boxshadow-b-2-black {
   box-shadow: 0 6px #333333;
 }
-.boxshadow-b-3 {
+.boxshadow-b-3-primary {
   box-shadow: 0 9px #0A0024;
 }
-.boxshadow-b-3 {
+.boxshadow-b-3-secondary {
   box-shadow: 0 9px #001926;
 }
-.boxshadow-b-3 {
+.boxshadow-b-3-tertiary {
   box-shadow: 0 9px #F08400;
 }
-.boxshadow-b-3 {
+.boxshadow-b-3-fourth {
   box-shadow: 0 9px #E3DB96;
 }
-.boxshadow-b-3 {
+.boxshadow-b-3-fifth {
   box-shadow: 0 9px #DE4D3A;
 }
-.boxshadow-b-3 {
+.boxshadow-b-3-white {
   box-shadow: 0 9px #FFF;
 }
-.boxshadow-b-3 {
+.boxshadow-b-3-black {
   box-shadow: 0 9px #333333;
 }
-.boxshadow-b-4 {
+.boxshadow-b-4-primary {
   box-shadow: 0 12px #0A0024;
 }
-.boxshadow-b-4 {
+.boxshadow-b-4-secondary {
   box-shadow: 0 12px #001926;
 }
-.boxshadow-b-4 {
+.boxshadow-b-4-tertiary {
   box-shadow: 0 12px #F08400;
 }
-.boxshadow-b-4 {
+.boxshadow-b-4-fourth {
   box-shadow: 0 12px #E3DB96;
 }
-.boxshadow-b-4 {
+.boxshadow-b-4-fifth {
   box-shadow: 0 12px #DE4D3A;
 }
-.boxshadow-b-4 {
+.boxshadow-b-4-white {
   box-shadow: 0 12px #FFF;
 }
-.boxshadow-b-4 {
+.boxshadow-b-4-black {
   box-shadow: 0 12px #333333;
 }
-.boxshadow-b-5 {
+.boxshadow-b-5-primary {
   box-shadow: 0 15px #0A0024;
 }
-.boxshadow-b-5 {
+.boxshadow-b-5-secondary {
   box-shadow: 0 15px #001926;
 }
-.boxshadow-b-5 {
+.boxshadow-b-5-tertiary {
   box-shadow: 0 15px #F08400;
 }
-.boxshadow-b-5 {
+.boxshadow-b-5-fourth {
   box-shadow: 0 15px #E3DB96;
 }
-.boxshadow-b-5 {
+.boxshadow-b-5-fifth {
   box-shadow: 0 15px #DE4D3A;
 }
-.boxshadow-b-5 {
+.boxshadow-b-5-white {
   box-shadow: 0 15px #FFF;
 }
-.boxshadow-b-5 {
+.boxshadow-b-5-black {
   box-shadow: 0 15px #333333;
 }
 /*
