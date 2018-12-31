@@ -374,12 +374,117 @@
   example:
   .generate-border-width(2) will output .bor-2 { border-width: 2px; }
 */
+.boxshadow-b-1 {
+  box-shadow: 0 3px #0A0024;
+}
+.boxshadow-b-1 {
+  box-shadow: 0 3px #001926;
+}
+.boxshadow-b-1 {
+  box-shadow: 0 3px #F08400;
+}
+.boxshadow-b-1 {
+  box-shadow: 0 3px #E3DB96;
+}
+.boxshadow-b-1 {
+  box-shadow: 0 3px #DE4D3A;
+}
+.boxshadow-b-1 {
+  box-shadow: 0 3px #FFF;
+}
+.boxshadow-b-1 {
+  box-shadow: 0 3px #333333;
+}
+.boxshadow-b-2 {
+  box-shadow: 0 6px #0A0024;
+}
+.boxshadow-b-2 {
+  box-shadow: 0 6px #001926;
+}
+.boxshadow-b-2 {
+  box-shadow: 0 6px #F08400;
+}
+.boxshadow-b-2 {
+  box-shadow: 0 6px #E3DB96;
+}
+.boxshadow-b-2 {
+  box-shadow: 0 6px #DE4D3A;
+}
+.boxshadow-b-2 {
+  box-shadow: 0 6px #FFF;
+}
+.boxshadow-b-2 {
+  box-shadow: 0 6px #333333;
+}
+.boxshadow-b-3 {
+  box-shadow: 0 9px #0A0024;
+}
+.boxshadow-b-3 {
+  box-shadow: 0 9px #001926;
+}
+.boxshadow-b-3 {
+  box-shadow: 0 9px #F08400;
+}
+.boxshadow-b-3 {
+  box-shadow: 0 9px #E3DB96;
+}
+.boxshadow-b-3 {
+  box-shadow: 0 9px #DE4D3A;
+}
+.boxshadow-b-3 {
+  box-shadow: 0 9px #FFF;
+}
+.boxshadow-b-3 {
+  box-shadow: 0 9px #333333;
+}
+.boxshadow-b-4 {
+  box-shadow: 0 12px #0A0024;
+}
+.boxshadow-b-4 {
+  box-shadow: 0 12px #001926;
+}
+.boxshadow-b-4 {
+  box-shadow: 0 12px #F08400;
+}
+.boxshadow-b-4 {
+  box-shadow: 0 12px #E3DB96;
+}
+.boxshadow-b-4 {
+  box-shadow: 0 12px #DE4D3A;
+}
+.boxshadow-b-4 {
+  box-shadow: 0 12px #FFF;
+}
+.boxshadow-b-4 {
+  box-shadow: 0 12px #333333;
+}
+.boxshadow-b-5 {
+  box-shadow: 0 15px #0A0024;
+}
+.boxshadow-b-5 {
+  box-shadow: 0 15px #001926;
+}
+.boxshadow-b-5 {
+  box-shadow: 0 15px #F08400;
+}
+.boxshadow-b-5 {
+  box-shadow: 0 15px #E3DB96;
+}
+.boxshadow-b-5 {
+  box-shadow: 0 15px #DE4D3A;
+}
+.boxshadow-b-5 {
+  box-shadow: 0 15px #FFF;
+}
+.boxshadow-b-5 {
+  box-shadow: 0 15px #333333;
+}
 /*
   for each color defined the `@allColors` ,
     this will generate the following utility css
 
   eg:
-   @allColors: 'primary';
+   @allColors: primary;
    @color-primary: #FFF;
 
 
