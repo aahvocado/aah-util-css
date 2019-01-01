@@ -1,56 +1,90 @@
 @borradiusKey: borradius;
 
-.recursive(@iteration, @mixin) when (@iteration > 0) {
+.recursive-borradius(5);
+.recursive-borradius(@iteration) when (@iteration > 0) {
   @borradiusSize: @iteration * @baseBorderRadius;
 
   // all corners
-  .@{borradiusKey}-@{num} {
+  .@{borradiusKey}-@{iteration} {
     border-radius: @borradiusSize;
   }
 
   // corners
-  .@{borradiusKey}-tl-@{num} {
+  .@{borradiusKey}-tl-@{iteration} {
     border-top-left-radius: @borradiusSize;
   }
 
-  .@{borradiusKey}-tr-@{num} {
+  .@{borradiusKey}-tr-@{iteration} {
     border-top-right-radius: @borradiusSize;
   }
 
-  .@{borradiusKey}-bl-@{num} {
+  .@{borradiusKey}-bl-@{iteration} {
     border-bottom-left-radius: @borradiusSize;
   }
 
-  .@{borradiusKey}-br-@{num} {
+  .@{borradiusKey}-br-@{iteration} {
     border-bottom-right-radius: @borradiusSize;
   }
 
   // sides
-  .@{borradiusKey}-l-@{num} {
+  .@{borradiusKey}-l-@{iteration} {
     border-top-left-radius: @borradiusSize;
     border-bottom-left-radius: @borradiusSize;
   }
-  .@{borradiusKey}-r-@{num} {
+  .@{borradiusKey}-r-@{iteration} {
     border-top-right-radius: @borradiusSize;
     border-bottom-right-radius: @borradiusSize;
   }
-  .@{borradiusKey}-t-@{num} {
+  .@{borradiusKey}-t-@{iteration} {
     border-top-left-radius: @borradiusSize;
     border-top-right-radius: @borradiusSize;
   }
-  .@{borradiusKey}-d-@{num} {
+  .@{borradiusKey}-d-@{iteration} {
     border-bottom-left-radius: @borradiusSize;
     border-bottom-right-radius: @borradiusSize;
   }
 
   // do it again
-  .recursive(@iteration - 1, @mixin);
+  .recursive-borradius(@iteration - 1);
 };
 
-// other
-.borradius-round {
+// -- rounded corners
+.@{borradiusKey}-round {
   border-radius: 50%;
 }
+.@{borradiusKey}-tl-round {
+  border-top-left-radius: 50%;
+}
+
+.@{borradiusKey}-tr-round {
+  border-top-right-radius: 50%;
+}
+
+.@{borradiusKey}-bl-round {
+  border-bottom-left-radius: 50%;
+}
+
+.@{borradiusKey}-br-round {
+  border-bottom-right-radius: 50%;
+}
+
+.@{borradiusKey}-l-round {
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+.@{borradiusKey}-r-round {
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+.@{borradiusKey}-t-round {
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+.@{borradiusKey}-d-round {
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+// other
 .borcolor-transparent {
   border-color: transparent;
 }
