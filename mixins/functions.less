@@ -1,0 +1,9 @@
+// recursive function
+//  {Number} @iteration - number of iteration
+//  {Mixin} @mixin - mixin to apply number to
+// will call @mixin with @index as a parameter
+.recursive(@iteration, @mixin) when (@iteration > 0) {
+
+  // next iteration
+  .recursive(@iteration - 1, @mixin);
+};

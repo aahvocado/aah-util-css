@@ -1,16 +1,7 @@
 @borradiusKey: borradius;
 
-// creates n instances of border radius
-.generate-all-border-radius(5);
-.generate-all-border-radius(@n, @i: 0) when (@i =< @n) {
-  .gen-border-radius-corners(@i);
-
-  // recursively call
-  .generate-all-border-radius(@n, (@i + 1));
-};
-
-.gen-border-radius-corners(@num) {
-  @borradiusSize: @num * @baseBorderRadius;
+.recursive(@iteration, @mixin) when (@iteration > 0) {
+  @borradiusSize: @iteration * @baseBorderRadius;
 
   // all corners
   .@{borradiusKey}-@{num} {
@@ -51,7 +42,10 @@
     border-bottom-left-radius: @borradiusSize;
     border-bottom-right-radius: @borradiusSize;
   }
-}
+
+  // do it again
+  .recursive(@iteration - 1, @mixin);
+};
 
 // other
 .borradius-round {
