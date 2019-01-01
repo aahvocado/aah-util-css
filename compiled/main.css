@@ -278,6 +278,46 @@
   border-color: 'color-black';
   border-style: solid;
 }
+.borcolor-transparent {
+  border-color: 'color-transparent';
+}
+.bor-5-transparent {
+  border-width: 5px;
+  border-color: 'color-transparent';
+  border-style: solid;
+}
+.bor-v-5-transparent {
+  border-top-width: 5px;
+  border-bottom-width: 5px;
+  border-color: 'color-transparent';
+  border-style: solid;
+}
+.bor-h-5-transparent {
+  border-left-width: 5px;
+  border-right-width: 5px;
+  border-color: 'color-transparent';
+  border-style: solid;
+}
+.bor-t-5-transparent {
+  border-top-width: 5px;
+  border-color: 'color-transparent';
+  border-style: solid;
+}
+.bor-b-5-transparent {
+  border-bottom-width: 5px;
+  border-color: 'color-transparent';
+  border-style: solid;
+}
+.bor-l-5-transparent {
+  border-left-width: 5px;
+  border-color: 'color-transparent';
+  border-style: solid;
+}
+.bor-r-5-transparent {
+  border-right-width: 5px;
+  border-color: 'color-transparent';
+  border-style: solid;
+}
 .borradius-5 {
   border-radius: 25px;
 }
@@ -488,6 +528,9 @@
 .boxshadow-b-1-black {
   box-shadow: 0 3px #333333;
 }
+.boxshadow-b-1-transparent {
+  box-shadow: 0 3px rgba(0, 0, 0, 0);
+}
 .boxshadow-b-2-primary {
   box-shadow: 0 6px #0A0024;
 }
@@ -508,6 +551,9 @@
 }
 .boxshadow-b-2-black {
   box-shadow: 0 6px #333333;
+}
+.boxshadow-b-2-transparent {
+  box-shadow: 0 6px rgba(0, 0, 0, 0);
 }
 .boxshadow-b-3-primary {
   box-shadow: 0 9px #0A0024;
@@ -530,6 +576,9 @@
 .boxshadow-b-3-black {
   box-shadow: 0 9px #333333;
 }
+.boxshadow-b-3-transparent {
+  box-shadow: 0 9px rgba(0, 0, 0, 0);
+}
 .boxshadow-b-4-primary {
   box-shadow: 0 12px #0A0024;
 }
@@ -551,6 +600,9 @@
 .boxshadow-b-4-black {
   box-shadow: 0 12px #333333;
 }
+.boxshadow-b-4-transparent {
+  box-shadow: 0 12px rgba(0, 0, 0, 0);
+}
 .boxshadow-b-5-primary {
   box-shadow: 0 15px #0A0024;
 }
@@ -571,6 +623,9 @@
 }
 .boxshadow-b-5-black {
   box-shadow: 0 15px #333333;
+}
+.boxshadow-b-5-transparent {
+  box-shadow: 0 15px rgba(0, 0, 0, 0);
 }
 /*
   for each color defined the `@allColors` ,
@@ -794,6 +849,36 @@
 }
 .bg-black-darkest {
   background-color: #000000;
+}
+.color-transparent {
+  color: rgba(0, 0, 0, 0);
+}
+.bg-transparent {
+  background-color: rgba(0, 0, 0, 0);
+}
+.color-transparent-lighter {
+  color: rgba(26, 26, 26, 0);
+}
+.bg-transparent-lighter {
+  background-color: rgba(26, 26, 26, 0);
+}
+.color-transparent-lightest {
+  color: rgba(51, 51, 51, 0);
+}
+.bg-transparent-lightest {
+  background-color: rgba(51, 51, 51, 0);
+}
+.color-transparent-darker {
+  color: rgba(0, 0, 0, 0);
+}
+.bg-transparent-darker {
+  background-color: rgba(0, 0, 0, 0);
+}
+.color-transparent-darkest {
+  color: rgba(0, 0, 0, 0);
+}
+.bg-transparent-darkest {
+  background-color: rgba(0, 0, 0, 0);
 }
 /*
   param - @name - name of resulting css
