@@ -12,10 +12,7 @@
    .borcolor-primary { border-color: #FFF; }
 */
 each(@allColors, {
-  .generate-color(@value);
-});
-
-.generate-color(@colorName) {
+  @colorName: @value;
   @colorDefinition: 'color-@{colorName}';
 
   .generate-color-styles(@colorName, @@colorDefinition);
@@ -23,7 +20,7 @@ each(@allColors, {
   .generate-color-styles(~'@{colorName}-lightest', lighten(@@colorDefinition, @percentLightest));
   .generate-color-styles(~'@{colorName}-darker', darken(@@colorDefinition, @percentDarker));
   .generate-color-styles(~'@{colorName}-darkest', darken(@@colorDefinition, @percentDarkest));
-}
+});
 
 /*
   param - @name - name of resulting css
@@ -35,8 +32,5 @@ each(@allColors, {
   }
   .bg-@{name} {
     background-color: @color;
-  }
-  .borcolor-@{name} {
-    border-color: @color;
   }
 }

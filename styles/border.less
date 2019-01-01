@@ -1,69 +1,60 @@
-// create border-width for 0, 1, 2, 3, 4, 5
-.generate-all-border-width(5);
+@borderKey: bor;
+@borderColorKey: borcolor;
 
-// mixin for create all instances of margin
-.generate-all-border-width(@n, @i: 0) when (@i =< @n) {
-  .generate-border-width(@i);
-  .generate-border-width-top(@i);
-  .generate-border-width-bottom(@i);
-  .generate-border-width-left(@i);
-  .generate-border-width-right(@i);
-  .generate-border-width-horizontal(@i);
-  .generate-border-width-vertical(@i);
+// build for each color
+each(@allColors, {
+  @colorName: @value;
+  @colorDefinition: 'color-@{colorName}';
 
-  // recursive loop
-  .generate-all-border-width(@n, (@i + 1));
-};
+  // singular border color definition
+  .@{borderColorKey}-@{colorName} {
+    border-color: @colorDefinition;
+  }
 
-/*
-  example:
-  .generate-border-width(2) will output .bor-2 { border-width: 2px; }
-*/
-// all sides
-.generate-border-width(@num) {
-  .bor-@{num} {
-    border-width: ~"@{num}px";
-    border-style: solid;
+  // define border size with color
+  .recursive-border(5);
+  .recursive-border(@iteration) when (@iteration > 0) {
+    @borderSize: ~"@{iteration}px";
+
+    // all sides
+    .@{borderKey}-@{iteration}-@{colorName} {
+      border-width: @borderSize;
+      border-color: @colorDefinition;
+      border-style: solid;
+    }
+    // two sides
+    .@{borderKey}-v-@{iteration}-@{colorName} {
+      border-top-width: @borderSize;
+      border-bottom-width: @borderSize;
+      border-color: @colorDefinition;
+      border-style: solid;
+    }
+    .@{borderKey}-h-@{iteration}-@{colorName} {
+      border-left-width: @borderSize;
+      border-right-width: @borderSize;
+      border-color: @colorDefinition;
+      border-style: solid;
+    }
+    // one side
+    .@{borderKey}-t-@{iteration}-@{colorName} {
+      border-top-width: @borderSize;
+      border-color: @colorDefinition;
+      border-style: solid;
+    }
+    .@{borderKey}-b-@{iteration}-@{colorName} {
+      border-bottom-width: @borderSize;
+      border-color: @colorDefinition;
+      border-style: solid;
+    }
+    .@{borderKey}-l-@{iteration}-@{colorName} {
+      border-left-width: @borderSize;
+      border-color: @colorDefinition;
+      border-style: solid;
+    }
+    .@{borderKey}-r-@{iteration}-@{colorName} {
+      border-right-width: @borderSize;
+      border-color: @colorDefinition;
+      border-style: solid;
+    }
   }
-}
-// one side
-.generate-border-width-top(@num) {
-  .bor-t-@{num} {
-    border-top-width: ~"@{num}px";
-    border-style: solid;
-  }
-}
-.generate-border-width-bottom(@num) {
-  .bor-b-@{num} {
-    border-bottom-width: ~"@{num}px";
-    border-style: solid;
-  }
-}
-.generate-border-width-left(@num) {
-  .bor-l-@{num} {
-    border-left-width: ~"@{num}px";
-    border-style: solid;
-  }
-}
-.generate-border-width-right(@num) {
-  .bor-r-@{num} {
-    border-right-width: ~"@{num}px";
-    border-style: solid;
-  }
-}
-// horizontal: left - right
-.generate-border-width-horizontal(@num) {
-  .bor-h-@{num} {
-    border-left-width: ~"@{num}px";
-    border-right-width: ~"@{num}px";
-    border-style: solid;
-  }
-}
-// vertical: top - bottom
-.generate-border-width-vertical(@num) {
-  .bor-v-@{num} {
-    border-top-width: ~"@{num}px";
-    border-bottom-width: ~"@{num}px";
-    border-style: solid;
-  }
-}
+})
