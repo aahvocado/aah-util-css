@@ -8,7 +8,7 @@ each(@allColors, {
 
   // singular border color definition
   .@{borderColorKey}-@{colorName} {
-    border-color: @colorDefinition;
+    border-color: @@colorDefinition;
   }
 
   // define border size with color
@@ -19,41 +19,41 @@ each(@allColors, {
     // all sides
     .@{borderKey}-@{iteration}-@{colorName} {
       border-width: @borderSize;
-      border-color: @colorDefinition;
+      border-color: @@colorDefinition;
       border-style: solid;
     }
     // two sides
     .@{borderKey}-v-@{iteration}-@{colorName} {
       border-top-width: @borderSize;
       border-bottom-width: @borderSize;
-      border-color: @colorDefinition;
+      border-color: @@colorDefinition;
       border-style: solid;
     }
     .@{borderKey}-h-@{iteration}-@{colorName} {
       border-left-width: @borderSize;
       border-right-width: @borderSize;
-      border-color: @colorDefinition;
+      border-color: @@colorDefinition;
       border-style: solid;
     }
     // one side
     .@{borderKey}-t-@{iteration}-@{colorName} {
       border-top-width: @borderSize;
-      border-color: @colorDefinition;
+      border-color: @@colorDefinition;
       border-style: solid;
     }
     .@{borderKey}-b-@{iteration}-@{colorName} {
       border-bottom-width: @borderSize;
-      border-color: @colorDefinition;
+      border-color: @@colorDefinition;
       border-style: solid;
     }
     .@{borderKey}-l-@{iteration}-@{colorName} {
       border-left-width: @borderSize;
-      border-color: @colorDefinition;
+      border-color: @@colorDefinition;
       border-style: solid;
     }
     .@{borderKey}-r-@{iteration}-@{colorName} {
       border-right-width: @borderSize;
-      border-color: @colorDefinition;
+      border-color: @@colorDefinition;
       border-style: solid;
     }
   }
