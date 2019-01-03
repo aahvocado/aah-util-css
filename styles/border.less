@@ -13,7 +13,7 @@ each(@allColors, {
 
   // define border size with color
   .recursive-border(5);
-  .recursive-border(@iteration) when (@iteration > 0) {
+  .recursive-border(@iteration) when (@iteration >= 0) {
     @borderSize: ~"@{iteration}px";
 
     // all sides

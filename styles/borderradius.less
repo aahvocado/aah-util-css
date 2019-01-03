@@ -1,7 +1,7 @@
 @border-radius--key: borradius;
 
 .recursive-borradius(5);
-.recursive-borradius(@iteration) when (@iteration > 0) {
+.recursive-borradius(@iteration) when (@iteration >= 0) {
   @borderRadiusSize: @iteration * @baseBorderRadius;
 
   // all corners
