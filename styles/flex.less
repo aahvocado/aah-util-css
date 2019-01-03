@@ -1,59 +1,81 @@
-// display flex
-.flex-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-.flex-row-center {
-  .flex-row();
-  .justify-center();
-}
+@flexboxKey: flex;
+@alignItemsKey: aitems;
+@justifyContentKey: jcontent;
+@alignselfKey: aself;
 
-.flex-col {
-  display: flex;
-  flex-direction: column;
-}
-.flex-centered {
-  display: flex;
-  .align-center();
-  .justify-center();
-}
-
-// common flex things
-.flex-none {
-  flex: 0 0 auto;
-}
-.flex-grow {
-  flex: 1 1 auto;
-}
-.flex-grow-only {
-  flex: 1 0 auto;
-}
-.flex-shrink-nly {
-  flex: 0 1 auto;
-}
-.flex-wrap {
-  flex-wrap: wrap;
+@FLEX_ALIGNMENT_PROPERTIES: {
+  start: flex-start;
+  center: center;
+  end: flex-end;
 }
 
 // align-items
-.align-start {
-  align-items: flex-start;
+.@{alignItemsKey}-start {
+  align-items: @FLEX_ALIGNMENT_PROPERTIES[start];
 }
-.align-center {
-  align-items: center;
+.@{alignItemsKey}-end {
+  align-items: @FLEX_ALIGNMENT_PROPERTIES[end];
 }
-.align-end {
-  align-items: flex-end;
+.@{alignItemsKey}-center {
+  align-items: @FLEX_ALIGNMENT_PROPERTIES[center];
 }
 
 // justify-content
-.justify-start {
-  justify-content: flex-start;
+.@{justifyContentKey}-start {
+  justify-content: @FLEX_ALIGNMENT_PROPERTIES[start];
 }
-.justify-center {
+.@{justifyContentKey}-end {
+  justify-content: @FLEX_ALIGNMENT_PROPERTIES[end];
+}
+.@{justifyContentKey}-center {
+  justify-content: @FLEX_ALIGNMENT_PROPERTIES[center];
+}
+
+// flex properties
+.@{flexboxKey}-grow-0 {
+  flex-grow: 0;
+}
+.@{flexboxKey}-grow-1 {
+  flex-grow: 1;
+}
+.@{flexboxKey}-shrink-0 {
+  flex-shrink: 0;
+}
+.@{flexboxKey}-shrink-1 {
+  flex-shrink: 1;
+}
+
+// row
+.@{flexboxKey}-row {
+  display: flex;
+  flex-direction: row;
+}
+.@{flexboxKey}-row-centered {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: center;
 }
-.justify-end {
-  justify-content: flex-end;
+
+// col
+.@{flexboxKey}-col {
+  display: flex;
+  flex-direction: column;
+}
+.@{flexboxKey}-col-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// align-self
+.@{alignselfKey}-start {
+  align-self: @FLEX_ALIGNMENT_PROPERTIES[start];
+}
+.@{alignselfKey}-end {
+  align-self: @FLEX_ALIGNMENT_PROPERTIES[end];
+}
+.@{alignselfKey}-center {
+  align-self: @FLEX_ALIGNMENT_PROPERTIES[center];
 }

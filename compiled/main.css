@@ -881,58 +881,64 @@
   param - @name - name of resulting css
   param - @color - (hex) color to use
 */
+.aitems-start {
+  align-items: flex-start;
+}
+.aitems-end {
+  align-items: flex-end;
+}
+.aitems-center {
+  align-items: center;
+}
+.jcontent-start {
+  justify-content: flex-start;
+}
+.jcontent-end {
+  justify-content: flex-end;
+}
+.jcontent-center {
+  justify-content: center;
+}
+.flex-grow-0 {
+  flex-grow: 0;
+}
+.flex-grow-1 {
+  flex-grow: 1;
+}
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+.flex-shrink-1 {
+  flex-shrink: 1;
+}
 .flex-row {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
 }
-.flex-row-center {
+.flex-row-centered {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
 }
 .flex-col {
   display: flex;
   flex-direction: column;
 }
-.flex-centered {
+.flex-col-centered {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.flex-none {
-  flex: 0 0 auto;
+.aself-start {
+  align-self: flex-start;
 }
-.flex-grow {
-  flex: 1 1 auto;
+.aself-end {
+  align-self: flex-end;
 }
-.flex-grow-only {
-  flex: 1 0 auto;
-}
-.flex-shrink-nly {
-  flex: 0 1 auto;
-}
-.flex-wrap {
-  flex-wrap: wrap;
-}
-.align-start {
-  align-items: flex-start;
-}
-.align-center {
-  align-items: center;
-}
-.align-end {
-  align-items: flex-end;
-}
-.justify-start {
-  justify-content: flex-start;
-}
-.justify-center {
-  justify-content: center;
-}
-.justify-end {
-  justify-content: flex-end;
+.aself-center {
+  align-self: center;
 }
 .fsize-0 {
   font-size: 0px;
