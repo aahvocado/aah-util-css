@@ -1,17 +1,19 @@
-// all opacities
-.generate-all-opacity(5);
+@opacity--key: opacity;
 
-// loop for it
-.generate-all-opacity(@n, @i: 0) when (@i =< @n) {
-  .generate-opacity(@i);
-
-  // recursive loop
-  .generate-all-opacity(@n, (@i + 1));
-}
-
-// example: generate-opacity(4) results in opacity: 0.25;
-.generate-opacity(@num) {
-  .opacity-@{num} {
-    opacity: (1 / @num);
+// create opacity-1 to opacity-9
+.recursive-opacity(9);
+.recursive-opacity(@iteration) when (@iteration > 1) {
+  .@{opacity--key}-@{iteration} {
+    opacity: ~"0.@{iteration}";
   }
+
+  // do it again
+  .recursive-opacity(@iteration - 1);
+};
+
+.@{opacity--key}-0 {
+  opacity: 0;
+}
+.@{opacity--key}-full {
+  opacity: 1;
 }
