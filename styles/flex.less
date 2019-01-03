@@ -4,32 +4,35 @@
 @alignselfKey: aself;
 
 @FLEX_ALIGNMENT_PROPERTIES: {
-  start: flex-start;
-  center: center;
-  end: flex-end;
+  @start: flex-start;
+  @center: center;
+  @end: flex-end;
+  @stretch: stretch;
+  @auto: auto;
 }
 
-// align-items
-.@{alignItemsKey}-start {
-  align-items: @FLEX_ALIGNMENT_PROPERTIES[start];
-}
-.@{alignItemsKey}-end {
-  align-items: @FLEX_ALIGNMENT_PROPERTIES[end];
-}
-.@{alignItemsKey}-center {
-  align-items: @FLEX_ALIGNMENT_PROPERTIES[center];
-}
+@FLEX_PROPERTIES_LIST:
+  start,
+  end,
+  center,
+  stretch,
+  auto;
 
-// justify-content
-.@{justifyContentKey}-start {
-  justify-content: @FLEX_ALIGNMENT_PROPERTIES[start];
-}
-.@{justifyContentKey}-end {
-  justify-content: @FLEX_ALIGNMENT_PROPERTIES[end];
-}
-.@{justifyContentKey}-center {
-  justify-content: @FLEX_ALIGNMENT_PROPERTIES[center];
-}
+each(@FLEX_PROPERTIES_LIST, {
+  @propertyName: @value;
+
+  .@{alignItemsKey}-@{propertyName} {
+    align-items: @FLEX_ALIGNMENT_PROPERTIES[@@value];
+  }
+
+  .@{justifyContentKey}-@{propertyName} {
+    justify-content: @FLEX_ALIGNMENT_PROPERTIES[@@propertyName];
+  }
+
+  .@{alignselfKey}-@{propertyName} {
+    align-self: @FLEX_ALIGNMENT_PROPERTIES[@@propertyName];
+  }
+})
 
 // flex properties
 .@{flexboxKey}-grow-0 {
@@ -67,15 +70,4 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-// align-self
-.@{alignselfKey}-start {
-  align-self: @FLEX_ALIGNMENT_PROPERTIES[start];
-}
-.@{alignselfKey}-end {
-  align-self: @FLEX_ALIGNMENT_PROPERTIES[end];
-}
-.@{alignselfKey}-center {
-  align-self: @FLEX_ALIGNMENT_PROPERTIES[center];
 }
