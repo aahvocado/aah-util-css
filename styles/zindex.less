@@ -1,17 +1,12 @@
-// all z-index
-.generate-all-zindex(10);
+@z-index--key: zindex;
 
-// loop for it
-.generate-all-zindex(@n, @i: 0) when (@i =< @n) {
-  .generate-zindex(@i);
-
-  // recursive loop
-  .generate-all-zindex(@n, (@i + 1));
-}
-
-//
-.generate-zindex(@num) {
-  .zindex-@{num} {
-    z-index: @num;
+// create zindex-0 to zindex-10
+.recursive-z-index(10);
+.recursive-z-index(@iteration) when (@iteration >= 0) {
+  .@{z-index--key}-@{iteration} {
+    z-index: @iteration;
   }
-}
+
+  // do it again
+  .recursive-z-index(@iteration - 1);
+};
