@@ -1,4 +1,4 @@
-@boxshadowKey: boxshadow;
+@box-shadow--key: boxshadow;
 
 .recursive-boxshadow(5);
 .recursive-boxshadow(@n, @i: 1) when (@i =< @n) {
@@ -12,7 +12,7 @@
   each(@allColors, {
     @colorDefinition: 'color-@{value}';
 
-    .@{boxshadowKey}-b-@{n}-@{value} {
+    .@{box-shadow--key}-b-@{n}-@{value} {
       box-shadow: 0 @n * @baseBoxShadowSize @@colorDefinition;
     }
   })

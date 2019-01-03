@@ -1,47 +1,47 @@
-@borradiusKey: borradius;
+@border-radius--key: borradius;
 
 .recursive-borradius(5);
 .recursive-borradius(@iteration) when (@iteration > 0) {
-  @borradiusSize: @iteration * @baseBorderRadius;
+  @borderRadiusSize: @iteration * @baseBorderRadius;
 
   // all corners
-  .@{borradiusKey}-@{iteration} {
-    border-radius: @borradiusSize;
+  .@{border-radius--key}-@{iteration} {
+    border-radius: @borderRadiusSize;
   }
 
   // corners
-  .@{borradiusKey}-tl-@{iteration} {
-    border-top-left-radius: @borradiusSize;
+  .@{border-radius--key}-tl-@{iteration} {
+    border-top-left-radius: @borderRadiusSize;
   }
 
-  .@{borradiusKey}-tr-@{iteration} {
-    border-top-right-radius: @borradiusSize;
+  .@{border-radius--key}-tr-@{iteration} {
+    border-top-right-radius: @borderRadiusSize;
   }
 
-  .@{borradiusKey}-bl-@{iteration} {
-    border-bottom-left-radius: @borradiusSize;
+  .@{border-radius--key}-bl-@{iteration} {
+    border-bottom-left-radius: @borderRadiusSize;
   }
 
-  .@{borradiusKey}-br-@{iteration} {
-    border-bottom-right-radius: @borradiusSize;
+  .@{border-radius--key}-br-@{iteration} {
+    border-bottom-right-radius: @borderRadiusSize;
   }
 
   // sides
-  .@{borradiusKey}-l-@{iteration} {
-    border-top-left-radius: @borradiusSize;
-    border-bottom-left-radius: @borradiusSize;
+  .@{border-radius--key}-l-@{iteration} {
+    border-top-left-radius: @borderRadiusSize;
+    border-bottom-left-radius: @borderRadiusSize;
   }
-  .@{borradiusKey}-r-@{iteration} {
-    border-top-right-radius: @borradiusSize;
-    border-bottom-right-radius: @borradiusSize;
+  .@{border-radius--key}-r-@{iteration} {
+    border-top-right-radius: @borderRadiusSize;
+    border-bottom-right-radius: @borderRadiusSize;
   }
-  .@{borradiusKey}-t-@{iteration} {
-    border-top-left-radius: @borradiusSize;
-    border-top-right-radius: @borradiusSize;
+  .@{border-radius--key}-t-@{iteration} {
+    border-top-left-radius: @borderRadiusSize;
+    border-top-right-radius: @borderRadiusSize;
   }
-  .@{borradiusKey}-d-@{iteration} {
-    border-bottom-left-radius: @borradiusSize;
-    border-bottom-right-radius: @borradiusSize;
+  .@{border-radius--key}-d-@{iteration} {
+    border-bottom-left-radius: @borderRadiusSize;
+    border-bottom-right-radius: @borderRadiusSize;
   }
 
   // do it again
@@ -49,38 +49,38 @@
 };
 
 // -- rounded corners
-.@{borradiusKey}-round {
+.@{border-radius--key}-round {
   border-radius: 50%;
 }
-.@{borradiusKey}-tl-round {
+.@{border-radius--key}-tl-round {
   border-top-left-radius: 50%;
 }
 
-.@{borradiusKey}-tr-round {
+.@{border-radius--key}-tr-round {
   border-top-right-radius: 50%;
 }
 
-.@{borradiusKey}-bl-round {
+.@{border-radius--key}-bl-round {
   border-bottom-left-radius: 50%;
 }
 
-.@{borradiusKey}-br-round {
+.@{border-radius--key}-br-round {
   border-bottom-right-radius: 50%;
 }
 
-.@{borradiusKey}-l-round {
+.@{border-radius--key}-l-round {
   border-top-left-radius: 50%;
   border-bottom-left-radius: 50%;
 }
-.@{borradiusKey}-r-round {
+.@{border-radius--key}-r-round {
   border-top-right-radius: 50%;
   border-bottom-right-radius: 50%;
 }
-.@{borradiusKey}-t-round {
+.@{border-radius--key}-t-round {
   border-top-left-radius: 50%;
   border-top-right-radius: 50%;
 }
-.@{borradiusKey}-d-round {
+.@{border-radius--key}-d-round {
   border-bottom-left-radius: 50%;
   border-bottom-right-radius: 50%;
 }

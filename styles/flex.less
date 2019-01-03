@@ -1,7 +1,7 @@
-@flexboxKey: flex;
-@alignItemsKey: aitems;
-@justifyContentKey: jcontent;
-@alignselfKey: aself;
+@flex--key: flex;
+@align-items--key: aitems;
+@justify-content--key: jcontent;
+@align-self--key: aself;
 
 @FLEX_ALIGNMENT_PROPERTIES: {
   @start: flex-start;
@@ -21,39 +21,39 @@
 each(@FLEX_PROPERTIES_LIST, {
   @propertyName: @value;
 
-  .@{alignItemsKey}-@{propertyName} {
+  .@{align-items--key}-@{propertyName} {
     align-items: @FLEX_ALIGNMENT_PROPERTIES[@@value];
   }
 
-  .@{justifyContentKey}-@{propertyName} {
+  .@{justify-content--key}-@{propertyName} {
     justify-content: @FLEX_ALIGNMENT_PROPERTIES[@@propertyName];
   }
 
-  .@{alignselfKey}-@{propertyName} {
+  .@{align-self--key}-@{propertyName} {
     align-self: @FLEX_ALIGNMENT_PROPERTIES[@@propertyName];
   }
 })
 
 // flex properties
-.@{flexboxKey}-grow-0 {
+.@{flex--key}-grow-0 {
   flex-grow: 0;
 }
-.@{flexboxKey}-grow-1 {
+.@{flex--key}-grow-1 {
   flex-grow: 1;
 }
-.@{flexboxKey}-shrink-0 {
+.@{flex--key}-shrink-0 {
   flex-shrink: 0;
 }
-.@{flexboxKey}-shrink-1 {
+.@{flex--key}-shrink-1 {
   flex-shrink: 1;
 }
 
 // row
-.@{flexboxKey}-row {
+.@{flex--key}-row {
   display: flex;
   flex-direction: row;
 }
-.@{flexboxKey}-row-centered {
+.@{flex--key}-row-centered {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -61,11 +61,11 @@ each(@FLEX_PROPERTIES_LIST, {
 }
 
 // col
-.@{flexboxKey}-col {
+.@{flex--key}-col {
   display: flex;
   flex-direction: column;
 }
-.@{flexboxKey}-col-centered {
+.@{flex--key}-col-centered {
   display: flex;
   flex-direction: column;
   align-items: center;

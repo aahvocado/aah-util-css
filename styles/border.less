@@ -1,5 +1,5 @@
-@borderKey: bor;
-@borderColorKey: borcolor;
+@border--key: bor;
+@border-color--key: borcolor;
 
 // build for each color
 each(@allColors, {
@@ -7,7 +7,7 @@ each(@allColors, {
   @colorDefinition: 'color-@{colorName}';
 
   // singular border color definition
-  .@{borderColorKey}-@{colorName} {
+  .@{border-color--key}-@{colorName} {
     border-color: @@colorDefinition;
   }
 
@@ -17,41 +17,41 @@ each(@allColors, {
     @borderSize: ~"@{iteration}px";
 
     // all sides
-    .@{borderKey}-@{iteration}-@{colorName} {
+    .@{border--key}-@{iteration}-@{colorName} {
       border-width: @borderSize;
       border-color: @@colorDefinition;
       border-style: solid;
     }
     // two sides
-    .@{borderKey}-v-@{iteration}-@{colorName} {
+    .@{border--key}-v-@{iteration}-@{colorName} {
       border-top-width: @borderSize;
       border-bottom-width: @borderSize;
       border-color: @@colorDefinition;
       border-style: solid;
     }
-    .@{borderKey}-h-@{iteration}-@{colorName} {
+    .@{border--key}-h-@{iteration}-@{colorName} {
       border-left-width: @borderSize;
       border-right-width: @borderSize;
       border-color: @@colorDefinition;
       border-style: solid;
     }
     // one side
-    .@{borderKey}-t-@{iteration}-@{colorName} {
+    .@{border--key}-t-@{iteration}-@{colorName} {
       border-top-width: @borderSize;
       border-color: @@colorDefinition;
       border-style: solid;
     }
-    .@{borderKey}-b-@{iteration}-@{colorName} {
+    .@{border--key}-b-@{iteration}-@{colorName} {
       border-bottom-width: @borderSize;
       border-color: @@colorDefinition;
       border-style: solid;
     }
-    .@{borderKey}-l-@{iteration}-@{colorName} {
+    .@{border--key}-l-@{iteration}-@{colorName} {
       border-left-width: @borderSize;
       border-color: @@colorDefinition;
       border-style: solid;
     }
-    .@{borderKey}-r-@{iteration}-@{colorName} {
+    .@{border--key}-r-@{iteration}-@{colorName} {
       border-right-width: @borderSize;
       border-color: @@colorDefinition;
       border-style: solid;
