@@ -56,5 +56,8 @@ each(@allColors, {
       border-color: @@colorDefinition;
       border-style: solid;
     }
+
+    // do it again
+    .recursive-border(@iteration - 1);
   }
 })
