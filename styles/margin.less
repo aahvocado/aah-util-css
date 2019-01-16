@@ -1,58 +1,37 @@
-// create margin for 0, 5, 10, 15, 20, 25
-.generate-all-margin(5);
+@margin--key: mar;
 
-// mixin for create all instances of margin
-.generate-all-margin(@n, @i: 0) when (@i =< @n) {
-  .generate-margin(@i);
-  .generate-vertical-margin(@i);
-  .generate-horizontal-margin(@i);
-  .generate-top-margin(@i);
-  .generate-right-margin(@i);
-  .generate-bottom-margin(@i);
-  .generate-left-margin(@i);
+// start recursion
+.recursive-margin(5);
+.recursive-margin(@iteration) when (@iteration >= 0) {
+  @marginSize: @iteration * @baseMargin;
 
-  // recursive loop
-  .generate-all-margin(@n, (@i + 1));
-};
+  // all sides
+  .@{margin--key}-@{iteration} {
+    margin: @marginSize;
+  }
+  // two sides
+  .@{margin--key}-v-@{iteration} {
+    margin-top: @marginSize;
+    margin-bottom: @marginSize;
+  }
+  .@{margin--key}-h-@{iteration} {
+    margin-left: @marginSize;
+    margin-right: @marginSize;
+  }
+  // one side
+  .@{margin--key}-l-@{iteration} {
+    margin-left: @marginSize;
+  }
+  .@{margin--key}-r-@{iteration} {
+    margin-right: @marginSize;
+  }
+  .@{margin--key}-t-@{iteration} {
+    margin-top: @marginSize;
+  }
+  .@{margin--key}-b-@{iteration} {
+    margin-bottom: @marginSize;
+  }
 
-/*
-  example:
-  .generate-margin(2) will output .mar-2 { margin: 10px; }
-*/
-.generate-margin(@num) {
-  .mar-@{num} {
-    margin: @num * @baseMargin;
-  }
-}
-.generate-vertical-margin(@num) {
-  .mar-ver-@{num} {
-    margin-top: @num * @baseMargin;
-    margin-bottom: @num * @baseMargin;
-  }
-}
-.generate-horizontal-margin(@num) {
-  .mar-hor-@{num} {
-    margin-left: @num * @baseMargin;
-    margin-right: @num * @baseMargin;
-  }
-}
-.generate-top-margin(@num) {
-  .mar-t-@{num} {
-    margin-top: @num * @baseMargin;
-  }
-}
-.generate-right-margin(@num) {
-  .mar-r-@{num} {
-    margin-right: @num * @baseMargin;
-  }
-}
-.generate-bottom-margin(@num) {
-  .mar-b-@{num} {
-    margin-bottom: @num * @baseMargin;
-  }
-}
-.generate-left-margin(@num) {
-  .mar-l-@{num} {
-    margin-left: @num * @baseMargin;
-  }
+  // do it again
+  .recursive-margin(@iteration - 1);
 }
