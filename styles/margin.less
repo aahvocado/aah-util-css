@@ -35,3 +35,31 @@
   // do it again
   .recursive-margin(@iteration - 1);
 }
+
+// -- singlular styles
+// all sides
+.@{margin--key}-auto {
+  margin: auto;
+}
+// two sides
+.@{margin--key}-v-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.@{margin--key}-h-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+// one side
+.@{margin--key}-l-auto {
+  margin-left: auto;
+}
+.@{margin--key}-r-auto {
+  margin-right: auto;
+}
+.@{margin--key}-t-auto {
+  margin-top: auto;
+}
+.@{margin--key}-b-auto {
+  margin-bottom: auto;
+}
