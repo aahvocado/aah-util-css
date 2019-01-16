@@ -1,58 +1,37 @@
-// create padding for 0, 5, 10, 15, 20, 25
-.generate-all-padding(5);
+@padding--key: pad;
 
-// mixin for create all instances of padding
-.generate-all-padding(@n, @i: 0) when (@i =< @n) {
-  .generate-pad(@i);
-  .generate-vertical-pad(@i);
-  .generate-horizontal-pad(@i);
-  .generate-top-pad(@i);
-  .generate-right-pad(@i);
-  .generate-bottom-pad(@i);
-  .generate-left-pad(@i);
+// start recursion
+.recursive-padding(5);
+.recursive-padding(@iteration) when (@iteration >= 0) {
+  @paddingSize: @iteration * @basePadding;
 
-  // recursive loop
-  .generate-all-padding(@n, (@i + 1));
-};
+  // all sides
+  .@{padding--key}-@{iteration} {
+    padding: @paddingSize;
+  }
+  // two sides
+  .@{padding--key}-v-@{iteration} {
+    padding-top: @paddingSize;
+    padding-bottom: @paddingSize;
+  }
+  .@{padding--key}-h-@{iteration} {
+    padding-left: @paddingSize;
+    padding-right: @paddingSize;
+  }
+  // one side
+  .@{padding--key}-l-@{iteration} {
+    padding-left: @paddingSize;
+  }
+  .@{padding--key}-r-@{iteration} {
+    padding-right: @paddingSize;
+  }
+  .@{padding--key}-t-@{iteration} {
+    padding-top: @paddingSize;
+  }
+  .@{padding--key}-b-@{iteration} {
+    padding-bottom: @paddingSize;
+  }
 
-/*
-  example:
-  .generate-pad(2) will output .pad-2 { padding: 10px; }
-*/
-.generate-pad(@num) {
-  .pad-@{num} {
-    padding: @num * @basePadding;
-  }
-}
-.generate-vertical-pad(@num) {
-  .pad-ver-@{num} {
-    padding-top: @num * @basePadding;
-    padding-bottom: @num * @basePadding;
-  }
-}
-.generate-horizontal-pad(@num) {
-  .pad-h-@{num} {
-    padding-left: @num * @basePadding;
-    padding-right: @num * @basePadding;
-  }
-}
-.generate-top-pad(@num) {
-  .pad-t-@{num} {
-    padding-top: @num * @basePadding;
-  }
-}
-.generate-right-pad(@num) {
-  .pad-r-@{num} {
-    padding-right: @num * @basePadding;
-  }
-}
-.generate-bottom-pad(@num) {
-  .pad-b-@{num} {
-    padding-bottom: @num * @basePadding;
-  }
-}
-.generate-left-pad(@num) {
-  .pad-l-@{num} {
-    padding-left: @num * @basePadding;
-  }
+  // do it again
+  .recursive-padding(@iteration - 1);
 }
