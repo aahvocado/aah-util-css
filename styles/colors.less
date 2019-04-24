@@ -33,4 +33,18 @@ each(@allColors, {
   .bg-@{name} {
     background-color: @color;
   }
+
+  .hover:color-@{name}:hover {
+    color: @color;
+  }
+  .hover:bg-@{name}:hover {
+    background-color: @color;
+  }
+
+  .active:color-@{name}:active {
+    color: @color;
+  }
+  .active:bg-@{name}:active {
+    background-color: @color;
+  }
 }
