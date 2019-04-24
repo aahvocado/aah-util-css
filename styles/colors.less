@@ -34,10 +34,10 @@ each(@allColors, {
     background-color: @color;
   }
 
-  .hover\:color-@{name}:hover {
+  .hover\:color-@{name}:hover:not(:active) {
     color: @color;
   }
-  .hover\:bg-@{name}:hover {
+  .hover\:bg-@{name}:hover:not(:active) {
     background-color: @color;
   }
 
