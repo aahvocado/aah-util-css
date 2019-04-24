@@ -1,6 +1,6 @@
 {
   "name": "aah-util-css",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "utility css classes by aahvocado",
   "main": "compiled/main.css",
   "scripts": {
