@@ -35,6 +35,25 @@ each(@FLEX_PROPERTIES_LIST, {
 })
 
 // flex properties
+.@{flex--key}-auto {
+  flex: 1 1 auto;
+}
+.@{flex--key}-none {
+  flex: 0 0 none;
+}
+.@{flex--key}-grow-only {
+  flex: 1 0;
+}
+.@{flex--key}-shrink-only {
+  flex: 0 1;
+}
+.@{flex--key}-initial {
+  flex: initial;
+}
+.@{flex--key}-inherit {
+  flex: inherit;
+}
+
 .@{flex--key}-grow-0 {
   flex-grow: 0;
 }
