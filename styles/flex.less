@@ -3,7 +3,7 @@
 @justify-content--key: jcontent;
 @align-self--key: aself;
 
-@FLEX_ALIGNMENT_PROPERTIES: {
+@FLEXBOX_ALIGNMENT_PROPERTIES: {
   @start: flex-start;
   @center: center;
   @end: flex-end;
@@ -11,26 +11,26 @@
   @auto: auto;
 }
 
-@FLEX_PROPERTIES_LIST:
+@FLEXBOX_PROPERTIES_LIST:
   start,
   end,
   center,
   stretch,
   auto;
 
-each(@FLEX_PROPERTIES_LIST, {
+each(@FLEXBOX_PROPERTIES_LIST, {
   @propertyName: @value;
 
   .@{align-items--key}-@{propertyName} {
-    align-items: @FLEX_ALIGNMENT_PROPERTIES[@@value];
+    align-items: @FLEXBOX_ALIGNMENT_PROPERTIES[@@value];
   }
 
   .@{justify-content--key}-@{propertyName} {
-    justify-content: @FLEX_ALIGNMENT_PROPERTIES[@@propertyName];
+    justify-content: @FLEXBOX_ALIGNMENT_PROPERTIES[@@propertyName];
   }
 
   .@{align-self--key}-@{propertyName} {
-    align-self: @FLEX_ALIGNMENT_PROPERTIES[@@propertyName];
+    align-self: @FLEXBOX_ALIGNMENT_PROPERTIES[@@propertyName];
   }
 })
 
