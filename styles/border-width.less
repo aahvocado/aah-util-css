@@ -1,0 +1,35 @@
+// define border width
+.recursive-border-width(5);
+.recursive-border-width(@iteration) when (@iteration >= 0) {
+  @borderSize: ~"@{iteration}px";
+
+  // all sides
+  .@{border-width--key}-@{iteration} {
+    border-width: @borderSize;
+  }
+  // two sides
+  .@{border-width--key}-@{vertical--key}-@{iteration} {
+    border-top-width: @borderSize;
+    border-bottom-width: @borderSize;
+  }
+  .@{border-width--key}-@{horizontal--key}-@{iteration} {
+    border-left-width: @borderSize;
+    border-right-width: @borderSize;
+  }
+  // one side
+  .@{border-width--key}-@{top--key}-@{iteration} {
+    border-top-width: @borderSize;
+  }
+  .@{border-width--key}-@{bottom--key}-@{iteration} {
+    border-bottom-width: @borderSize;
+  }
+  .@{border-width--key}-@{left--key}-@{iteration} {
+    border-left-width: @borderSize;
+  }
+  .@{border-width--key}-@{right--key}-@{iteration} {
+    border-right-width: @borderSize;
+  }
+
+  // do it again
+  .recursive-border-width(@iteration - 1);
+}
