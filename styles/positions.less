@@ -12,7 +12,7 @@
 
 // top, right, bottom, left
 .generate-all-pos(@num) {
-  .pos-@{num} {
+  .@{position--key}-@{num} {
     top: @num;
     right: @num;
     bottom: @num;
@@ -20,36 +20,36 @@
   }
 }
 .generate-top-pos(@num) {
-  .pos-t-@{num} {
+  .@{position--key}-t-@{num} {
     top: @num;
   }
 }
 .generate-right-pos(@num) {
-  .pos-r-@{num} {
+  .@{position--key}-r-@{num} {
     right: @num;
   }
 }
 .generate-bottom-pos(@num) {
-  .pos-b-@{num} {
+  .@{position--key}-b-@{num} {
     bottom: @num;
   }
 }
 .generate-left-pos(@num) {
-  .pos-l-@{num} {
+  .@{position--key}-l-@{num} {
     left: @num;
   }
 }
 
 // types
-.position-absolute {
+.@{position--key}-absolute {
   position: absolute;
 }
-.position-fixed {
+.@{position--key}-fixed {
   position: fixed;
 }
-.position-relative {
+.@{position--key}-relative {
   position: relative;
 }
-.position-static {
+.@{position--key}-static {
   position: static;
 }

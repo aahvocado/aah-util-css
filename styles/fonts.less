@@ -11,36 +11,36 @@
 
 // mixin
 .generate-font-size(@num) {
-  .fsize-@{num} {
+  .@{font-size--key}-@{num} {
     font-size: @num * 5px;
   }
 }
 
 // specific sizes
 // todo - calculations/rem
-.fsize-base {
+.@{font-size--key}-base {
   font-size: @baseFontSize;
   line-height: @baseFontSize;
 }
-.fsize-small {
+.@{font-size--key}-small {
   font-size: 0.8rem;
   line-height: 0.8rem;
 }
-.fsize-big {
+.@{font-size--key}-big {
   font-size: 1.5rem;
   line-height: 1.5rem;
 }
 
 // font weight
-.f-thin {
+.@{font-style--key}-thin {
   font-weight: 200;
 }
-.f-normal {
+.@{font-style--key}-normal {
   font-weight: 400;
 }
-.f-bold {
+.@{font-style--key}-bold {
   font-weight: 600;
 }
-.f-italic {
+.@{font-style--key}-italic {
   font-style: italic;
 }
