@@ -27,31 +27,31 @@ each(@allColors, {
   param - @color - (hex) color to use
 */
 .generate-color-styles(@name, @color) {
-  .color-@{name} {
+  .@{color--key}-@{name} {
     color: @color;
   }
-  .bg-@{name} {
+  .@{background-color--key}-@{name} {
     background-color: @color;
   }
 
-  .@{active--selector}\:color-@{name}:active {
+  .@{active--selector}\:@{color--key}-@{name}:active {
     color: @color;
   }
-  .@{active--selector}\:bg-@{name}:active {
+  .@{active--selector}\:@{background-color--key}-@{name}:active {
     background-color: @color;
   }
 
-  .@{focus--selector}\:color-@{name}:focus {
+  .@{focus--selector}\:@{color--key}-@{name}:focus {
     color: @color;
   }
-  .@{focus--selector}\:bg-@{name}:focus {
+  .@{focus--selector}\:@{background-color--key}-@{name}:focus {
     background-color: @color;
   }
 
-  .@{hover--selector}\:color-@{name}:hover:not(:active) {
+  .@{hover--selector}\:@{color--key}-@{name}:hover:not(:active) {
     color: @color;
   }
-  .@{hover--selector}\:bg-@{name}:hover:not(:active) {
+  .@{hover--selector}\:@{background-color--key}-@{name}:hover:not(:active) {
     background-color: @color;
   }
 }
