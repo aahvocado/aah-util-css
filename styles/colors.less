@@ -30,24 +30,17 @@ each(@colorList, {
     background-color: @color;
   }
 
-  .@{active--selector}\:@{color--key}-@{name}:active {
-    color: @color;
-  }
-  .@{active--selector}\:@{background-color--key}-@{name}:active {
-    background-color: @color;
-  }
+  // generate active, hover, focus
+  each(@pseudoselectorList, {
+    @name: @value;
+    @keyName: '@{name}--key';
+    @className: @@keyName;
 
-  .@{focus--selector}\:@{color--key}-@{name}:focus {
-    color: @color;
-  }
-  .@{focus--selector}\:@{background-color--key}-@{name}:focus {
-    background-color: @color;
-  }
-
-  .@{hover--selector}\:@{color--key}-@{name}:hover:not(:active) {
-    color: @color;
-  }
-  .@{hover--selector}\:@{background-color--key}-@{name}:hover:not(:active) {
-    background-color: @color;
-  }
+    .@{className}\:@{color--key}-@{name}:active {
+      color: @color;
+    }
+    .@{className}\:@{background-color--key}-@{name}:hover:not(:active) {
+      background-color: @color;
+    }
+  });
 }

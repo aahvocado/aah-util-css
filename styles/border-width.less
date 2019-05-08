@@ -38,29 +38,29 @@
   each(@pseudoselectorList, {
     @name: @value;
     @keyName: '@{name}--key';
-    @definition: @@keyName;
+    @className: @@keyName;
 
-    .@{definition}\:@{border-width--key}-@{iteration} {
+    .@{className}\:@{border-width--key}-@{iteration} {
       border-width: @borderSize;
     }
-    .@{definition}\:@{border-width--key}-@{vertical--key}-@{iteration} {
+    .@{className}\:@{border-width--key}-@{vertical--key}-@{iteration} {
       border-top-width: @borderSize;
       border-bottom-width: @borderSize;
     }
-    .@{definition}\:@{border-width--key}-@{horizontal--key}-@{iteration} {
+    .@{className}\:@{border-width--key}-@{horizontal--key}-@{iteration} {
       border-left-width: @borderSize;
       border-right-width: @borderSize;
     }
-    .@{definition}\:@{border-width--key}-@{top--key}-@{iteration} {
+    .@{className}\:@{border-width--key}-@{top--key}-@{iteration} {
       border-top-width: @borderSize;
     }
-    .@{definition}\:@{border-width--key}-@{bottom--key}-@{iteration} {
+    .@{className}\:@{border-width--key}-@{bottom--key}-@{iteration} {
       border-bottom-width: @borderSize;
     }
-    .@{definition}\:@{border-width--key}-@{left--key}-@{iteration} {
+    .@{className}\:@{border-width--key}-@{left--key}-@{iteration} {
       border-left-width: @borderSize;
     }
-    .@{definition}\:@{border-width--key}-@{right--key}-@{iteration} {
+    .@{className}\:@{border-width--key}-@{right--key}-@{iteration} {
       border-right-width: @borderSize;
     }
   })
