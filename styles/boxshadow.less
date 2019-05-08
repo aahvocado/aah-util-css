@@ -11,7 +11,7 @@
   each(@allColors, {
     @colorDefinition: 'color-@{value}';
 
-    .@{box-shadow--key}-b-@{n}-@{value} {
+    .@{box-shadow--key}-@{bottom--key}-@{n}-@{value} {
       box-shadow: 0 @n * @baseBoxShadowSize @@colorDefinition;
     }
   })

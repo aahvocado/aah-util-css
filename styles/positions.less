@@ -1,4 +1,4 @@
-// generate pos-t-0, etc
+// generate pos-@{top--key}-0, etc
 .generate-all-positioning(0);
 
 // mixin for create all instances of positioning
@@ -20,22 +20,22 @@
   }
 }
 .generate-top-pos(@num) {
-  .@{position--key}-t-@{num} {
+  .@{position--key}-@{top--key}-@{num} {
     top: @num;
   }
 }
 .generate-right-pos(@num) {
-  .@{position--key}-r-@{num} {
+  .@{position--key}-@{right--key}-@{num} {
     right: @num;
   }
 }
 .generate-bottom-pos(@num) {
-  .@{position--key}-b-@{num} {
+  .@{position--key}-@{bottom--key}-@{num} {
     bottom: @num;
   }
 }
 .generate-left-pos(@num) {
-  .@{position--key}-l-@{num} {
+  .@{position--key}-@{left--key}-@{num} {
     left: @num;
   }
 }
