@@ -1,8 +1,8 @@
 each(@fontFamilyList, {
   @fontFamilyName: @value;
-  @colorDefinition: 'fontFamily-@{fontFamilyName}';
+  @definition: 'fontFamily-@{fontFamilyName}';
 
-  .generate-fontFamily(@colorName, @@colorDefinition);
+  .generate-fontFamily(@fontFamilyName, @@definition);
 });
 
 /*
