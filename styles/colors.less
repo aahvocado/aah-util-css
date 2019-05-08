@@ -16,10 +16,6 @@ each(@allColors, {
   @colorDefinition: 'color-@{colorName}';
 
   .generate-color-styles(@colorName, @@colorDefinition);
-  .generate-color-styles(~'@{colorName}-lighter', lighten(@@colorDefinition, @percentLighter));
-  .generate-color-styles(~'@{colorName}-lightest', lighten(@@colorDefinition, @percentLightest));
-  .generate-color-styles(~'@{colorName}-darker', darken(@@colorDefinition, @percentDarker));
-  .generate-color-styles(~'@{colorName}-darkest', darken(@@colorDefinition, @percentDarkest));
 });
 
 /*
