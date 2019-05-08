@@ -7,15 +7,19 @@
   .@{border-width--key}-@{iteration} {
     border-width: @borderSize;
   }
-  // two sides
+
+  // vertical - top and bottom
   .@{border-width--key}-@{vertical--key}-@{iteration} {
     border-top-width: @borderSize;
     border-bottom-width: @borderSize;
   }
+
+  // horizontal - left and right
   .@{border-width--key}-@{horizontal--key}-@{iteration} {
     border-left-width: @borderSize;
     border-right-width: @borderSize;
   }
+
   // one side
   .@{border-width--key}-@{top--key}-@{iteration} {
     border-top-width: @borderSize;
@@ -29,6 +33,37 @@
   .@{border-width--key}-@{right--key}-@{iteration} {
     border-right-width: @borderSize;
   }
+
+  // generate active, hover, focus
+  each(@pseudoselectorList, {
+    @name: @value;
+    @keyName: '@{name}--key';
+    @definition: @@keyName;
+
+    .@{definition}\:@{border-width--key}-@{iteration} {
+      border-width: @borderSize;
+    }
+    .@{definition}\:@{border-width--key}-@{vertical--key}-@{iteration} {
+      border-top-width: @borderSize;
+      border-bottom-width: @borderSize;
+    }
+    .@{definition}\:@{border-width--key}-@{horizontal--key}-@{iteration} {
+      border-left-width: @borderSize;
+      border-right-width: @borderSize;
+    }
+    .@{definition}\:@{border-width--key}-@{top--key}-@{iteration} {
+      border-top-width: @borderSize;
+    }
+    .@{definition}\:@{border-width--key}-@{bottom--key}-@{iteration} {
+      border-bottom-width: @borderSize;
+    }
+    .@{definition}\:@{border-width--key}-@{left--key}-@{iteration} {
+      border-left-width: @borderSize;
+    }
+    .@{definition}\:@{border-width--key}-@{right--key}-@{iteration} {
+      border-right-width: @borderSize;
+    }
+  })
 
   // do it again
   .recursive-border-width(@iteration - 1);
