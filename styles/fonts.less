@@ -1,3 +1,20 @@
+each(@fontFamilyList, {
+  @fontFamilyName: @value;
+  @colorDefinition: 'fontFamily-@{fontFamilyName}';
+
+  .generate-fontFamily(@colorName, @@colorDefinition);
+});
+
+/*
+  param - @name - name for className suffix
+  param - @style - definition for the font
+*/
+.generate-fontFamily(@name, @style) {
+  .@{font-family--key}-@{name} {
+    font-family: @style;
+  }
+}
+
 // create font sizes from 0 to max
 .generate-all-font-size(10);
 

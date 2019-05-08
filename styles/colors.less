@@ -1,9 +1,9 @@
 /*
-  for each color defined the `@allColors` ,
+  for each color defined the `@colorList` ,
     this will generate the following utility css
 
   eg:
-   @allColors: primary;
+   @colorList: primary;
    @color-primary: #FFF;
 
 
@@ -11,7 +11,7 @@
    .bg-primary { background-color: #FFF; }
    .borcolor-primary { border-color: #FFF; }
 */
-each(@allColors, {
+each(@colorList, {
   @colorName: @value;
   @colorDefinition: 'color-@{colorName}';
 

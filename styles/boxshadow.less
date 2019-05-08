@@ -8,7 +8,7 @@
 };
 
 .gen-box-shadow(@n) {
-  each(@allColors, {
+  each(@colorList, {
     @colorDefinition: 'color-@{value}';
 
     .@{box-shadow--key}-@{bottom--key}-@{n}-@{value} {
