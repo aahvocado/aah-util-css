@@ -35,32 +35,32 @@
   }
 
   // generate active, hover, focus
-  each(@pseudoselectorList, {
-    @name: @value;
-    @keyName: '@{name}--key';
-    @className: @@keyName;
+  each(@pseudoselectorList, .(@selectorValue) {
+    @pseudoselectorName: @selectorValue;
+    @pseudoselectorKeyName: '@{pseudoselectorName}--key';
+    @pseudoselectorClassName: @@pseudoselectorKeyName;
 
-    .@{className}\:@{border-width--key}-@{iteration} {
+    .@{pseudoselectorName}\:@{border-width--key}-@{iteration}:@{pseudoselectorClassName} {
       border-width: @borderSize;
     }
-    .@{className}\:@{border-width--key}-@{vertical--key}-@{iteration} {
+    .@{pseudoselectorName}\:@{border-width--key}-@{vertical--key}-@{iteration}:@{pseudoselectorClassName} {
       border-top-width: @borderSize;
       border-bottom-width: @borderSize;
     }
-    .@{className}\:@{border-width--key}-@{horizontal--key}-@{iteration} {
+    .@{pseudoselectorName}\:@{border-width--key}-@{horizontal--key}-@{iteration}:@{pseudoselectorClassName} {
       border-left-width: @borderSize;
       border-right-width: @borderSize;
     }
-    .@{className}\:@{border-width--key}-@{top--key}-@{iteration} {
+    .@{pseudoselectorName}\:@{border-width--key}-@{top--key}-@{iteration}:@{pseudoselectorClassName} {
       border-top-width: @borderSize;
     }
-    .@{className}\:@{border-width--key}-@{bottom--key}-@{iteration} {
+    .@{pseudoselectorName}\:@{border-width--key}-@{bottom--key}-@{iteration}:@{pseudoselectorClassName} {
       border-bottom-width: @borderSize;
     }
-    .@{className}\:@{border-width--key}-@{left--key}-@{iteration} {
+    .@{pseudoselectorName}\:@{border-width--key}-@{left--key}-@{iteration}:@{pseudoselectorClassName} {
       border-left-width: @borderSize;
     }
-    .@{className}\:@{border-width--key}-@{right--key}-@{iteration} {
+    .@{pseudoselectorName}\:@{border-width--key}-@{right--key}-@{iteration}:@{pseudoselectorClassName} {
       border-right-width: @borderSize;
     }
   })

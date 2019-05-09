@@ -36,10 +36,10 @@ each(@colorList, {
     @pseudoselectorKeyName: '@{pseudoselectorName}--key';
     @pseudoselectorClassName: @@pseudoselectorKeyName;
 
-    .@{pseudoselectorClassName}\:@{color--key}-@{name}:active {
+    .@{pseudoselectorName}\:@{color--key}-@{name}:@{pseudoselectorClassName} {
       color: @color;
     }
-    .@{pseudoselectorClassName}\:@{background-color--key}-@{name}:hover:not(:active) {
+    .@{pseudoselectorName}\:@{background-color--key}-@{name}:@{pseudoselectorClassName} {
       background-color: @color;
     }
   });

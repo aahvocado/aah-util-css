@@ -41,27 +41,27 @@ each(@colorList, .(@colorValue) {
     @pseudoselectorKeyName: '@{pseudoselectorName}--key';
     @pseudoselectorClassName: @@pseudoselectorKeyName;
 
-    .@{pseudoselectorClassName}\:@{border-color--key}-@{colorName} {
+    .@{pseudoselectorName}\:@{border-color--key}-@{colorName}:@{pseudoselectorClassName} {
       border-color: @colorDefinition;
     }
-    .@{pseudoselectorClassName}\:@{border-color--key}-@{vertical--key}-@{colorName} {
+    .@{pseudoselectorName}\:@{border-color--key}-@{vertical--key}-@{colorName}:@{pseudoselectorClassName} {
       border-top-color: @colorDefinition;
       border-bottom-color: @colorDefinition;
     }
-    .@{pseudoselectorClassName}\:@{border-color--key}-@{horizontal--key}-@{colorName} {
+    .@{pseudoselectorName}\:@{border-color--key}-@{horizontal--key}-@{colorName}:@{pseudoselectorClassName} {
       border-left-color: @colorDefinition;
       border-right-color: @colorDefinition;
     }
-    .@{pseudoselectorClassName}\:@{border-color--key}-@{top--key}-@{colorName} {
+    .@{pseudoselectorName}\:@{border-color--key}-@{top--key}-@{colorName}:@{pseudoselectorClassName} {
       border-top-color: @colorDefinition;
     }
-    .@{pseudoselectorClassName}\:@{border-color--key}-@{bottom--key}-@{colorName} {
+    .@{pseudoselectorName}\:@{border-color--key}-@{bottom--key}-@{colorName}:@{pseudoselectorClassName} {
       border-bottom-color: @colorDefinition;
     }
-    .@{pseudoselectorClassName}\:@{border-color--key}-@{left--key}-@{colorName} {
+    .@{pseudoselectorName}\:@{border-color--key}-@{left--key}-@{colorName}:@{pseudoselectorClassName} {
       border-left-color: @colorDefinition;
     }
-    .@{pseudoselectorClassName}\:@{border-color--key}-@{right--key}-@{colorName} {
+    .@{pseudoselectorName}\:@{border-color--key}-@{right--key}-@{colorName}:@{pseudoselectorClassName} {
       border-right-color: @colorDefinition;
     }
   })
