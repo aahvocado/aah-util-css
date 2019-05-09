@@ -31,7 +31,7 @@ each(@colorList, {
   }
 
   // generate active, hover, focus
-  each(@pseudoselectorList, {
+  each(@pseudoselectorList, .(@selectorValue) {
     @pseudoselectorName: @selectorValue;
     @pseudoselectorKeyName: '@{pseudoselectorName}--key';
     @pseudoselectorClassName: @@pseudoselectorKeyName;
