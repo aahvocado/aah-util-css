@@ -1,60 +1,63 @@
-// build for each color
-each(@colorList, {
-  @colorName: @value;
-  @colorDefinition: 'color-@{colorName}';
+/*
+  This helps generate shortcuts for border side and color
+  Some examples:
+    * bor-v-0-primary
+    * bor-l-3-transparent
+*/
 
-  // singular border color definition
-  .@{border-color--key}-@{colorName} {
-    border-color: @@colorDefinition;
-  }
+// define border size with color
+.recursive-border(5);
+.recursive-border(@iteration) when (@iteration >= 0) {
+  @borderSize: ~"@{iteration}px";
 
-  // define border size with color
-  .recursive-border(5);
-  .recursive-border(@iteration) when (@iteration >= 0) {
-    @borderSize: ~"@{iteration}px";
+  // generate for each color
+  each(@colorList, {
+    @colorName: @value;
+    @colorKeyName: 'color-@{colorName}';
+    @colorDefinition: @@colorKeyName;
 
     // all sides
     .@{border--key}-@{iteration}-@{colorName} {
       border-width: @borderSize;
-      border-color: @@colorDefinition;
+      border-color: @colorDefinition;
       border-style: solid;
     }
     // two sides
     .@{border--key}-@{vertical--key}-@{iteration}-@{colorName} {
       border-top-width: @borderSize;
       border-bottom-width: @borderSize;
-      border-color: @@colorDefinition;
+      border-color: @colorDefinition;
       border-style: solid;
     }
     .@{border--key}-@{horizontal--key}-@{iteration}-@{colorName} {
       border-left-width: @borderSize;
       border-right-width: @borderSize;
-      border-color: @@colorDefinition;
+      border-color: @colorDefinition;
       border-style: solid;
     }
     // one side
     .@{border--key}-@{top--key}-@{iteration}-@{colorName} {
       border-top-width: @borderSize;
-      border-color: @@colorDefinition;
+      border-color: @colorDefinition;
       border-style: solid;
     }
     .@{border--key}-@{bottom--key}-@{iteration}-@{colorName} {
       border-bottom-width: @borderSize;
-      border-color: @@colorDefinition;
+      border-color: @colorDefinition;
       border-style: solid;
     }
     .@{border--key}-@{left--key}-@{iteration}-@{colorName} {
       border-left-width: @borderSize;
-      border-color: @@colorDefinition;
+      border-color: @colorDefinition;
       border-style: solid;
     }
     .@{border--key}-@{right--key}-@{iteration}-@{colorName} {
       border-right-width: @borderSize;
-      border-color: @@colorDefinition;
+      border-color: @colorDefinition;
       border-style: solid;
     }
+  })
 
-    // do it again
-    .recursive-border(@iteration - 1);
-  }
-})
+  // do it again
+  .recursive-border(@iteration - 1);
+}

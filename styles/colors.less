@@ -32,14 +32,14 @@ each(@colorList, {
 
   // generate active, hover, focus
   each(@pseudoselectorList, {
-    @name: @value;
-    @keyName: '@{name}--key';
-    @className: @@keyName;
+    @pseudoselectorName: @selectorValue;
+    @pseudoselectorKeyName: '@{pseudoselectorName}--key';
+    @pseudoselectorClassName: @@pseudoselectorKeyName;
 
-    .@{className}\:@{color--key}-@{name}:active {
+    .@{pseudoselectorClassName}\:@{color--key}-@{name}:active {
       color: @color;
     }
-    .@{className}\:@{background-color--key}-@{name}:hover:not(:active) {
+    .@{pseudoselectorClassName}\:@{background-color--key}-@{name}:hover:not(:active) {
       background-color: @color;
     }
   });
