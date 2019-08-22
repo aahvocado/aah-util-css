@@ -30,6 +30,40 @@
     padding-bottom: @paddingSize;
   }
 
+  // with media queries
+  each(@mediaList, .(@mediaName) {
+    @mediaDefinition: @@mediaName;
+
+    @media @mediaDefinition {
+      // all sides
+      .@{mediaName}\:@{padding--key}-@{iteration} {
+        padding: @paddingSize;
+      }
+      // two sides
+      .@{mediaName}\:@{padding--key}-@{vertical--key}-@{iteration} {
+        padding-top: @paddingSize;
+        padding-bottom: @paddingSize;
+      }
+      .@{mediaName}\:@{padding--key}-@{horizontal--key}-@{iteration} {
+        padding-left: @paddingSize;
+        padding-right: @paddingSize;
+      }
+      // one side
+      .@{mediaName}\:@{padding--key}-@{left--key}-@{iteration} {
+        padding-left: @paddingSize;
+      }
+      .@{mediaName}\:@{padding--key}-@{right--key}-@{iteration} {
+        padding-right: @paddingSize;
+      }
+      .@{mediaName}\:@{padding--key}-@{top--key}-@{iteration} {
+        padding-top: @paddingSize;
+      }
+      .@{mediaName}\:@{padding--key}-@{bottom--key}-@{iteration} {
+        padding-bottom: @paddingSize;
+      }
+    }
+  })
+
   // do it again
   .recursive-padding(@iteration - 1);
 }
