@@ -31,6 +31,17 @@ each(@fontFamilyList, {
   .@{font-size--key}-@{num} {
     font-size: @num * 5px;
   }
+
+  // with media queries
+  each(@mediaList, .(@mediaName) {
+    @mediaDefinition: @@mediaName;
+
+    @media @mediaDefinition {
+      .@{mediaName}\:@{font-size--key}-@{num} {
+        font-size: @num * 5px;
+      }
+    }
+  })
 }
 
 // specific sizes
