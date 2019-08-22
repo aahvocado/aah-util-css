@@ -90,3 +90,71 @@ each(@FLEXBOX_PROPERTIES_LIST, {
 .@{flex-wrap--key}-inherit {
   flex-wrap: inherit;
 }
+
+// with media queries
+each(@mediaList, .(@mediaName) {
+  @mediaDefinition: @@mediaName;
+
+  @media @mediaDefinition {
+    // flex properties
+    .@{mediaName}\:@{flex--key}-auto {
+      flex: 1 1 auto;
+    }
+    .@{mediaName}\:@{flex--key}-none {
+      flex: 0 0 auto;
+    }
+    .@{mediaName}\:@{flex--key}-grow-only {
+      flex: 1 0;
+    }
+    .@{mediaName}\:@{flex--key}-shrink-only {
+      flex: 0 1;
+    }
+    .@{mediaName}\:@{flex--key}-initial {
+      flex: initial;
+    }
+    .@{mediaName}\:@{flex--key}-inherit {
+      flex: inherit;
+    }
+
+    // row
+    .@{mediaName}\:@{flex--key}-row {
+      display: flex;
+      flex-direction: row;
+    }
+    .@{mediaName}\:@{flex--key}-row-center {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    // col
+    .@{mediaName}\:@{flex--key}-col {
+      display: flex;
+      flex-direction: column;
+    }
+    .@{mediaName}\:@{flex--key}-col-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    // flex-wrap
+    .@{mediaName}\:@{flex-wrap--key}-no {
+      flex-wrap: nowrap;
+    }
+    .@{mediaName}\:@{flex-wrap--key}-yes {
+      flex-wrap: wrap;
+    }
+    .@{mediaName}\:@{flex-wrap--key}-reverse {
+      flex-wrap: wrap-reverse;
+    }
+    .@{mediaName}\:@{flex-wrap--key}-initial {
+      flex-wrap: initial;
+    }
+    .@{mediaName}\:@{flex-wrap--key}-inherit {
+      flex-wrap: inherit;
+    }
+  }
+})
