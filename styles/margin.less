@@ -30,6 +30,40 @@
     margin-bottom: @marginSize;
   }
 
+  // with media queries
+  each(@mediaList, .(@mediaName) {
+    @mediaDefinition: @@mediaName;
+
+    @media @mediaDefinition {
+      // all sides
+      .@{mediaName}\:@{margin--key}-@{iteration} {
+        margin: @marginSize;
+      }
+      // two sides
+      .@{mediaName}\:@{margin--key}-@{vertical--key}-@{iteration} {
+        margin-top: @marginSize;
+        margin-bottom: @marginSize;
+      }
+      .@{mediaName}\:@{margin--key}-@{horizontal--key}-@{iteration} {
+        margin-left: @marginSize;
+        margin-right: @marginSize;
+      }
+      // one side
+      .@{mediaName}\:@{margin--key}-@{left--key}-@{iteration} {
+        margin-left: @marginSize;
+      }
+      .@{mediaName}\:@{margin--key}-@{right--key}-@{iteration} {
+        margin-right: @marginSize;
+      }
+      .@{mediaName}\:@{margin--key}-@{top--key}-@{iteration} {
+        margin-top: @marginSize;
+      }
+      .@{mediaName}\:@{margin--key}-@{bottom--key}-@{iteration} {
+        margin-bottom: @marginSize;
+      }
+    }
+  })
+
   // do it again
   .recursive-margin(@iteration - 1);
 }
