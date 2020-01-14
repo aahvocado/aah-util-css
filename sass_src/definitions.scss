@@ -1,0 +1,57 @@
+// All these values can be redefined for your own customization.
+//  For the lists, you can add more of your own keys as long as there is a matching value;
+
+// -- COLOR
+$colorList:
+  primary,
+  secondary,
+  tertiary,
+  fourth,
+  fifth,
+
+  white,
+  gray,
+  grayer,
+  grayest,
+  black,
+  transparent;
+
+// theme from https://color.adobe.com/Halloween-Night-color-theme-10148895
+$color-primary: #0A0024;
+$color-secondary: #001926;
+$color-tertiary: #F08400;
+$color-fourth: #E3DB96;
+$color-fifth: #DE4D3A;
+
+$color-white: #FFF;
+$color-gray: #b5b5b5;
+$color-grayer: #777777;
+$color-grayest: #444444;
+$color-black: #333333;
+$color-transparent: rgba(0, 0, 0, 0);
+
+// -- FONT
+$fontFamilyList:
+  primary,
+  secondary,
+  tertiary;
+
+$fontFamily-primary: "Arial";
+$fontFamily-secondary: "Times New Roman";
+$fontFamily-tertiary: "Courier New";
+
+// base size - treated as 1rem
+$baseFontSize: 15px;
+
+// -- SIZES
+// padding
+$basePadding: 5px;
+
+// margin
+$baseMargin: 5px;
+
+// border-radius
+$baseBorderRadius: 5px;
+
+// box-shadow
+$baseBoxShadowSize: 3px;

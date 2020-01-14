@@ -1,0 +1,43 @@
+.#{$display--key}-none {
+  display: none;
+}
+.#{$display--key}-inline {
+  display: inline;
+}
+.#{$display--key}-block {
+  display: block;
+}
+.#{$display--key}-contents {
+  display: contents;
+}
+.#{$display--key}-flex {
+  display: flex;
+}
+.#{$display--key}-initial {
+  display: initial;
+}
+.#{$display--key}-inherit {
+  display: inherit;
+}
+// -- are these necessary?
+.#{$display--key}-grid {
+  display: grid;
+}
+.#{$display--key}-inline-block {
+  display: inline-block;
+}
+.#{$display--key}-inline-flex {
+  display: inline-flex;
+}
+.#{$display--key}-inline-grid {
+  display: inline-grid;
+}
+.#{$display--key}-inline-table {
+  display: inline-table;
+}
+.#{$display--key}-list-item {
+  display: list-item;
+}
+.#{$display--key}-table {
+  display: table;
+}

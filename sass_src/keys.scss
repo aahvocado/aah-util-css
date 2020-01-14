@@ -1,0 +1,68 @@
+// the key prefix that will be used as the class name
+
+$width--key: width;
+$height--key: height;
+
+$color--key: color;
+$background-color--key: bg;
+
+$adjacent--key: adjacent;
+
+$border--key: bor;
+$border-color--key: borcolor;
+$border-radius--key: borradius;
+$border-width--key: borwidth;
+
+$box-sizing--key: boxsizing;
+$box-shadow--key: boxshadow;
+
+$cursor--key: cursor;
+
+$display--key: display;
+
+$flex--key: flex;
+$flex-wrap--key: flexwrap;
+$align-items--key: aitems;
+$justify-content--key: jcontent;
+$align-self--key: aself;
+
+$font-family--key: fontfamily;
+$font-size--key: fsize;
+$font-style--key: f;
+
+$margin--key: mar;
+
+$opacity--key: opacity;
+
+$overflow--key: overflow;
+
+$padding--key: pad;
+
+$position--key: position;
+$pos--key: pos;
+
+$resize--key: resize;
+
+$text--key: text;
+$text-align--key: talign;
+
+$white-space--key: whitespace;
+
+$z-index--key: zindex;
+
+// -- directional
+$vertical--key: v;
+$horizontal--key: h;
+$top--key: t;
+$bottom--key: b;
+$left--key: l;
+$right--key: r;
+
+// -- pseudoselectors
+$active--key: active;
+$focus--key: focus;
+$hover--key: hover;
+$pseudoselectorList:
+  active,
+  focus,
+  hover;
