@@ -1,5 +1,22 @@
-// the key prefix that will be used as the class name
+/*
+  these are key prefixes that will define the class name
+ */
 
+// -- directional
+$vertical--key: v;
+$horizontal--key: h;
+$top--key: t;
+$bottom--key: b;
+$left--key: l;
+$right--key: r;
+
+// -- media query
+$extra-small--key: \:\:xs;
+$small--key: \:\:s;
+$medium--key: \:\:m;
+$large--key: \:\:l;
+
+// --
 $width--key: width;
 $height--key: height;
 
@@ -49,14 +66,6 @@ $text-align--key: talign;
 $white-space--key: whitespace;
 
 $z-index--key: zindex;
-
-// -- directional
-$vertical--key: v;
-$horizontal--key: h;
-$top--key: t;
-$bottom--key: b;
-$left--key: l;
-$right--key: r;
 
 // -- pseudoselectors
 $active--key: active;

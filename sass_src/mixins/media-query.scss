@@ -1,0 +1,41 @@
+/*
+$screen-width-xs: 320px;
+$screen-width-s: 480px;
+$screen-width-m: 768px;
+$screen-width-l: 1024px;
+*/
+$max-screen-width-xs: $screen-width-xs;
+$max-screen-width-s: $screen-width-m - 1;
+$max-screen-width-m: $screen-width-l - 1;
+
+@mixin applyMedia-xs() {
+  @at-root #{selector.append(&, "#{$extra-small--key}")} {
+    @media (max-width: $max-screen-width-xs) {
+      @content;
+    };
+  }
+}
+
+@mixin applyMedia-s() {
+  @at-root #{selector.append(&, "#{$small--key}")} {
+    @media (min-width: $screen-width-s) and (max-width: $max-screen-width-s) {
+      @content;
+    }
+  }
+}
+
+@mixin applyMedia-m() {
+  @at-root #{selector.append(&, "#{$medium--key}")} {
+    @media (min-width: $screen-width-m) and (max-width: $max-screen-width-m) {
+      @content;
+    }
+  }
+}
+
+@mixin applyMedia-l() {
+  @at-root #{selector.append(&, "#{$large--key}")} {
+    @media (min-width: $screen-width-l) {
+      @content;
+    }
+  }
+}

@@ -40,6 +40,12 @@ $fontFamily-primary: "Arial";
 $fontFamily-secondary: "Times New Roman";
 $fontFamily-tertiary: "Courier New";
 
+// -- Breakpoints
+$screen-width-xs: 320px;
+$screen-width-s: 480px;
+$screen-width-m: 768px;
+$screen-width-l: 1024px;
+
 // base size - treated as 1rem
 $baseFontSize: 15px;
 
