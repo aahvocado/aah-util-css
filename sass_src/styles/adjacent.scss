@@ -2,6 +2,8 @@
   styling for adjacent elements, this causes the sibling to get the style
 */
 
+$marginBase: map.get($BASE_SIZE_MAP, "margin");
+$paddingBase: map.get($BASE_SIZE_MAP, "padding");
 /**
  * example result - `.adjacent-mar-t-1 + .adjacent-mar-t-1`;
  *
@@ -9,16 +11,16 @@
  */
 @mixin generate-adjacent-margin($num) {
   .#{$adjacent--key}-#{$margin--key}-#{$top--key}-#{$num} + .#{$adjacent--key}-#{$margin--key}-#{$top--key}-#{$num} {
-    margin-top: $num * $baseMargin;
+    margin-top: $num * $marginBase;
   }
   .#{$adjacent--key}-#{$margin--key}-#{$bottom--key}-#{$num} + .#{$adjacent--key}-#{$margin--key}-#{$bottom--key}-#{$num} {
-    margin-bottom: $num * $baseMargin;
+    margin-bottom: $num * $marginBase;
   }
   .#{$adjacent--key}-#{$margin--key}-#{$left--key}-#{$num} + .#{$adjacent--key}-#{$margin--key}-#{$left--key}-#{$num} {
-    margin-left: $num * $baseMargin;
+    margin-left: $num * $marginBase;
   }
   .#{$adjacent--key}-#{$margin--key}-#{$right--key}-#{$num} + .#{$adjacent--key}-#{$margin--key}-#{$right--key}-#{$num} {
-    margin-right: $num * $baseMargin;
+    margin-right: $num * $marginBase;
   }
 }
 
@@ -29,16 +31,16 @@
  */
 @mixin generate-adjacent-padding($num) {
   .#{$adjacent--key}-#{$padding--key}-#{$top--key}-#{$num} + .#{$adjacent--key}-#{$padding--key}-#{$top--key}-#{$num} {
-    padding-top: $num * $basePadding;
+    padding-top: $num * $paddingBase;
   }
   .#{$adjacent--key}-#{$padding--key}-#{$bottom--key}-#{$num} + .#{$adjacent--key}-#{$padding--key}-#{$bottom--key}-#{$num} {
-    padding-bottom: $num * $basePadding;
+    padding-bottom: $num * $paddingBase;
   }
   .#{$adjacent--key}-#{$padding--key}-#{$left--key}-#{$num} + .#{$adjacent--key}-#{$padding--key}-#{$left--key}-#{$num} {
-    padding-left: $num * $basePadding;
+    padding-left: $num * $paddingBase;
   }
   .#{$adjacent--key}-#{$padding--key}-#{$right--key}-#{$num} + .#{$adjacent--key}-#{$padding--key}-#{$right--key}-#{$num} {
-    padding-right: $num * $basePadding;
+    padding-right: $num * $paddingBase;
   }
 }
 
