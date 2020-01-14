@@ -1,63 +1,42 @@
-// All these values can be redefined for your own customization.
-//  For the lists, you can add more of your own keys as long as there is a matching value;
+/*
+  All these values can be redefined for your own customization.
+  For the lists, you can add more of your own keys as long as there is a matching value;
+*/
 
-// -- COLOR
-$colorList:
-  primary,
-  secondary,
-  tertiary,
-  fourth,
-  fifth,
+// -- Color
+$COLOR_MAP: (
+  "primary": #3f51b5,
 
-  white,
-  gray,
-  grayer,
-  grayest,
-  black,
-  transparent;
+  "bg-primary": #282c34,
 
-// theme from https://color.adobe.com/Halloween-Night-color-theme-10148895
-$color-primary: #0A0024;
-$color-secondary: #001926;
-$color-tertiary: #F08400;
-$color-fourth: #E3DB96;
-$color-fifth: #DE4D3A;
+  "white": #FFF,
+  "gray": #b5b5b5,
+  "grayer": #777777,
+  "grayest": #444444,
+  "black": #333333,
+  "transparent": rgba(0, 0, 0, 0)
+);
 
-$color-white: #FFF;
-$color-gray: #b5b5b5;
-$color-grayer: #777777;
-$color-grayest: #444444;
-$color-black: #333333;
-$color-transparent: rgba(0, 0, 0, 0);
-
-// -- FONT
-$fontFamilyList:
-  primary,
-  secondary,
-  tertiary;
-
-$fontFamily-primary: "Arial";
-$fontFamily-secondary: "Times New Roman";
-$fontFamily-tertiary: "Courier New";
+// -- Fonts
+$FONT_MAPPING: (
+  "primary": "Arial",
+  "secondary": "Times New Roman",
+  "tertiary": "Courier New"
+);
 
 // -- Breakpoints
-$screen-width-xs: 320px;
-$screen-width-s: 480px;
-$screen-width-m: 768px;
-$screen-width-l: 1024px;
+$BREAKPOINT_MAP: (
+  "extra-small": 320px,
+  "small": 480px,
+  "medium": 768px,
+  "large": 1024px
+);
 
-// base size - treated as 1rem
-$baseFontSize: 15px;
-
-// -- SIZES
-// padding
-$basePadding: 5px;
-
-// margin
-$baseMargin: 5px;
-
-// border-radius
-$baseBorderRadius: 5px;
-
-// box-shadow
-$baseBoxShadowSize: 3px;
+// -- Base Sizing per tick
+$BASE_SIZE_MAP: (
+  "font": 12px,
+  "padding": 3px,
+  "margin": 3px,
+  "border-radius": 3px,
+  "box-shadow": 3px
+);
