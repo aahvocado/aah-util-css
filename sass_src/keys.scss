@@ -68,10 +68,9 @@ $white-space--key: whitespace;
 $z-index--key: zindex;
 
 // -- pseudoselectors
-$active--key: active;
-$focus--key: focus;
-$hover--key: hover;
-$pseudoselectorList:
-  active,
-  focus,
-  hover;
+$PSEUDOSELECTOR_MAP: (
+  "active": "active\:",
+  "focus": "focus\:",
+  "hover": "hover\:",
+);
+

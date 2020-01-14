@@ -1,68 +1,59 @@
-// generate for each color
-each(@colorList, .(@colorValue) {
-  @colorName: @colorValue;
-  @colorKeyName: 'color-@{colorName}';
-  @colorDefinition: @@colorKeyName;
-
+@each $name, $color in $COLOR_MAP {
   // all sides
-  .@{border-color--key}-@{colorName} {
-    border-color: @colorDefinition;
+  .#{$border-color--key}-#{$name} {
+    border-color: $color;
   }
 
   // vertical - top and bottom
-  .@{border-color--key}-@{vertical--key}-@{colorName} {
-    border-top-color: @colorDefinition;
-    border-bottom-color: @colorDefinition;
+  .#{$border-color--key}-#{$vertical--key}-#{$name} {
+    border-top-color: $color;
+    border-bottom-color: $color;
   }
 
   // horizontal - left and right
-  .@{border-color--key}-@{horizontal--key}-@{colorName} {
-    border-left-color: @colorDefinition;
-    border-right-color: @colorDefinition;
+  .#{$border-color--key}-#{$horizontal--key}-#{$name} {
+    border-left-color: $color;
+    border-right-color: $color;
   }
 
   // one side
-  .@{border-color--key}-@{top--key}-@{colorName} {
-    border-top-color: @colorDefinition;
+  .#{$border-color--key}-#{$top--key}-#{$name} {
+    border-top-color: $color;
   }
-  .@{border-color--key}-@{bottom--key}-@{colorName} {
-    border-bottom-color: @colorDefinition;
+  .#{$border-color--key}-#{$bottom--key}-#{$name} {
+    border-bottom-color: $color;
   }
-  .@{border-color--key}-@{left--key}-@{colorName} {
-    border-left-color: @colorDefinition;
+  .#{$border-color--key}-#{$left--key}-#{$name} {
+    border-left-color: $color;
   }
-  .@{border-color--key}-@{right--key}-@{colorName} {
-    border-right-color: @colorDefinition;
+  .#{$border-color--key}-#{$right--key}-#{$name} {
+    border-right-color: $color;
   }
 
   // generate active, hover, focus
-  each(@pseudoselectorList, .(@selectorValue) {
-    @pseudoselectorName: @selectorValue;
-    @pseudoselectorKeyName: '@{pseudoselectorName}--key';
-    @pseudoselectorClassName: @@pseudoselectorKeyName;
-
-    .@{pseudoselectorName}\:@{border-color--key}-@{colorName}:@{pseudoselectorClassName} {
-      border-color: @colorDefinition;
+  @each $pseudoSelectorName, $pseudoSelectorKey in $PSEUDOSELECTOR_MAP {
+    .#{$pseudoSelectorKey}#{$border-color--key}-#{$name}:#{$pseudoSelectorName} {
+      border-color: $color;
     }
-    .@{pseudoselectorName}\:@{border-color--key}-@{vertical--key}-@{colorName}:@{pseudoselectorClassName} {
-      border-top-color: @colorDefinition;
-      border-bottom-color: @colorDefinition;
+    .#{$pseudoSelectorKey}#{$border-color--key}-#{$vertical--key}-#{$name}:#{$pseudoSelectorName} {
+      border-top-color: $color;
+      border-bottom-color: $color;
     }
-    .@{pseudoselectorName}\:@{border-color--key}-@{horizontal--key}-@{colorName}:@{pseudoselectorClassName} {
-      border-left-color: @colorDefinition;
-      border-right-color: @colorDefinition;
+    .#{$pseudoSelectorKey}#{$border-color--key}-#{$horizontal--key}-#{$name}:#{$pseudoSelectorName} {
+      border-left-color: $color;
+      border-right-color: $color;
     }
-    .@{pseudoselectorName}\:@{border-color--key}-@{top--key}-@{colorName}:@{pseudoselectorClassName} {
-      border-top-color: @colorDefinition;
+    .#{$pseudoSelectorKey}#{$border-color--key}-#{$top--key}-#{$name}:#{$pseudoSelectorName} {
+      border-top-color: $color;
     }
-    .@{pseudoselectorName}\:@{border-color--key}-@{bottom--key}-@{colorName}:@{pseudoselectorClassName} {
-      border-bottom-color: @colorDefinition;
+    .#{$pseudoSelectorKey}#{$border-color--key}-#{$bottom--key}-#{$name}:#{$pseudoSelectorName} {
+      border-bottom-color: $color;
     }
-    .@{pseudoselectorName}\:@{border-color--key}-@{left--key}-@{colorName}:@{pseudoselectorClassName} {
-      border-left-color: @colorDefinition;
+    .#{$pseudoSelectorKey}#{$border-color--key}-#{$left--key}-#{$name}:#{$pseudoSelectorName} {
+      border-left-color: $color;
     }
-    .@{pseudoselectorName}\:@{border-color--key}-@{right--key}-@{colorName}:@{pseudoselectorClassName} {
-      border-right-color: @colorDefinition;
+    .#{$pseudoSelectorKey}#{$border-color--key}-#{$right--key}-#{$name}:#{$pseudoSelectorName} {
+      border-right-color: $color;
     }
-  })
-})
+  }
+}
