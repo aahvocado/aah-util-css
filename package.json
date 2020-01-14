@@ -4,9 +4,10 @@
   "description": "utility css classes by aahvocado",
   "main": "compiled/main_sass.css",
   "scripts": {
-    "start": "npm run compile:sass",
-    "compile:less": "lessc less_src/main.less compiled/main_less.css",
-    "compile:sass": "sass sass_src/main.scss compiled/main_sass.css"
+    "start": "npm run sass:compile",
+    "less:compile": "lessc less_src/main.less compiled/main_less.css",
+    "sass:compile": "sass sass_src/main.scss compiled/main_sass.css",
+    "sass:watch": "sass --watch sass_src/main.scss compiled/main_sass.css"
   },
   "repository": {
     "type": "git",
