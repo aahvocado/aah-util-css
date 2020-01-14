@@ -1,0 +1,17 @@
+// create opacity-1 to opacity-9
+.recursive-opacity(9);
+.recursive-opacity(@iteration) when (@iteration > 0) {
+  .@{opacity--key}-@{iteration} {
+    opacity: ~"0.@{iteration}";
+  }
+
+  // do it again
+  .recursive-opacity(@iteration - 1);
+};
+
+.@{opacity--key}-0 {
+  opacity: 0;
+}
+.@{opacity--key}-full {
+  opacity: 1;
+}

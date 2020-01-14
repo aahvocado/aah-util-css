@@ -1,0 +1,69 @@
+/*
+  This helps generate shortcuts for border side and color
+  Some examples:
+    * bor-v-0-primary
+    * bor-l-3-transparent
+*/
+
+// define border size with color
+.recursive-border(5);
+.recursive-border(@iteration) when (@iteration >= 0) {
+  @borderSize: ~"@{iteration}px";
+
+  // generate for each color
+  each(@colorList, {
+    @colorName: @value;
+    @colorKeyName: 'color-@{colorName}';
+    @colorDefinition: @@colorKeyName;
+
+    // all sides
+    .@{border--key}-@{iteration}-@{colorName} {
+      border-width: @borderSize;
+      border-color: @colorDefinition;
+      border-style: solid;
+    }
+    // two sides
+    .@{border--key}-@{vertical--key}-@{iteration}-@{colorName} {
+      border-top-width: @borderSize;
+      border-top-color: @colorDefinition;
+      border-top-style: solid;
+
+      border-bottom-width: @borderSize;
+      border-bottom-color: @colorDefinition;
+      border-bottom-style: solid;
+    }
+    .@{border--key}-@{horizontal--key}-@{iteration}-@{colorName} {
+      border-left-width: @borderSize;
+      border-left-color: @colorDefinition;
+      border-left-style: solid;
+
+      border-right-width: @borderSize;
+      border-right-color: @colorDefinition;
+      border-right-style: solid;
+    }
+    // one side
+    .@{border--key}-@{top--key}-@{iteration}-@{colorName} {
+      border-top-width: @borderSize;
+      border-top-color: @colorDefinition;
+      border-top-style: solid;
+    }
+    .@{border--key}-@{bottom--key}-@{iteration}-@{colorName} {
+      border-bottom-width: @borderSize;
+      border-bottom-color: @colorDefinition;
+      border-bottom-style: solid;
+    }
+    .@{border--key}-@{left--key}-@{iteration}-@{colorName} {
+      border-left-width: @borderSize;
+      border-left-color: @colorDefinition;
+      border-left-style: solid;
+    }
+    .@{border--key}-@{right--key}-@{iteration}-@{colorName} {
+      border-right-width: @borderSize;
+      border-right-color: @colorDefinition;
+      border-right-style: solid;
+    }
+  })
+
+  // do it again
+  .recursive-border(@iteration - 1);
+}

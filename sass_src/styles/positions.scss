@@ -1,0 +1,55 @@
+// generate pos-@{top--key}-0, etc
+.generate-all-positioning(0);
+
+// mixin for create all instances of positioning
+.generate-all-positioning(@n) {
+  .generate-all-pos(@n);
+  .generate-top-pos(@n);
+  .generate-right-pos(@n);
+  .generate-bottom-pos(@n);
+  .generate-left-pos(@n);
+};
+
+// top, right, bottom, left
+.generate-all-pos(@num) {
+  .@{pos--key}-@{num} {
+    top: @num;
+    right: @num;
+    bottom: @num;
+    left: @num;
+  }
+}
+.generate-top-pos(@num) {
+  .@{pos--key}-@{top--key}-@{num} {
+    top: @num;
+  }
+}
+.generate-right-pos(@num) {
+  .@{pos--key}-@{right--key}-@{num} {
+    right: @num;
+  }
+}
+.generate-bottom-pos(@num) {
+  .@{pos--key}-@{bottom--key}-@{num} {
+    bottom: @num;
+  }
+}
+.generate-left-pos(@num) {
+  .@{pos--key}-@{left--key}-@{num} {
+    left: @num;
+  }
+}
+
+// types
+.@{position--key}-absolute {
+  position: absolute;
+}
+.@{position--key}-fixed {
+  position: fixed;
+}
+.@{position--key}-relative {
+  position: relative;
+}
+.@{position--key}-static {
+  position: static;
+}

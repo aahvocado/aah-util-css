@@ -1,0 +1,46 @@
+
+.#{$text-align--key}-center {
+  text-align: center;
+}
+.#{$text-align--key}-left {
+  text-align: left;
+}
+.#{$text-align--key}-right {
+  text-align: right;
+}
+.#{$text-align--key}-vertical {
+  vertical-align: middle;
+}
+
+.#{$text--key}-stroke {
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.#{$text--key}-ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.wordbreak-break {
+  word-break: break-word;
+  white-space: normal;
+}
+
+.#{$text--key}-lowercase {
+  text-transform: lowercase;
+}
+.#{$text--key}-uppercase {
+  text-transform: uppercase;
+}
+.#{$text--key}-capitalize {
+  text-transform: capitalize;
+}
+.#{$text--key}-none {
+  text-transform: none;
+}
+.#{$text--key}-inherit {
+  text-transform: inherit;
+}
+.#{$text--key}-full-width {
+  text-transform: full-width;
+}

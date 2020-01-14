@@ -1,0 +1,18 @@
+
+.recursive-boxshadow(5);
+.recursive-boxshadow(@n, @i: 1) when (@i =< @n) {
+  .gen-box-shadow(@i);
+
+  // recursively call
+  .recursive-boxshadow(@n, (@i + 1));
+};
+
+.gen-box-shadow(@n) {
+  each(@colorList, {
+    @colorDefinition: 'color-@{value}';
+
+    .@{box-shadow--key}-@{bottom--key}-@{n}-@{value} {
+      box-shadow: 0 @n * @baseBoxShadowSize @@colorDefinition;
+    }
+  })
+}

@@ -1,0 +1,68 @@
+// generate for each color
+each(@colorList, .(@colorValue) {
+  @colorName: @colorValue;
+  @colorKeyName: 'color-@{colorName}';
+  @colorDefinition: @@colorKeyName;
+
+  // all sides
+  .@{border-color--key}-@{colorName} {
+    border-color: @colorDefinition;
+  }
+
+  // vertical - top and bottom
+  .@{border-color--key}-@{vertical--key}-@{colorName} {
+    border-top-color: @colorDefinition;
+    border-bottom-color: @colorDefinition;
+  }
+
+  // horizontal - left and right
+  .@{border-color--key}-@{horizontal--key}-@{colorName} {
+    border-left-color: @colorDefinition;
+    border-right-color: @colorDefinition;
+  }
+
+  // one side
+  .@{border-color--key}-@{top--key}-@{colorName} {
+    border-top-color: @colorDefinition;
+  }
+  .@{border-color--key}-@{bottom--key}-@{colorName} {
+    border-bottom-color: @colorDefinition;
+  }
+  .@{border-color--key}-@{left--key}-@{colorName} {
+    border-left-color: @colorDefinition;
+  }
+  .@{border-color--key}-@{right--key}-@{colorName} {
+    border-right-color: @colorDefinition;
+  }
+
+  // generate active, hover, focus
+  each(@pseudoselectorList, .(@selectorValue) {
+    @pseudoselectorName: @selectorValue;
+    @pseudoselectorKeyName: '@{pseudoselectorName}--key';
+    @pseudoselectorClassName: @@pseudoselectorKeyName;
+
+    .@{pseudoselectorName}\:@{border-color--key}-@{colorName}:@{pseudoselectorClassName} {
+      border-color: @colorDefinition;
+    }
+    .@{pseudoselectorName}\:@{border-color--key}-@{vertical--key}-@{colorName}:@{pseudoselectorClassName} {
+      border-top-color: @colorDefinition;
+      border-bottom-color: @colorDefinition;
+    }
+    .@{pseudoselectorName}\:@{border-color--key}-@{horizontal--key}-@{colorName}:@{pseudoselectorClassName} {
+      border-left-color: @colorDefinition;
+      border-right-color: @colorDefinition;
+    }
+    .@{pseudoselectorName}\:@{border-color--key}-@{top--key}-@{colorName}:@{pseudoselectorClassName} {
+      border-top-color: @colorDefinition;
+    }
+    .@{pseudoselectorName}\:@{border-color--key}-@{bottom--key}-@{colorName}:@{pseudoselectorClassName} {
+      border-bottom-color: @colorDefinition;
+    }
+    .@{pseudoselectorName}\:@{border-color--key}-@{left--key}-@{colorName}:@{pseudoselectorClassName} {
+      border-left-color: @colorDefinition;
+    }
+    .@{pseudoselectorName}\:@{border-color--key}-@{right--key}-@{colorName}:@{pseudoselectorClassName} {
+      border-right-color: @colorDefinition;
+    }
+  })
+})

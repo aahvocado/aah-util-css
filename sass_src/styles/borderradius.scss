@@ -1,0 +1,85 @@
+
+.recursive-borradius(3);
+.recursive-borradius(@iteration) when (@iteration >= 0) {
+  @borderRadiusSize: @iteration * @baseBorderRadius;
+
+  // all corners
+  .@{border-radius--key}-@{iteration} {
+    border-radius: @borderRadiusSize;
+  }
+
+  // corners
+  .@{border-radius--key}-tl-@{iteration} {
+    border-top-left-radius: @borderRadiusSize;
+  }
+
+  .@{border-radius--key}-tr-@{iteration} {
+    border-top-right-radius: @borderRadiusSize;
+  }
+
+  .@{border-radius--key}-bl-@{iteration} {
+    border-bottom-left-radius: @borderRadiusSize;
+  }
+
+  .@{border-radius--key}-br-@{iteration} {
+    border-bottom-right-radius: @borderRadiusSize;
+  }
+
+  // sides
+  .@{border-radius--key}-@{left--key}-@{iteration} {
+    border-top-left-radius: @borderRadiusSize;
+    border-bottom-left-radius: @borderRadiusSize;
+  }
+  .@{border-radius--key}-@{right--key}-@{iteration} {
+    border-top-right-radius: @borderRadiusSize;
+    border-bottom-right-radius: @borderRadiusSize;
+  }
+  .@{border-radius--key}-@{top--key}-@{iteration} {
+    border-top-left-radius: @borderRadiusSize;
+    border-top-right-radius: @borderRadiusSize;
+  }
+  .@{border-radius--key}-@{bottom--key}-@{iteration} {
+    border-bottom-left-radius: @borderRadiusSize;
+    border-bottom-right-radius: @borderRadiusSize;
+  }
+
+  // do it again
+  .recursive-borradius(@iteration - 1);
+};
+
+// -- rounded corners
+.@{border-radius--key}-round {
+  border-radius: 50%;
+}
+.@{border-radius--key}-tl-round {
+  border-top-left-radius: 50%;
+}
+
+.@{border-radius--key}-tr-round {
+  border-top-right-radius: 50%;
+}
+
+.@{border-radius--key}-bl-round {
+  border-bottom-left-radius: 50%;
+}
+
+.@{border-radius--key}-br-round {
+  border-bottom-right-radius: 50%;
+}
+
+.@{border-radius--key}-@{left--key}-round {
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+.@{border-radius--key}-@{right--key}-round {
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+.@{border-radius--key}-@{top--key}-round {
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+.@{border-radius--key}-d-round {
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+}

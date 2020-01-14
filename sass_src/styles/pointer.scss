@@ -1,0 +1,10 @@
+.#{$cursor--key}-pointer {
+  cursor: pointer;
+}
+.#{$cursor--key}-auto {
+  cursor: auto;
+}
+
+.pevents-none {
+  pointer-events: none;
+}

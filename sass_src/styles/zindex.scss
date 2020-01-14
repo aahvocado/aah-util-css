@@ -1,0 +1,10 @@
+// create zindex-0 to zindex-10
+.recursive-z-index(10);
+.recursive-z-index(@iteration) when (@iteration >= 0) {
+  .@{z-index--key}-@{iteration} {
+    z-index: @iteration;
+  }
+
+  // do it again
+  .recursive-z-index(@iteration - 1);
+};

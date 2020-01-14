@@ -1,0 +1,47 @@
+/*
+  handles styles for items that are adjacent, such as those in lists
+*/
+
+// start generating
+.generate-adjacent-styles(5);
+
+// mixin for create all instances
+.generate-adjacent-styles(@n, @i: 0) when (@i =< @n) {
+  .generate-adjacent-margin(@i);
+  .generate-adjacent-padding(@i);
+
+  // recursive
+  .generate-adjacent-styles(@n, (@i + 1));
+}
+
+// margin
+.generate-adjacent-margin(@num) {
+  .@{adjacent--key}-@{margin--key}-@{top--key}-@{num} + .@{adjacent--key}-@{margin--key}-@{top--key}-@{num} {
+    margin-top: @num * @baseMargin;
+  }
+  .@{adjacent--key}-@{margin--key}-@{bottom--key}-@{num} + .@{adjacent--key}-@{margin--key}-@{bottom--key}-@{num} {
+    margin-bottom: @num * @baseMargin;
+  }
+  .@{adjacent--key}-@{margin--key}-@{left--key}-@{num} + .@{adjacent--key}-@{margin--key}-@{left--key}-@{num} {
+    margin-left: @num * @baseMargin;
+  }
+  .@{adjacent--key}-@{margin--key}-@{right--key}-@{num} + .@{adjacent--key}-@{margin--key}-@{right--key}-@{num} {
+    margin-right: @num * @baseMargin;
+  }
+}
+
+// padding
+.generate-adjacent-padding(@num) {
+  .@{adjacent--key}-@{padding--key}-@{top--key}-@{num} + .@{adjacent--key}-@{padding--key}-@{top--key}-@{num} {
+    padding-top: @num * @basePadding;
+  }
+  .@{adjacent--key}-@{padding--key}-@{bottom--key}-@{num} + .@{adjacent--key}-@{padding--key}-@{bottom--key}-@{num} {
+    padding-bottom: @num * @basePadding;
+  }
+  .@{adjacent--key}-@{padding--key}-@{left--key}-@{num} + .@{adjacent--key}-@{padding--key}-@{left--key}-@{num} {
+    padding-left: @num * @basePadding;
+  }
+  .@{adjacent--key}-@{padding--key}-@{right--key}-@{num} + .@{adjacent--key}-@{padding--key}-@{right--key}-@{num} {
+    padding-right: @num * @basePadding;
+  }
+}

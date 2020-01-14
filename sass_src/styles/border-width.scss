@@ -1,0 +1,70 @@
+// define border width
+.recursive-border-width(5);
+.recursive-border-width(@iteration) when (@iteration >= 0) {
+  @borderSize: ~"@{iteration}px";
+
+  // all sides
+  .@{border-width--key}-@{iteration} {
+    border-width: @borderSize;
+  }
+
+  // vertical - top and bottom
+  .@{border-width--key}-@{vertical--key}-@{iteration} {
+    border-top-width: @borderSize;
+    border-bottom-width: @borderSize;
+  }
+
+  // horizontal - left and right
+  .@{border-width--key}-@{horizontal--key}-@{iteration} {
+    border-left-width: @borderSize;
+    border-right-width: @borderSize;
+  }
+
+  // one side
+  .@{border-width--key}-@{top--key}-@{iteration} {
+    border-top-width: @borderSize;
+  }
+  .@{border-width--key}-@{bottom--key}-@{iteration} {
+    border-bottom-width: @borderSize;
+  }
+  .@{border-width--key}-@{left--key}-@{iteration} {
+    border-left-width: @borderSize;
+  }
+  .@{border-width--key}-@{right--key}-@{iteration} {
+    border-right-width: @borderSize;
+  }
+
+  // generate active, hover, focus
+  each(@pseudoselectorList, .(@selectorValue) {
+    @pseudoselectorName: @selectorValue;
+    @pseudoselectorKeyName: '@{pseudoselectorName}--key';
+    @pseudoselectorClassName: @@pseudoselectorKeyName;
+
+    .@{pseudoselectorName}\:@{border-width--key}-@{iteration}:@{pseudoselectorClassName} {
+      border-width: @borderSize;
+    }
+    .@{pseudoselectorName}\:@{border-width--key}-@{vertical--key}-@{iteration}:@{pseudoselectorClassName} {
+      border-top-width: @borderSize;
+      border-bottom-width: @borderSize;
+    }
+    .@{pseudoselectorName}\:@{border-width--key}-@{horizontal--key}-@{iteration}:@{pseudoselectorClassName} {
+      border-left-width: @borderSize;
+      border-right-width: @borderSize;
+    }
+    .@{pseudoselectorName}\:@{border-width--key}-@{top--key}-@{iteration}:@{pseudoselectorClassName} {
+      border-top-width: @borderSize;
+    }
+    .@{pseudoselectorName}\:@{border-width--key}-@{bottom--key}-@{iteration}:@{pseudoselectorClassName} {
+      border-bottom-width: @borderSize;
+    }
+    .@{pseudoselectorName}\:@{border-width--key}-@{left--key}-@{iteration}:@{pseudoselectorClassName} {
+      border-left-width: @borderSize;
+    }
+    .@{pseudoselectorName}\:@{border-width--key}-@{right--key}-@{iteration}:@{pseudoselectorClassName} {
+      border-right-width: @borderSize;
+    }
+  })
+
+  // do it again
+  .recursive-border-width(@iteration - 1);
+}

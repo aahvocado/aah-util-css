@@ -1,0 +1,74 @@
+each(@fontFamilyList, {
+  @fontFamilyName: @value;
+  @definition: 'fontFamily-@{fontFamilyName}';
+
+  .generate-fontFamily(@fontFamilyName, @@definition);
+});
+
+/*
+  param - @name - name for className suffix
+  param - @style - definition for the font
+*/
+.generate-fontFamily(@name, @style) {
+  .@{font-family--key}-@{name} {
+    font-family: @style;
+  }
+}
+
+// create font sizes from 0 to max
+.generate-all-font-size(10);
+
+// mixin for create all instances
+.generate-all-font-size(@n, @i: 0) when (@i =< @n) {
+  .generate-font-size(@i);
+
+  // recursive loop
+  .generate-all-font-size(@n, (@i + 1));
+};
+
+// mixin
+.generate-font-size(@num) {
+  .@{font-size--key}-@{num} {
+    font-size: @num * 5px;
+  }
+
+  // with media queries
+  each(@mediaList, .(@mediaName) {
+    @mediaDefinition: @@mediaName;
+
+    @media @mediaDefinition {
+      .@{mediaName}\:@{font-size--key}-@{num} {
+        font-size: @num * 5px;
+      }
+    }
+  })
+}
+
+// specific sizes
+// todo - calculations/rem
+.@{font-size--key}-base {
+  font-size: @baseFontSize;
+  line-height: @baseFontSize;
+}
+.@{font-size--key}-small {
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+}
+.@{font-size--key}-big {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+
+// font weight
+.@{font-style--key}-thin {
+  font-weight: 200;
+}
+.@{font-style--key}-normal {
+  font-weight: 400;
+}
+.@{font-style--key}-bold {
+  font-weight: 600;
+}
+.@{font-style--key}-italic {
+  font-style: italic;
+}
