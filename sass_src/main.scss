@@ -1,3 +1,8 @@
+@use "sass:selector";
+
 @import 'keys.scss';
 @import 'definitions.scss';
+
+@import 'mixins/media-query.scss';
+
 @import 'all-util-styles.scss';

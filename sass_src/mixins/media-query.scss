@@ -39,3 +39,18 @@ $max-screen-width-m: $screen-width-l - 1;
     }
   }
 }
+
+@mixin applyMedia-all() {
+  @include applyMedia-xs() {
+    @content;
+  };
+  @include applyMedia-s() {
+    @content;
+  };
+  @include applyMedia-m() {
+    @content;
+  };
+  @include applyMedia-l() {
+    @content;
+  };
+}
