@@ -1,6 +1,4 @@
-/*
-  these are key prefixes that will define the class name
- */
+// these are key prefixes that will define the class name
 
 // -- directional
 $vertical--key: v;
@@ -9,12 +7,6 @@ $top--key: t;
 $bottom--key: b;
 $left--key: l;
 $right--key: r;
-
-// -- media query
-$extra-small--key: \:\:xs;
-$small--key: \:\:s;
-$medium--key: \:\:m;
-$large--key: \:\:l;
 
 // --
 $width--key: width;

@@ -1,7 +1,5 @@
-/*
-  All these values can be redefined for your own customization.
-  For the lists, you can add more of your own keys as long as there is a matching value;
-*/
+// All these values can be redefined for your own customization.
+//  For the lists, you can add more of your own keys as long as there is a matching value;
 
 // -- Color
 $COLOR_MAP: (
@@ -30,6 +28,13 @@ $BREAKPOINT_MAP: (
   "small": 480px,
   "medium": 768px,
   "large": 1024px
+);
+
+$MEDIA_QUERY_KEY_MAP: (
+  "extra-small": "xs",
+  "small": "s",
+  "medium": "m",
+  "large": "l"
 );
 
 // -- Base Sizing per tick

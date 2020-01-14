@@ -7,50 +7,50 @@ $max-screen-width-xs: $min-screen-width-xs;
 $max-screen-width-s: $min-screen-width-m - 1;
 $max-screen-width-m: $min-screen-width-l - 1;
 
+// --
+@function generate_media_query_selector($string, $mq) {
+  @return $mq + "\:" + $string;
+}
 
-@mixin applyMedia-xs() {
-  @at-root #{selector.append(&, "#{$extra-small--key}")} {
-    @media (max-width: $max-screen-width-xs) {
-      @content;
-    };
+// -- mixins that wraps around a class
+@mixin apply_media_query-xs() {
+  @media (max-width: $max-screen-width-xs) {
+    @content;
+  };
+}
+
+@mixin apply_media_query-s() {
+  @media (min-width: $min-screen-width-s) and (max-width: $max-screen-width-s) {
+    @content;
   }
 }
 
-@mixin applyMedia-s() {
-  @at-root #{selector.append(&, "#{$small--key}")} {
-    @media (min-width: $min-screen-width-s) and (max-width: $max-screen-width-s) {
-      @content;
-    }
+@mixin apply_media_query-m() {
+  @media (min-width: $min-screen-width-m) and (max-width: $max-screen-width-m) {
+    @content;
   }
 }
 
-@mixin applyMedia-m() {
-  @at-root #{selector.append(&, "#{$medium--key}")} {
-    @media (min-width: $min-screen-width-m) and (max-width: $max-screen-width-m) {
-      @content;
-    }
+@mixin apply_media_query-l() {
+  @media (min-width: $min-screen-width-l) {
+    @content;
   }
 }
 
-@mixin applyMedia-l() {
-  @at-root #{selector.append(&, "#{$large--key}")} {
-    @media (min-width: $min-screen-width-l) {
-      @content;
-    }
-  }
-}
+/// -- does it all
+@mixin apply_media_query-all() {
+  @include apply_media_query-xs() {
+    @content;
+  };
+  @include apply_media_query-s() {
+    @content;
+  };
+  @include apply_media_query-m() {
+    @content;
+  };
+  @include apply_media_query-l() {
+    @content;
+  };
 
-@mixin applyMedia-all() {
-  @include applyMedia-xs() {
-    @content;
-  };
-  @include applyMedia-s() {
-    @content;
-  };
-  @include applyMedia-m() {
-    @content;
-  };
-  @include applyMedia-l() {
-    @content;
-  };
+  @content;
 }
