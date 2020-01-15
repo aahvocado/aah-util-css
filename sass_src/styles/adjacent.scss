@@ -4,7 +4,7 @@
 //  results in: `adjacent-margin-top-2`;
 @mixin generate_adjacent_styles($num, $type, $direction, $mediaquery: false) {
   $type--key: map.get($SELECTOR_MAP, $type);
-  $direction--key: map.get($DIRECTION_MAP, $direction);
+  $direction--key: map.get($COMMON_DIRECTION_MAP, $direction);
   $type_size--base: map.get($BASE_SIZE_MAP, $type);
 
   $adjacent--key: map.get($SELECTOR_MAP, "adjacent");

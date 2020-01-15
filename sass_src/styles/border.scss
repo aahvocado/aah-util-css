@@ -8,12 +8,12 @@ $border--key: map.get($SELECTOR_MAP, "border");
     @return $bor_selector_base;
   }
 
-  $direction--key: map.get($DIRECTION_MAP, $direction);
+  $direction--key: map.get($COMMON_DIRECTION_MAP, $direction);
   $bor_selector_directional_base: #{$border--key}-#{$direction--key}-#{$value}-#{$color_name};
 
   // `bor-t-1-red`
   @if $direction and not $mediaquery and not $pseudoselector {
-    $direction--key: map.get($DIRECTION_MAP, $direction);
+    $direction--key: map.get($COMMON_DIRECTION_MAP, $direction);
     @return $bor_selector_directional_base;
   }
 
@@ -29,7 +29,7 @@ $border--key: map.get($SELECTOR_MAP, "border");
 
   // `s:bor-t-1-red`
   @if $direction and $mediaquery and not $pseudoselector {
-    $direction--key: map.get($DIRECTION_MAP, $direction);
+    $direction--key: map.get($COMMON_DIRECTION_MAP, $direction);
     @return get_media_query_selector($bor_selector_directional_base, $mediaquery);
   }
 
@@ -102,7 +102,7 @@ $border--key: map.get($SELECTOR_MAP, "border");
     @include generate_border_styles($value, $color_name);
 
     // all directions
-    @each $direction_name, $direction_key in $DIRECTION_MAP {
+    @each $direction_name, $direction_key in $COMMON_DIRECTION_MAP {
       @include generate_border_styles($value, $color_name, $direction_name);
 
       // breakpoints
