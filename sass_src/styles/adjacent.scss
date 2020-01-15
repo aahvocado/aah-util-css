@@ -1,8 +1,8 @@
 // styling for adjacent elements, will cause the sibling to get the style
 
-// example: generate_adjacent_selector(2, margin, top)
+// example: generate_adjacent_styles(2, margin, top)
 //  results in: `adjacent-margin-top-2`;
-@mixin generate_adjacent_selector($num, $type, $direction, $mq: false) {
+@mixin generate_adjacent_styles($num, $type, $direction, $mq: false) {
   $type--key: map.get($SELECTOR_MAP, $type);
   $direction--key: map.get($DIRECTION_MAP, $direction);
   $type_size--base: map.get($BASE_SIZE_MAP, $type);
@@ -26,9 +26,9 @@
 
 // generates adjacent margins in a given direction
 @mixin generate_adjacent_type_direction($num, $type, $direction_key) {
-  @include generate_adjacent_selector($num, $type, $direction_key);
+  @include generate_adjacent_styles($num, $type, $direction_key);
   @each $mq_name, $mq in $MEDIA_QUERY_KEY_MAP {
-    @include generate_adjacent_selector($num, $type, $direction_key, $mq);
+    @include generate_adjacent_styles($num, $type, $direction_key, $mq);
   }
 }
 
