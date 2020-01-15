@@ -1,13 +1,16 @@
+$box-sizing--key: map.get($SELECTOR_MAP, "box-sizing");
 
-.@{box-sizing--key}-content {
+/* start -- box-sizing */
+.#{$box-sizing--key}-content {
   box-sizing: content-box;
 }
-.@{box-sizing--key}-border {
+.#{$box-sizing--key}-border {
   box-sizing: border-box;
 }
-.@{box-sizing--key}-initial {
+.#{$box-sizing--key}-initial {
   box-sizing: initial;
 }
-.@{box-sizing--key}-inherit {
+.#{$box-sizing--key}-inherit {
   box-sizing: inherit;
 }
+/* end -- box-sizing */
