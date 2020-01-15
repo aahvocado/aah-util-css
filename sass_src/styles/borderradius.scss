@@ -1,85 +1,130 @@
+$border-radius--key: map.get($SELECTOR_MAP, "border-radius");
 
-.recursive-borradius(3);
-.recursive-borradius(@iteration) when (@iteration >= 0) {
-  @borderRadiusSize: @iteration * @baseBorderRadius;
+@function get_border_radius_style_selector($value, $direction: false, $mediaquery: false, $pseudoselector: false) {
+  $borradius_selector_base: #{$border-radius--key}-#{$value};
 
-  // all corners
-  .@{border-radius--key}-@{iteration} {
-    border-radius: @borderRadiusSize;
+  // `borradius-1`
+  @if not $direction and not $mediaquery and not $pseudoselector {
+    @return $borradius_selector_base;
   }
 
-  // corners
-  .@{border-radius--key}-tl-@{iteration} {
-    border-top-left-radius: @borderRadiusSize;
+  $direction--key: map.get($COMMON_DIRECTION_MAP, $direction);
+  $borradius_selector_directional_base: #{$border-radius--key}-#{$direction--key}-#{$value};
+
+  // `borradius-t-1`
+  @if $direction and not $mediaquery and not $pseudoselector {
+    $direction--key: map.get($COMMON_DIRECTION_MAP, $direction);
+    @return $borradius_selector_directional_base;
   }
 
-  .@{border-radius--key}-tr-@{iteration} {
-    border-top-right-radius: @borderRadiusSize;
+  // `s:borradius-1`
+  @if not $direction and $mediaquery and not $pseudoselector {
+     @return get_media_query_selector($borradius_selector_base, $mediaquery);
   }
 
-  .@{border-radius--key}-bl-@{iteration} {
-    border-bottom-left-radius: @borderRadiusSize;
+  // `borradius-1:focus`
+  @if not $direction and not $mediaquery and $pseudoselector {
+    @return get_pseudoselector_selector($borradius_selector_base, $pseudoselector);
   }
 
-  .@{border-radius--key}-br-@{iteration} {
-    border-bottom-right-radius: @borderRadiusSize;
+  // `s:borradius-t-1`
+  @if $direction and $mediaquery and not $pseudoselector {
+    $direction--key: map.get($COMMON_DIRECTION_MAP, $direction);
+    @return get_media_query_selector($borradius_selector_directional_base, $mediaquery);
   }
 
-  // sides
-  .@{border-radius--key}-@{left--key}-@{iteration} {
-    border-top-left-radius: @borderRadiusSize;
-    border-bottom-left-radius: @borderRadiusSize;
-  }
-  .@{border-radius--key}-@{right--key}-@{iteration} {
-    border-top-right-radius: @borderRadiusSize;
-    border-bottom-right-radius: @borderRadiusSize;
-  }
-  .@{border-radius--key}-@{top--key}-@{iteration} {
-    border-top-left-radius: @borderRadiusSize;
-    border-top-right-radius: @borderRadiusSize;
-  }
-  .@{border-radius--key}-@{bottom--key}-@{iteration} {
-    border-bottom-left-radius: @borderRadiusSize;
-    border-bottom-right-radius: @borderRadiusSize;
+  // `borradius-t-1:focus`
+  @if $direction and not $mediaquery and $pseudoselector {
+    @return get_pseudoselector_selector($borradius_selector_directional_base, $pseudoselector);
   }
 
-  // do it again
-  .recursive-borradius(@iteration - 1);
-};
+  // `s:borradius-1:focus`
+  @if not $direction and $mediaquery and $pseudoselector {
+    @return get_media_query_selector(get_pseudoselector_selector($borradius_selector_base, $pseudoselector), $mediaquery);
+  }
 
-// -- rounded corners
-.@{border-radius--key}-round {
-  border-radius: 50%;
-}
-.@{border-radius--key}-tl-round {
-  border-top-left-radius: 50%;
-}
-
-.@{border-radius--key}-tr-round {
-  border-top-right-radius: 50%;
+  // `s:borradius-t-1:focus`
+  @if $direction and $mediaquery and $pseudoselector {
+    @return get_media_query_selector(get_pseudoselector_selector($borradius_selector_directional_base, $pseudoselector), $mediaquery);
+  }
 }
 
-.@{border-radius--key}-bl-round {
-  border-bottom-left-radius: 50%;
+@function get_border_radius_size($value) {
+  @if $value == "round" {
+    @return 50%;
+
+  } @else {
+    @return $value * map.get($BASE_SIZE_MAP, "border-radius");
+  }
 }
 
-.@{border-radius--key}-br-round {
-  border-bottom-right-radius: 50%;
+@mixin generate_border_radius_styles($value, $direction: false, $mediaquery: false, $pseudoselector: false) {
+  $selector_name_base: get_border_radius_style_selector($value, $direction, $mediaquery, $pseudoselector);
+  $borradius-size: get_border_radius_size($value);
+
+  // no directions given means all sides
+  @if not $direction {
+    .#{$selector_name_base} {
+      border-radius: $borradius-size;
+    }
+
+  // cardinal directions will have two corners affected
+  } @else if $direction == "top" {
+    .#{$selector_name_base} {
+      border-top-left-radius: $borradius-size;
+      border-top-right-radius: $borradius-size;
+    }
+
+  } @else if $direction == "bottom" {
+    .#{$selector_name_base} {
+      border-bottom-left-radius: $borradius-size;
+      border-bottom-right-radius: $borradius-size;
+    }
+
+  } @else if $direction == "left" {
+    .#{$selector_name_base} {
+      border-top-left-radius: $borradius-size;
+      border-bottom-left-radius: $borradius-size;
+    }
+
+  } @else if $direction == "right" {
+    .#{$selector_name_base} {
+      border-top-right-radius: $borradius-size;
+      border-bottom-right-radius: $borradius-size;
+    }
+
+  // diagonals - eg. top-left, top-right, bottom-left, bottom-right
+  } @else {
+    .#{$selector_name_base} {
+      border-#{$direction}-radius: $borradius-size;
+    }
+  }
 }
 
-.@{border-radius--key}-@{left--key}-round {
-  border-top-left-radius: 50%;
-  border-bottom-left-radius: 50%;
+/* start -- border */
+@for $value from 0 through 9 {
+  // generic
+  @include generate_border_radius_styles($value);
+
+  // all directions
+  @each $direction_name, $direction_key in $BASIC_DIRECTION_MAP {
+    @include generate_border_radius_styles($value, $direction_name);
+
+    // breakpoints
+    @each $mediaquery, $mq_key in $MEDIA_QUERY_KEY_MAP {
+      @include generate_border_radius_styles($value, $direction_name, $mediaquery);
+    }
+  }
 }
-.@{border-radius--key}-@{right--key}-round {
-  border-top-right-radius: 50%;
-  border-bottom-right-radius: 50%;
+
+// then repeat the above for `round` styles
+@include generate_border_radius_styles("round");
+
+@each $direction_name, $direction_key in $BASIC_DIRECTION_MAP {
+  @include generate_border_radius_styles("round", $direction_name);
+
+  @each $mediaquery, $mq_key in $MEDIA_QUERY_KEY_MAP {
+    @include generate_border_radius_styles("round", $direction_name, $mediaquery);
+  }
 }
-.@{border-radius--key}-@{top--key}-round {
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
-}
-.@{border-radius--key}-d-round {
-  border-bottom-left-radius: 50%;
-  border-bottom-right-radius: 50%;
-}
+/* end -- border */
