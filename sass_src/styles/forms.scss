@@ -1,41 +1,45 @@
-.@{resize--key}-none {
+$resize--key: map.get($SELECTOR_MAP, "resize");
+$white-space--key: map.get($SELECTOR_MAP, "white-space");
+
+/* start -- forms */
+.#{$resize--key}-none {
   resize: none;
 }
-.@{resize--key}-both {
+.#{$resize--key}-both {
   resize: both;
 }
-.@{resize--key}-horizontal {
+.#{$resize--key}-horizontal {
   resize: horizontal;
 }
-.@{resize--key}-vertical {
+.#{$resize--key}-vertical {
   resize: vertical;
 }
-.@{resize--key}-initial {
+.#{$resize--key}-initial {
   resize: initial;
 }
-.@{resize--key}-inherit {
+.#{$resize--key}-inherit {
   resize: inherit;
 }
 
-.@{white-space--key}-normal {
+.#{$white-space--key}-normal {
   white-space: normal;
 }
-.@{white-space--key}-nowrap {
+.#{$white-space--key}-nowrap {
   white-space: nowrap;
 }
-.@{white-space--key}-pre {
+.#{$white-space--key}-pre {
   white-space: pre;
 }
-.@{white-space--key}-pre-line {
+.#{$white-space--key}-pre-line {
   white-space: pre-line;
 }
-.@{white-space--key}-pre-wrap {
+.#{$white-space--key}-pre-wrap {
   white-space: pre-wrap;
 }
-.@{white-space--key}-initial {
+.#{$white-space--key}-initial {
   white-space: initial;
 }
-.@{white-space--key}-inherit {
+.#{$white-space--key}-inherit {
   white-space: inherit;
 }
-
+/* end -- forms */
