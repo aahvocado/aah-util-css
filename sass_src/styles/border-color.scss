@@ -16,7 +16,7 @@ $border-color--key: map.get($SELECTOR_MAP, "border-color");
 
   // `s:borcolor-blue`
   @if not $direction and $mq and not $pseudoselector {
-     @return generate_media_query_selector(#{$border-color--key}-#{$color_name}, $mq);
+     @return get_media_query_selector(#{$border-color--key}-#{$color_name}, $mq);
   }
 
   // todo: `borcolor-blue:focus`
@@ -27,7 +27,7 @@ $border-color--key: map.get($SELECTOR_MAP, "border-color");
   // `s:borcolor-t-red`
   @if $direction and $mq and not $pseudoselector {
     $direction--key: map.get($DIRECTION_MAP, $direction);
-    @return generate_media_query_selector(#{$border-color--key}-#{$direction--key}-#{$color_name}, $mq);
+    @return get_media_query_selector(#{$border-color--key}-#{$direction--key}-#{$color_name}, $mq);
   }
 
   // todo: `borcolor-t-red:focus`

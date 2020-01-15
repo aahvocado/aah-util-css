@@ -8,7 +8,7 @@ $max-screen-width-s: $min-screen-width-m - 1;
 $max-screen-width-m: $min-screen-width-l - 1;
 
 // --
-@function generate_media_query_selector($base_selector, $mq) {
+@function get_media_query_selector($base_selector, $mq) {
   @return $mq + "\:" + $base_selector;
 }
 

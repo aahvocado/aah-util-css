@@ -12,7 +12,7 @@
 
   // if a media-query is provided
   @if $mq {
-    $selector_name_base-mq: generate_media_query_selector($selector_name_base, $mq);
+    $selector_name_base-mq: get_media_query_selector($selector_name_base, $mq);
     .#{$selector_name_base-mq} + .#{$selector_name_base-mq} {
       #{$type}-#{$direction}: $num * $type_size--base;
     }
