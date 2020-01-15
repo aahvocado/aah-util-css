@@ -1,0 +1,3 @@
+@function get_pseudoselector_selector($base_selector, $pseudoselector) {
+  @return $base_selector + "\:" + $pseudoselector;
+}
