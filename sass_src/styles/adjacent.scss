@@ -28,7 +28,9 @@
 @mixin generate_adjacent_type_direction($num, $type, $direction_key) {
   @include generate_adjacent_styles($num, $type, $direction_key);
   @each $mediaquery, $mq_key in $MEDIA_QUERY_KEY_MAP {
-    @include generate_adjacent_styles($num, $type, $direction_key, $mediaquery);
+    @include apply_media_query($mediaquery) {
+      @include generate_adjacent_styles($num, $type, $direction_key, $mediaquery);
+    }
   }
 }
 

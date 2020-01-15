@@ -45,11 +45,13 @@ $color_types: color, background-color;
 
     // breakpoints
     @each $mediaquery, $mq_key in $MEDIA_QUERY_KEY_MAP {
-      @include generate_color_styles($selector_type, $color_name, $mediaquery);
+      @include apply_media_query($mediaquery) {
+        @include generate_color_styles($selector_type, $color_name, $mediaquery);
 
-      // pseudoselectors
-      @each $pseudoselector, $ps_key in $PSEUDOSELECTOR_MAP {
-        @include generate_color_styles($selector_type, $color_name, $mediaquery, $pseudoselector);
+        // pseudoselectors
+        @each $pseudoselector, $ps_key in $PSEUDOSELECTOR_MAP {
+          @include generate_color_styles($selector_type, $color_name, $mediaquery, $pseudoselector);
+        }
       }
     }
   }

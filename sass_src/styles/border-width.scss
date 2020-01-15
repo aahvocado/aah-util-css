@@ -91,11 +91,13 @@ $border-width--key: map.get($SELECTOR_MAP, "border-width");
 
     // breakpoints
     @each $mediaquery, $mq_key in $MEDIA_QUERY_KEY_MAP {
-      @include generate_border_width_styles($value, $direction_name, $mediaquery);
+      @include apply_media_query($mediaquery) {
+        @include generate_border_width_styles($value, $direction_name, $mediaquery);
 
-      // pseudoselectors
-      @each $pseudoselector, $ps_key in $PSEUDOSELECTOR_MAP {
-        @include generate_border_width_styles($value, $direction_name, $mediaquery, $pseudoselector);
+        // pseudoselectors
+        @each $pseudoselector, $ps_key in $PSEUDOSELECTOR_MAP {
+          @include generate_border_width_styles($value, $direction_name, $mediaquery, $pseudoselector);
+        }
       }
     }
   }
