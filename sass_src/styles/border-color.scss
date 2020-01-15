@@ -1,59 +1,96 @@
-@each $name, $color in $COLOR_MAP {
-  // all sides
-  .#{$border-color--key}-#{$name} {
-    border-color: $color;
+// styling for border color
+
+$border-color--key: map.get($SELECTOR_MAP, "border-color");
+
+@function get_border_color_style_selector($color_name, $direction: false, $mq: false, $pseudoselector: false) {
+  // `borcolor-blue`
+  @if not $direction and not $mq and not $pseudoselector {
+    @return #{$border-color--key}-#{$color_name};
   }
 
-  // vertical - top and bottom
-  .#{$border-color--key}-#{$vertical--key}-#{$name} {
-    border-top-color: $color;
-    border-bottom-color: $color;
+  // `borcolor-t-red`
+  @if $direction and not $mq and not $pseudoselector {
+    $direction--key: map.get($DIRECTION_MAP, $direction);
+    @return #{$border-color--key}-#{$direction--key}-#{$color_name};
   }
 
-  // horizontal - left and right
-  .#{$border-color--key}-#{$horizontal--key}-#{$name} {
-    border-left-color: $color;
-    border-right-color: $color;
+  // `s:borcolor-blue`
+  @if not $direction and $mq and not $pseudoselector {
+     @return generate_media_query_selector(#{$border-color--key}-#{$color_name}, $mq);
   }
 
-  // one side
-  .#{$border-color--key}-#{$top--key}-#{$name} {
-    border-top-color: $color;
-  }
-  .#{$border-color--key}-#{$bottom--key}-#{$name} {
-    border-bottom-color: $color;
-  }
-  .#{$border-color--key}-#{$left--key}-#{$name} {
-    border-left-color: $color;
-  }
-  .#{$border-color--key}-#{$right--key}-#{$name} {
-    border-right-color: $color;
+  // todo: `borcolor-blue:focus`
+  @if not $direction and not $mq and $pseudoselector {
+    @return #{$border-color--key}-#{$color_name};
   }
 
-  // generate active, hover, focus
-  @each $pseudoSelectorName, $pseudoSelectorKey in $PSEUDOSELECTOR_MAP {
-    .#{$pseudoSelectorKey}#{$border-color--key}-#{$name}:#{$pseudoSelectorName} {
-      border-color: $color;
+  // `s:borcolor-t-red`
+  @if $direction and $mq and not $pseudoselector {
+    $direction--key: map.get($DIRECTION_MAP, $direction);
+    @return generate_media_query_selector(#{$border-color--key}-#{$direction--key}-#{$color_name}, $mq);
+  }
+
+  // todo: `borcolor-t-red:focus`
+  @if $direction and not $mq and $pseudoselector {
+    @return #{$border-color--key}-#{$color_name};
+  }
+
+  // todo: `s:borcolor-blue:focus`
+  @if not $direction and $mq and $pseudoselector {
+    @return #{$border-color--key}-#{$color_name};
+  }
+
+  // todo: `s:borcolor-t-red:focus`
+  @if $direction and $mq and $pseudoselector {
+    @return #{$border-color--key}-#{$color_name};
+  }
+}
+
+@mixin generate_border_color_styles($color_name, $direction: false, $mq: false, $pseudoselector: false) {
+  $color_value: map.get($COLOR_MAP, $color_name);
+  $selector_name_base: get_border_color_style_selector($color_name, $direction, $mq, $pseudoselector);
+
+  // no directions given means all sides
+  @if not $direction {
+    .#{$selector_name_base} {
+      border-color: $color_value;
     }
-    .#{$pseudoSelectorKey}#{$border-color--key}-#{$vertical--key}-#{$name}:#{$pseudoSelectorName} {
-      border-top-color: $color;
-      border-bottom-color: $color;
+
+  // left, right
+  } @else if $direction == "horizontal" {
+    .#{$selector_name_base} {
+      border-left: $color_value;
+      border-right: $color_value;
     }
-    .#{$pseudoSelectorKey}#{$border-color--key}-#{$horizontal--key}-#{$name}:#{$pseudoSelectorName} {
-      border-left-color: $color;
-      border-right-color: $color;
+
+  // top, bottom
+  } @else if $direction == "vertical" {
+    .#{$selector_name_base} {
+      border-top: $color_value;
+      border-bottom: $color_value;
     }
-    .#{$pseudoSelectorKey}#{$border-color--key}-#{$top--key}-#{$name}:#{$pseudoSelectorName} {
-      border-top-color: $color;
-    }
-    .#{$pseudoSelectorKey}#{$border-color--key}-#{$bottom--key}-#{$name}:#{$pseudoSelectorName} {
-      border-bottom-color: $color;
-    }
-    .#{$pseudoSelectorKey}#{$border-color--key}-#{$left--key}-#{$name}:#{$pseudoSelectorName} {
-      border-left-color: $color;
-    }
-    .#{$pseudoSelectorKey}#{$border-color--key}-#{$right--key}-#{$name}:#{$pseudoSelectorName} {
-      border-right-color: $color;
+
+  // cardinal directions, eg. left, right, top, down
+  } @else {
+    .#{$selector_name_base} {
+      border-#{$direction}: $color_value;
     }
   }
 }
+
+/* start -- border-color*/
+@each $color_name, $color_value in $COLOR_MAP {
+  // basic version with just colors
+  @include generate_border_color_styles($color_name);
+
+  // all directions
+  @each $direction_name, $direction_key in $DIRECTION_MAP {
+    @include generate_border_color_styles($color_name, $direction_name);
+
+    // breakpoints
+    @each $mq_name, $mq in $MEDIA_QUERY_KEY_MAP {
+      @include generate_border_color_styles($color_name, $direction_name, $mq);
+    }
+  }
+}
+/* end -- border-color */
