@@ -1,17 +1,17 @@
-// create opacity-1 to opacity-9
-.recursive-opacity(9);
-.recursive-opacity(@iteration) when (@iteration > 0) {
-  .@{opacity--key}-@{iteration} {
-    opacity: ~"0.@{iteration}";
-  }
+$opacity--key: map.get($SELECTOR_MAP, "opacity");
 
-  // do it again
-  .recursive-opacity(@iteration - 1);
-};
-
-.@{opacity--key}-0 {
+/* start -- opacity */
+.#{$opacity--key}-0 {
   opacity: 0;
 }
-.@{opacity--key}-full {
+
+@for $value from 1 through 9 {
+  .#{$opacity--key}-#{$value} {
+    opacity: ($value / 10);
+  }
+}
+
+.#{$opacity--key}-max {
   opacity: 1;
 }
+/* end -- opacity */
