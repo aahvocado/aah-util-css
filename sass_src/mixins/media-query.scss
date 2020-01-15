@@ -8,47 +8,48 @@ $max-screen-width-s: $min-screen-width-m - 1;
 $max-screen-width-m: $min-screen-width-l - 1;
 
 // --
-@function get_media_query_selector($base_selector, $mq) {
-  @return $mq + "\:" + $base_selector;
+@function get_media_query_selector($selector, $mediaquery) {
+  $mq_key: map.get($MEDIA_QUERY_KEY_MAP, $mediaquery);
+  @return $mq_key + "\:" + $selector;
 }
 
 // -- mixins that wraps around a class
-@mixin apply_media_query-xs($base_selector) {
+@mixin apply_media_query-xs($selector) {
   @media (max-width: $max-screen-width-xs) {
     @content;
   };
 }
 
-@mixin apply_media_query-s($base_selector) {
+@mixin apply_media_query-s($selector) {
   @media (min-width: $min-screen-width-s) and (max-width: $max-screen-width-s) {
     @content;
   }
 }
 
-@mixin apply_media_query-m($base_selector) {
+@mixin apply_media_query-m($selector) {
   @media (min-width: $min-screen-width-m) and (max-width: $max-screen-width-m) {
     @content;
   }
 }
 
-@mixin apply_media_query-l($base_selector) {
+@mixin apply_media_query-l($selector) {
   @media (min-width: $min-screen-width-l) {
     @content;
   }
 }
 
 /// -- does it all
-@mixin apply_media_query-all($base_selector) {
-  @include apply_media_query-xs($base_selector) {
+@mixin apply_media_query-all($selector) {
+  @include apply_media_query-xs($selector) {
     @content;
   };
-  @include apply_media_query-s($base_selector) {
+  @include apply_media_query-s($selector) {
     @content;
   };
-  @include apply_media_query-m($base_selector) {
+  @include apply_media_query-m($selector) {
     @content;
   };
-  @include apply_media_query-l($base_selector) {
+  @include apply_media_query-l($selector) {
     @content;
   };
 

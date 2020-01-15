@@ -2,7 +2,7 @@
 
 // example: generate_adjacent_styles(2, margin, top)
 //  results in: `adjacent-margin-top-2`;
-@mixin generate_adjacent_styles($num, $type, $direction, $mq: false) {
+@mixin generate_adjacent_styles($num, $type, $direction, $mediaquery: false) {
   $type--key: map.get($SELECTOR_MAP, $type);
   $direction--key: map.get($DIRECTION_MAP, $direction);
   $type_size--base: map.get($BASE_SIZE_MAP, $type);
@@ -11,8 +11,8 @@
   $selector_name_base: #{$adjacent--key}-#{$type--key}-#{$direction--key}-#{$num};
 
   // if a media-query is provided
-  @if $mq {
-    $selector_name_base-mq: get_media_query_selector($selector_name_base, $mq);
+  @if $mediaquery {
+    $selector_name_base-mq: get_media_query_selector($selector_name_base, $mediaquery);
     .#{$selector_name_base-mq} + .#{$selector_name_base-mq} {
       #{$type}-#{$direction}: $num * $type_size--base;
     }
@@ -27,8 +27,8 @@
 // generates adjacent margins in a given direction
 @mixin generate_adjacent_type_direction($num, $type, $direction_key) {
   @include generate_adjacent_styles($num, $type, $direction_key);
-  @each $mq_name, $mq in $MEDIA_QUERY_KEY_MAP {
-    @include generate_adjacent_styles($num, $type, $direction_key, $mq);
+  @each $mediaquery, $mq_key in $MEDIA_QUERY_KEY_MAP {
+    @include generate_adjacent_styles($num, $type, $direction_key, $mediaquery);
   }
 }
 
