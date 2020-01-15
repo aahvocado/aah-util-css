@@ -1,3 +1,4 @@
 @function get_pseudoselector_selector($base_selector, $pseudoselector) {
-  @return $base_selector + "\:" + $pseudoselector;
+  $ps_key: map.get($PSEUDOSELECTOR_MAP, $pseudoselector);
+  @return $base_selector + "\:" + $ps_key;
 }
