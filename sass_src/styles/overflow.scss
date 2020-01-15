@@ -1,38 +1,37 @@
-.@{overflow--key}-visible {
-  overflow: visible;
-}
-.@{overflow--key}-hidden {
-  overflow: hidden;
-}
-.@{overflow--key}-scroll {
-  overflow: scroll;
-}
-.@{overflow--key}-auto {
-  overflow: auto;
+// todo - media query
+
+$overflow--key: map.get($SELECTOR_MAP, "overflow");
+$overflow--axis:
+  x,
+  y;
+$overflow--properties:
+  visible,
+  hidden,
+  scroll,
+  auto;
+
+@mixin generate_overflow_styles($property, $axis: false) {
+  @if $axis {
+    $overflow_selector: #{$overflow--key}-#{$axis}-#{$property};
+    .#{$overflow_selector} {
+      overflow-#{$axis}: $property;
+    }
+
+  // no axis
+  } @else {
+    $overflow_selector: #{$overflow--key}-#{$property};
+    .#{$overflow_selector} {
+      overflow: $property;
+    }
+  }
 }
 
-.@{overflow--key}-x-visible {
-  overflow-x: visible;
-}
-.@{overflow--key}-x-hidden {
-  overflow-x: hidden;
-}
-.@{overflow--key}-x-scroll {
-  overflow-x: scroll;
-}
-.@{overflow--key}-x-auto {
-  overflow-x: auto;
-}
+/* start -- overflow */
+@each $property in $overflow--properties {
+  @include generate_overflow_styles($property);
 
-.@{overflow--key}-y-visible {
-  overflow-y: visible;
+  @each $axis in $overflow--axis {
+    @include generate_overflow_styles($property, $axis);
+  }
 }
-.@{overflow--key}-y-hidden {
-  overflow-y: hidden;
-}
-.@{overflow--key}-y-scroll {
-  overflow-y: scroll;
-}
-.@{overflow--key}-y-auto {
-  overflow-y: auto;
-}
+/* end -- overflow */
