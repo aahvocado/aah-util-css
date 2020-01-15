@@ -23,18 +23,18 @@ $FONT_MAPPING: (
 );
 
 // -- Breakpoints
-$BREAKPOINT_MAP: (
-  "extra-small": 320px,
-  "small": 480px,
-  "medium": 768px,
-  "large": 1024px
-);
-
 $MEDIA_QUERY_KEY_MAP: (
   "extra-small": "xs",
   "small": "s",
   "medium": "m",
   "large": "l"
+);
+
+$BREAKPOINT_WIDTH_MAP: (
+  "xs": 320px,
+  "s": 480px,
+  "m": 768px,
+  "l": 1024px
 );
 
 // -- Base Sizing per tick
