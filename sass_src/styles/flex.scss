@@ -1,160 +1,89 @@
+// todo - media query
 
-@FLEXBOX_ALIGNMENT_PROPERTIES: {
-  @start: flex-start;
-  @center: center;
-  @end: flex-end;
-  @stretch: stretch;
-  @auto: auto;
+/* start -- flex parent */
+$flex--key: map.get($SELECTOR_MAP, "flex");
+$FLEX_PARENT_DIRECTION_LIST: (
+  "row": row,
+  "column": col,
+);
+
+@each $flex_direction_name, $flex_direction_key in $FLEX_PARENT_DIRECTION_LIST {
+  $flex_direction_base_selector: #{$flex--key}-#{$flex_direction_name};
+  .#{$flex_direction_base_selector} {
+    display: flex;
+    flex-direction: #{$flex_direction_name};
+  }
+
+  .#{$flex_direction_base_selector}-center {
+    display: flex;
+    flex-direction: #{$flex_direction_name};
+    align-items: center;
+    justify-content: center;
+  }
 }
+/* end -- flex parent */
 
-@FLEXBOX_PROPERTIES_LIST:
-  start,
-  end,
-  center,
-  stretch,
-  auto;
+/* start -- flex alignment */
+$FLEX_PROPERTIES_MAP: (
+  "align-items": map.get($SELECTOR_MAP, "align-items"),
+  "justify-content": map.get($SELECTOR_MAP, "justify-content"),
+  "align-self": map.get($SELECTOR_MAP, "align-self"),
+);
 
-each(@FLEXBOX_PROPERTIES_LIST, {
-  @propertyName: @value;
+$FLEX_PROPERTY_VALUES_MAP: (
+  "start": flex-start,
+  "center": center,
+  "end": flex-end,
+  "stretch": stretch,
+  "auto": auto,
+);
 
-  .@{align-items--key}-@{propertyName} {
-    align-items: @FLEXBOX_ALIGNMENT_PROPERTIES[@@value];
+@each $flex_property_name, $flex_property_key in $FLEX_PROPERTIES_MAP {
+  @each $flex_property_value_name, $flex_property_value_key in $FLEX_PROPERTY_VALUES_MAP {
+    .#{$flex_property_key}-#{$flex_property_value_name} {
+      #{$flex_property_name}: $flex_property_value_key;
+    }
   }
+}
+/* end -- flex alignment */
 
-  .@{justify-content--key}-@{propertyName} {
-    justify-content: @FLEXBOX_ALIGNMENT_PROPERTIES[@@propertyName];
-  }
-
-  .@{align-self--key}-@{propertyName} {
-    align-self: @FLEXBOX_ALIGNMENT_PROPERTIES[@@propertyName];
-  }
-})
-
-// flex properties
-.@{flex--key}-auto {
+/* start -- flex child sizing */
+.#{$flex--key}-auto {
   flex: 1 1 auto;
 }
-.@{flex--key}-none {
+.#{$flex--key}-none {
   flex: 0 0 auto;
 }
-.@{flex--key}-grow-only {
+.#{$flex--key}-grow-only {
   flex: 1 0;
 }
-.@{flex--key}-shrink-only {
+.#{$flex--key}-shrink-only {
   flex: 0 1;
 }
-.@{flex--key}-initial {
+.#{$flex--key}-initial {
   flex: initial;
 }
-.@{flex--key}-inherit {
+.#{$flex--key}-inherit {
   flex: inherit;
 }
+/* end -- flex child sizing */
 
-// row
-.@{flex--key}-row {
-  display: flex;
-  flex-direction: row;
-}
-.@{flex--key}-row-center {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-// col
-.@{flex--key}-col {
-  display: flex;
-  flex-direction: column;
-}
-.@{flex--key}-col-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-// flex-wrap
-.@{flex-wrap--key}-no {
+/* end -- flex-wrap */
+$flex-wrap--key: map.get($SELECTOR_MAP, "flex-wrap");
+.#{$flex-wrap--key}-no {
   flex-wrap: nowrap;
 }
-.@{flex-wrap--key}-yes {
+.#{$flex-wrap--key}-yes {
   flex-wrap: wrap;
 }
-.@{flex-wrap--key}-reverse {
+.#{$flex-wrap--key}-reverse {
   flex-wrap: wrap-reverse;
 }
-.@{flex-wrap--key}-initial {
+.#{$flex-wrap--key}-initial {
   flex-wrap: initial;
 }
-.@{flex-wrap--key}-inherit {
+.#{$flex-wrap--key}-inherit {
   flex-wrap: inherit;
 }
+/* end -- flex-wrap */
 
-// with media queries
-each(@mediaList, .(@mediaName) {
-  @mediaDefinition: @@mediaName;
-
-  @media @mediaDefinition {
-    // flex properties
-    .@{mediaName}\:@{flex--key}-auto {
-      flex: 1 1 auto;
-    }
-    .@{mediaName}\:@{flex--key}-none {
-      flex: 0 0 auto;
-    }
-    .@{mediaName}\:@{flex--key}-grow-only {
-      flex: 1 0;
-    }
-    .@{mediaName}\:@{flex--key}-shrink-only {
-      flex: 0 1;
-    }
-    .@{mediaName}\:@{flex--key}-initial {
-      flex: initial;
-    }
-    .@{mediaName}\:@{flex--key}-inherit {
-      flex: inherit;
-    }
-
-    // row
-    .@{mediaName}\:@{flex--key}-row {
-      display: flex;
-      flex-direction: row;
-    }
-    .@{mediaName}\:@{flex--key}-row-center {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-    }
-
-    // col
-    .@{mediaName}\:@{flex--key}-col {
-      display: flex;
-      flex-direction: column;
-    }
-    .@{mediaName}\:@{flex--key}-col-center {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    // flex-wrap
-    .@{mediaName}\:@{flex-wrap--key}-no {
-      flex-wrap: nowrap;
-    }
-    .@{mediaName}\:@{flex-wrap--key}-yes {
-      flex-wrap: wrap;
-    }
-    .@{mediaName}\:@{flex-wrap--key}-reverse {
-      flex-wrap: wrap-reverse;
-    }
-    .@{mediaName}\:@{flex-wrap--key}-initial {
-      flex-wrap: initial;
-    }
-    .@{mediaName}\:@{flex-wrap--key}-inherit {
-      flex-wrap: inherit;
-    }
-  }
-})
