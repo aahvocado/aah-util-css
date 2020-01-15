@@ -14,44 +14,48 @@ $max-screen-width-m: $min-screen-width-l - 1;
 }
 
 // -- mixins that wraps around a class
-@mixin apply_media_query-xs($selector) {
+@mixin apply_media_query-xs() {
   @media (max-width: $max-screen-width-xs) {
     @content;
   };
 }
 
-@mixin apply_media_query-s($selector) {
+@mixin apply_media_query-s() {
   @media (min-width: $min-screen-width-s) and (max-width: $max-screen-width-s) {
     @content;
   }
 }
 
-@mixin apply_media_query-m($selector) {
+@mixin apply_media_query-m() {
   @media (min-width: $min-screen-width-m) and (max-width: $max-screen-width-m) {
     @content;
   }
 }
 
-@mixin apply_media_query-l($selector) {
+@mixin apply_media_query-l() {
   @media (min-width: $min-screen-width-l) {
     @content;
   }
 }
 
-/// -- does it all
-@mixin apply_media_query-all($selector) {
-  @include apply_media_query-xs($selector) {
+@mixin apply_media_query($mediaquery) {
+  @if $mediaquery == "extra-small" {
+    @include apply_media_query-xs() {
+      @content;
+    }
+  } @else if $mediaquery == "small" {
+    @include apply_media_query-s() {
+      @content;
+    }
+  } @else if $mediaquery == "medium" {
+    @include apply_media_query-s() {
+      @content;
+    }
+  } @else if $mediaquery == "large" {
+    @include apply_media_query-s() {
+      @content;
+    }
+  } @else {
     @content;
-  };
-  @include apply_media_query-s($selector) {
-    @content;
-  };
-  @include apply_media_query-m($selector) {
-    @content;
-  };
-  @include apply_media_query-l($selector) {
-    @content;
-  };
-
-  @content;
+  }
 }
