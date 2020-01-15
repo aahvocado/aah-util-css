@@ -1,0 +1,57 @@
+// styling for border color
+
+// $color--key: map.get($SELECTOR_MAP, "color");
+// $background-color--key: map.get($SELECTOR_MAP, "background-color");
+
+@function get_color_style_selector($selector_type, $color_name, $mediaquery: false, $pseudoselector: false) {
+  $selector-key: map.get($SELECTOR_MAP, $selector_type);
+  $selector_base: #{$selector-key}-#{$color_name};
+
+  // `color-blue`
+  @if not $mediaquery and not $pseudoselector {
+    @return $selector_base;
+  }
+
+  // `s:color-blue`
+  @if $mediaquery and not $pseudoselector {
+     @return get_media_query_selector($selector_base, $mediaquery);
+  }
+
+  // `color-blue:focus`
+  @if not $mediaquery and $pseudoselector {
+    @return get_pseudoselector_selector($selector_base, $pseudoselector);
+  }
+
+  // `s:color-blue:focus`
+  @if $mediaquery and $pseudoselector {
+    @return get_media_query_selector(get_pseudoselector_selector($selector_base, $pseudoselector), $mediaquery);
+  }
+}
+
+@mixin generate_color_styles($selector_type, $color_name, $mediaquery: false, $pseudoselector: false) {
+  $color_value: map.get($COLOR_MAP, $color_name);
+  $selector_name_base: get_color_style_selector($selector_type, $color_name, $mediaquery, $pseudoselector);
+  .#{$selector_name_base} {
+    #{$selector_type}: $color_value;
+  }
+}
+
+/* start -- colors */
+$color_types: color, background-color;
+@each $selector_type in $color_types {
+  @each $color_name, $color_value in $COLOR_MAP {
+    // basic version with just colors
+    @include generate_color_styles($selector_type, $color_name);
+
+    // breakpoints
+    @each $mediaquery, $mq_key in $MEDIA_QUERY_KEY_MAP {
+      @include generate_color_styles($selector_type, $color_name, $mediaquery);
+
+      // pseudoselectors
+      @each $pseudoselector, $ps_key in $PSEUDOSELECTOR_MAP {
+        @include generate_color_styles($selector_type, $color_name, $mediaquery, $pseudoselector);
+      }
+    }
+  }
+}
+/* end -- colors */
