@@ -1,3 +1,6 @@
+$width--key: map.get($SELECTOR_MAP, "width");
+$height--key: map.get($SELECTOR_MAP, "height");
+
 .#{$width--key}-full {
   width: 100%;
 }

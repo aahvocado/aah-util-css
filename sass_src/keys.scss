@@ -1,63 +1,57 @@
 // these are key prefixes that will define the class name
 
 // -- directional
-$vertical--key: v;
-$horizontal--key: h;
-$top--key: t;
-$bottom--key: b;
-$left--key: l;
-$right--key: r;
+$DIRECTION_MAP: (
+  "vertical": "v",
+  "horizontal": "h",
+  "top": "t",
+  "bottom": "b",
+  "left": "l",
+  "right": "r",
+);
 
-// --
-$width--key: width;
-$height--key: height;
+// -- other selectors
+$SELECTOR_MAP: (
+  "width": "width",
+  "height": "height",
 
-$color--key: color;
-$background-color--key: bg;
+  "margin": "mar",
+  "padding": "pad",
 
-$adjacent--key: adjacent;
+  "color": "color",
+  "background-color": "bg",
 
-$border--key: bor;
-$border-color--key: borcolor;
-$border-radius--key: borradius;
-$border-width--key: borwidth;
+  "font-family": "fontfamily",
+  "font-size": "fontsize",
+  "fontstyle": "f",
 
-$box-sizing--key: boxsizing;
-$box-shadow--key: boxshadow;
+  "adjacent": "adjacent",
+  "border": "bor",
+  "border-color": "borcolor",
+  "border-radius": "borradius",
+  "border-width": "borwidth",
+  "box-sizing": "boxsizing",
+  "box-shadow": "boxshadow",
 
-$cursor--key: cursor;
+  "cursor": "cursor",
+  "display": "display",
+  "opacity": "opacity",
 
-$display--key: display;
+  "flex": "flex",
+  "flex-wrap": "flexwrap",
+  "align-items": "aitems",
+  "justify-content": "jcontent",
+  "align-self": "aself",
 
-$flex--key: flex;
-$flex-wrap--key: flexwrap;
-$align-items--key: aitems;
-$justify-content--key: jcontent;
-$align-self--key: aself;
-
-$font-family--key: fontfamily;
-$font-size--key: fsize;
-$font-style--key: f;
-
-$margin--key: mar;
-
-$opacity--key: opacity;
-
-$overflow--key: overflow;
-
-$padding--key: pad;
-
-$position--key: position;
-$pos--key: pos;
-
-$resize--key: resize;
-
-$text--key: text;
-$text-align--key: talign;
-
-$white-space--key: whitespace;
-
-$z-index--key: zindex;
+  "overflow": "overflow",
+  "position": "position",
+  "pos": "pos",
+  "resize": "resize",
+  "text": "text",
+  "text-align": "talign",
+  "white-space": "whitespace",
+  "z-index": "zindex",
+);
 
 // -- pseudoselectors
 $PSEUDOSELECTOR_MAP: (
