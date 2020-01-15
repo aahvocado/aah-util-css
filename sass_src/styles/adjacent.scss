@@ -1,50 +1,46 @@
-/*
-  styling for adjacent elements, this causes the sibling to get the style
-*/
+// styling for adjacent elements, will cause the sibling to get the style
 
-$marginBase: map.get($BASE_SIZE_MAP, "margin");
-$paddingBase: map.get($BASE_SIZE_MAP, "padding");
-/**
- * example result - `.adjacent-mar-t-1 + .adjacent-mar-t-1`;
- *
- * @param {Number} $num
- */
-@mixin generate-adjacent-margin($num) {
-  .#{$adjacent--key}-#{$margin--key}-#{$top--key}-#{$num} + .#{$adjacent--key}-#{$margin--key}-#{$top--key}-#{$num} {
-    margin-top: $num * $marginBase;
-  }
-  .#{$adjacent--key}-#{$margin--key}-#{$bottom--key}-#{$num} + .#{$adjacent--key}-#{$margin--key}-#{$bottom--key}-#{$num} {
-    margin-bottom: $num * $marginBase;
-  }
-  .#{$adjacent--key}-#{$margin--key}-#{$left--key}-#{$num} + .#{$adjacent--key}-#{$margin--key}-#{$left--key}-#{$num} {
-    margin-left: $num * $marginBase;
-  }
-  .#{$adjacent--key}-#{$margin--key}-#{$right--key}-#{$num} + .#{$adjacent--key}-#{$margin--key}-#{$right--key}-#{$num} {
-    margin-right: $num * $marginBase;
+// example: generate_adjacent_selector(2, margin, top)
+//  results in: `adjacent-margin-top-2`;
+@mixin generate_adjacent_selector($num, $type, $direction, $mq: false) {
+  $type--key: map.get($SELECTOR_MAP, $type);
+  $direction--key: map.get($DIRECTION_MAP, $direction);
+  $type_size--base: map.get($BASE_SIZE_MAP, $type);
+
+  $adjacent--key: map.get($SELECTOR_MAP, "adjacent");
+  $selector_name_base: #{$adjacent--key}-#{$type--key}-#{$direction--key}-#{$num};
+
+  // if a media-query is provided
+  @if $mq {
+    $selector_name_base-mq: generate_media_query_selector($selector_name_base, $mq);
+    .#{$selector_name_base-mq} + .#{$selector_name_base-mq} {
+      #{$type}-#{$direction}: $num * $type_size--base;
+    }
+  // otherwise, just use base selector
+  } @else {
+    .#{$selector_name_base} + .#{$selector_name_base} {
+      #{$type}-#{$direction}: $num * $type_size--base;
+    }
   }
 }
 
-/**
- * example result - `.adjacent-pad-t-1 + .adjacent-pad-t-1`;
- *
- * @param {Number} $num
- */
-@mixin generate-adjacent-padding($num) {
-  .#{$adjacent--key}-#{$padding--key}-#{$top--key}-#{$num} + .#{$adjacent--key}-#{$padding--key}-#{$top--key}-#{$num} {
-    padding-top: $num * $paddingBase;
-  }
-  .#{$adjacent--key}-#{$padding--key}-#{$bottom--key}-#{$num} + .#{$adjacent--key}-#{$padding--key}-#{$bottom--key}-#{$num} {
-    padding-bottom: $num * $paddingBase;
-  }
-  .#{$adjacent--key}-#{$padding--key}-#{$left--key}-#{$num} + .#{$adjacent--key}-#{$padding--key}-#{$left--key}-#{$num} {
-    padding-left: $num * $paddingBase;
-  }
-  .#{$adjacent--key}-#{$padding--key}-#{$right--key}-#{$num} + .#{$adjacent--key}-#{$padding--key}-#{$right--key}-#{$num} {
-    padding-right: $num * $paddingBase;
+// generates adjacent margins in a given direction
+@mixin generate_adjacent_type_direction($num, $type, $direction_key) {
+  @include generate_adjacent_selector($num, $type, $direction_key);
+  @each $mq_name, $mq in $MEDIA_QUERY_KEY_MAP {
+    @include generate_adjacent_selector($num, $type, $direction_key, $mq);
   }
 }
 
-@for $num from 1 through 8 {
-  @include generate-adjacent-margin($num);
-  @include generate-adjacent-padding($num);
+// generates adjacent padding & margins in all cardinal directions
+@mixin generate_adjacents($num) {
+  @each $direction_name, $direction_key in $BASIC_DIRECTION_MAP {
+    @include generate_adjacent_type_direction($num, "margin", $direction_name);
+    @include generate_adjacent_type_direction($num, "padding", $direction_name);
+  }
+}
+
+// create them
+@for $num from 0 through 9 {
+  @include generate_adjacents($num);
 }

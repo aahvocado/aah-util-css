@@ -10,6 +10,18 @@ $DIRECTION_MAP: (
   "right": "r",
 );
 
+$BASIC_DIRECTION_MAP: (
+  "top": "t",
+  "bottom": "b",
+  "left": "l",
+  "right": "r",
+);
+
+$MULTIPLE_DIRECTION_MAP: (
+  "vertical": "v",
+  "horizontal": "h",
+);
+
 // -- other selectors
 $SELECTOR_MAP: (
   "width": "width",
