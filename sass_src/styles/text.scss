@@ -1,6 +1,7 @@
 $text-align--key: map.get($SELECTOR_MAP, "text-align");
 $text--key: map.get($SELECTOR_MAP, "text");
 
+/* start -- text */
 .#{$text-align--key}-center {
   text-align: center;
 }
@@ -46,3 +47,4 @@ $text--key: map.get($SELECTOR_MAP, "text");
 .#{$text--key}-full-width {
   text-transform: full-width;
 }
+/* end -- text */

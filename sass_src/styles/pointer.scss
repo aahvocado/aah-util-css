@@ -1,5 +1,6 @@
 $cursor--key: map.get($SELECTOR_MAP, "cursor");
 
+/* start -- pointer */
 .#{$cursor--key}-pointer {
   cursor: pointer;
 }
@@ -10,3 +11,4 @@ $cursor--key: map.get($SELECTOR_MAP, "cursor");
 .pevents-none {
   pointer-events: none;
 }
+/* end -- pointer */

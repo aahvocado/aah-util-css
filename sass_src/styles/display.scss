@@ -1,5 +1,5 @@
 $display--key: map.get($SELECTOR_MAP, "display");
-
+/* start -- display */
 .#{$display--key}-none {
   display: none;
 }
@@ -43,3 +43,4 @@ $display--key: map.get($SELECTOR_MAP, "display");
 .#{$display--key}-table {
   display: table;
 }
+/* end -- display */

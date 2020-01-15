@@ -40,7 +40,8 @@
   }
 }
 
-// create them
+/* start -- adjacent */
 @for $num from 0 through 9 {
   @include generate_adjacents($num);
 }
+/* end -- adjacent */

@@ -1,9 +1,11 @@
 $width--key: map.get($SELECTOR_MAP, "width");
 $height--key: map.get($SELECTOR_MAP, "height");
 
+/* start -- size */
 .#{$width--key}-full {
   width: 100%;
 }
 .#{$height--key}-full {
   height: 100%;
 }
+/* end -- size */
