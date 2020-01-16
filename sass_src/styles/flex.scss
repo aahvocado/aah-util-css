@@ -1,5 +1,3 @@
-// todo - media query
-
 /* start -- flex parent */
 $flex--key: map.get($SELECTOR_MAP, "flex");
 $FLEX_PARENT_DIRECTION_LIST: (
@@ -7,18 +5,29 @@ $FLEX_PARENT_DIRECTION_LIST: (
   "column": col,
 );
 
-@each $flex_direction_name, $flex_direction_key in $FLEX_PARENT_DIRECTION_LIST {
-  $flex_direction_base_selector: #{$flex--key}-#{$flex_direction_name};
-  .#{$flex_direction_base_selector} {
+@mixin generate_flex_styles($selector_name, $flex_direction_name) {
+  .#{$selector_name} {
     display: flex;
     flex-direction: #{$flex_direction_name};
   }
 
-  .#{$flex_direction_base_selector}-center {
+  .#{$selector_name}-center {
     display: flex;
     flex-direction: #{$flex_direction_name};
     align-items: center;
     justify-content: center;
+  }
+}
+
+@each $flex_direction_name, $flex_direction_key in $FLEX_PARENT_DIRECTION_LIST {
+  $selector_name: #{$flex--key}-#{$flex_direction_key};
+  @include generate_flex_styles($selector_name, $flex_direction_name);
+
+  // same style but with breakpoints
+  @each $mediaquery, $mq_key in $MEDIA_QUERY_KEY_MAP {
+    @include apply_media_query($mediaquery) {
+      @include generate_flex_styles(get_media_query_selector($selector_name, $mediaquery), $flex_direction_name);
+    }
   }
 }
 /* end -- flex parent */
@@ -38,10 +47,22 @@ $FLEX_PROPERTY_VALUES_MAP: (
   "auto": auto,
 );
 
+@mixin generate_flex_property_styles($selector_name, $flex_property_name, $flex_property_value_key) {
+  .#{$selector_name} {
+    #{$flex_property_name}: $flex_property_value_key;
+  }
+}
+
 @each $flex_property_name, $flex_property_key in $FLEX_PROPERTIES_MAP {
   @each $flex_property_value_name, $flex_property_value_key in $FLEX_PROPERTY_VALUES_MAP {
-    .#{$flex_property_key}-#{$flex_property_value_name} {
-      #{$flex_property_name}: $flex_property_value_key;
+    $selector_name: #{$flex_property_key}-#{$flex_property_value_name};
+    @include generate_flex_property_styles($selector_name, $flex_property_name, $flex_property_value_key);
+
+    // same style but with breakpoints
+    @each $mediaquery, $mq_key in $MEDIA_QUERY_KEY_MAP {
+      @include apply_media_query($mediaquery) {
+        @include generate_flex_property_styles(get_media_query_selector($selector_name, $mediaquery), $flex_property_name, $flex_property_value_key);
+      }
     }
   }
 }
@@ -66,10 +87,39 @@ $FLEX_PROPERTY_VALUES_MAP: (
 .#{$flex--key}-inherit {
   flex: inherit;
 }
+
+@each $mediaquery, $mq_key in $MEDIA_QUERY_KEY_MAP {
+  @include apply_media_query($mediaquery) {
+    .#{get_media_query_selector("#{$flex--key}-auto", $mediaquery)} {
+      flex: 1 1 auto;
+    }
+
+    .#{get_media_query_selector("#{$flex--key}-none", $mediaquery)} {
+      flex: 0 0 auto;
+    }
+
+    .#{get_media_query_selector("#{$flex--key}-grow-only", $mediaquery)} {
+      flex: 1 0;
+    }
+
+    .#{get_media_query_selector("#{$flex--key}-shrink-only", $mediaquery)} {
+      flex: 0 1;
+    }
+
+    .#{get_media_query_selector("#{$flex--key}-initial", $mediaquery)} {
+      flex: initial;
+    }
+
+    .#{get_media_query_selector("#{$flex--key}-inherit", $mediaquery)} {
+      flex: inherit;
+    }
+  }
+}
 /* end -- flex child sizing */
 
 /* end -- flex-wrap */
 $flex-wrap--key: map.get($SELECTOR_MAP, "flex-wrap");
+
 .#{$flex-wrap--key}-no {
   flex-wrap: nowrap;
 }
@@ -84,6 +134,30 @@ $flex-wrap--key: map.get($SELECTOR_MAP, "flex-wrap");
 }
 .#{$flex-wrap--key}-inherit {
   flex-wrap: inherit;
+}
+
+@each $mediaquery, $mq_key in $MEDIA_QUERY_KEY_MAP {
+  @include apply_media_query($mediaquery) {
+    .#{get_media_query_selector("#{$flex-wrap--key}-no", $mediaquery)} {
+      flex-wrap: nowrap;
+    }
+
+    .#{get_media_query_selector("#{$flex-wrap--key}-yes", $mediaquery)} {
+      flex-wrap: wrap;
+    }
+
+    .#{get_media_query_selector("#{$flex-wrap--key}-reverse", $mediaquery)} {
+      flex-wrap: wrap-reverse;
+    }
+
+    .#{get_media_query_selector("#{$flex-wrap--key}-initial", $mediaquery)} {
+      flex-wrap: initial;
+    }
+
+    .#{get_media_query_selector("#{$flex-wrap--key}-inherit", $mediaquery)} {
+      flex-wrap: inherit;
+    }
+  }
 }
 /* end -- flex-wrap */
 
