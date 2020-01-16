@@ -56,7 +56,7 @@ $border--key: map.get($SELECTOR_MAP, "border");
   // no directions given means all sides
   @if not $direction {
     .#{$selector_name_base} {
-      border-width: $value;
+      border-width: #{$value};
       border-color: $color_value;
       border-style: solid;
     }
@@ -64,11 +64,11 @@ $border--key: map.get($SELECTOR_MAP, "border");
   // left, right
   } @else if $direction == "horizontal" {
     .#{$selector_name_base} {
-      border-left-width: $value;
+      border-left-width: #{$value}px;
       border-left-color: $color_value;
       border-left-style: solid;
 
-      border-right-width: $value;
+      border-right-width: #{$value}px;
       border-right-color: $color_value;
       border-right-style: solid;
     }
@@ -76,11 +76,11 @@ $border--key: map.get($SELECTOR_MAP, "border");
   // top, bottom
   } @else if $direction == "vertical" {
     .#{$selector_name_base} {
-      border-top-width: $value;
+      border-top-width: #{$value}px;
       border-top-color: $color_value;
       border-top-style: solid;
 
-      border-bottom-width: $value;
+      border-bottom-width: #{$value}px;
       border-bottom-color: $color_value;
       border-bottom-style: solid;
     }
@@ -88,7 +88,7 @@ $border--key: map.get($SELECTOR_MAP, "border");
   // cardinal directions, eg. left, right, top, down
   } @else {
     .#{$selector_name_base} {
-      border-#{$direction}-width: $value;
+      border-#{$direction}-width: #{$value}px;
       border-#{$direction}-color: $color_value;
       border-#{$direction}-style: solid;
     }
