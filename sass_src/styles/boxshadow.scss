@@ -1,18 +1,28 @@
+/* start -- box-shadow */
+$box-shadow--key: map.get($SELECTOR_MAP, "box-shadow");
+$box-shadow--base-size: map.get($BASE_SIZE_MAP, "box-shadow");
 
-.recursive-boxshadow(5);
-.recursive-boxshadow(@n, @i: 1) when (@i =< @n) {
-  .gen-box-shadow(@i);
+@mixin generate_box_shadow($value, $color_name) {
+  $selector_name: #{$box-shadow--key}-#{$value};
+  $color_value: map.get($COLOR_MAP, $color_name);
+  $calculated_box_shadow: 0 ($value * $box-shadow--base-size) $color_value;
 
-  // recursively call
-  .recursive-boxshadow(@n, (@i + 1));
-};
+  .#{$selector_name} {
+    box-shadow: $calculated_box_shadow;
+  }
 
-.gen-box-shadow(@n) {
-  each(@colorList, {
-    @colorDefinition: 'color-@{value}';
-
-    .@{box-shadow--key}-@{bottom--key}-@{n}-@{value} {
-      box-shadow: 0 @n * @baseBoxShadowSize @@colorDefinition;
+  @each $mediaquery, $mq_key in $MEDIA_QUERY_KEY_MAP {
+    @include apply_media_query($mediaquery) {
+      .#{get_media_query_selector($selector_name, $mediaquery)} {
+        box-shadow: $calculated_box_shadow;
+      }
     }
-  })
+  }
 }
+
+@each $color_name, $color_value in $COLOR_MAP {
+  @for $value from 0 through 9 {
+    @include generate_box_shadow($value, $color_name);
+  }
+}
+/* start -- end-shadow */
