@@ -51,7 +51,7 @@ $font-size--key: map.get($SELECTOR_MAP, "font-size");
 
 $font-size--key: map.get($SELECTOR_MAP, "font-size");
 @mixin generate_font_size($value) {
-  $selector_name: #{$font-size--key}--#{$value};
+  $selector_name: #{$font-size--key}-#{$value};
   $calculated_font_size: $FONT_BASE_REM + ($value * map.get($BASE_SIZE_MAP, "font-size"));
 
   .#{$selector_name} {
