@@ -1,6 +1,8 @@
 # aah-util-css
 This is a work in progress, and is still incomplete. This utility css uses [less](http://lesscss.org) for the framework.
 
+This utility now supports `sass` and needs updated documentation.
+
 ## usage
 `npm i aah-util-css`
 
