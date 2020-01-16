@@ -1,74 +1,108 @@
-each(@fontFamilyList, {
-  @fontFamilyName: @value;
-  @definition: 'fontFamily-@{fontFamilyName}';
-
-  .generate-fontFamily(@fontFamilyName, @@definition);
-});
-
-/*
-  param - @name - name for className suffix
-  param - @style - definition for the font
-*/
-.generate-fontFamily(@name, @style) {
-  .@{font-family--key}-@{name} {
-    font-family: @style;
-  }
-}
-
-// create font sizes from 0 to max
-.generate-all-font-size(10);
-
-// mixin for create all instances
-.generate-all-font-size(@n, @i: 0) when (@i =< @n) {
-  .generate-font-size(@i);
-
-  // recursive loop
-  .generate-all-font-size(@n, (@i + 1));
-};
-
-// mixin
-.generate-font-size(@num) {
-  .@{font-size--key}-@{num} {
-    font-size: @num * 5px;
+/* start -- font-family */
+$font-family--key: map.get($SELECTOR_MAP, "font-family");
+@each $font_name, $font_family in $FONT_MAPPING {
+  $selector_name: #{$font-family--key}-#{$font_name};
+  .#{$selector_name} {
+    font-family: $font_family;
   }
 
-  // with media queries
-  each(@mediaList, .(@mediaName) {
-    @mediaDefinition: @@mediaName;
-
-    @media @mediaDefinition {
-      .@{mediaName}\:@{font-size--key}-@{num} {
-        font-size: @num * 5px;
+  // same as above but with breakpoints
+  @each $mediaquery, $mq_key in $MEDIA_QUERY_KEY_MAP {
+    @include apply_media_query($mediaquery) {
+      .#{get_media_query_selector($selector_name, $mediaquery)} {
+        font-family: $font_family;
       }
     }
-  })
+  }
 }
+/* end -- font-family */
 
-// specific sizes
-// todo - calculations/rem
-.@{font-size--key}-base {
-  font-size: @baseFontSize;
-  line-height: @baseFontSize;
+/* start -- font-size */
+$font-size--key: map.get($SELECTOR_MAP, "font-size");
+.#{$font-size--key}-base {
+  font-size: $FONT_BASE_REM;
+  line-height: $FONT_BASE_REM;
 }
-.@{font-size--key}-small {
+.#{$font-size--key}-small {
   font-size: 0.8rem;
   line-height: 0.8rem;
 }
-.@{font-size--key}-big {
+.#{$font-size--key}-big {
   font-size: 1.5rem;
   line-height: 1.5rem;
 }
 
-// font weight
-.@{font-style--key}-thin {
+@each $mediaquery, $mq_key in $MEDIA_QUERY_KEY_MAP {
+  @include apply_media_query($mediaquery) {
+    .#{get_media_query_selector("#{$font-size--key}-base", $mediaquery)} {
+      font-size: $FONT_BASE_REM;
+      line-height: $FONT_BASE_REM;
+    }
+    .#{get_media_query_selector("#{$font-size--key}-small", $mediaquery)} {
+      font-size: 0.8rem;
+      line-height: 0.8rem;
+    }
+    .#{get_media_query_selector("#{$font-size--key}-big", $mediaquery)} {
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+    }
+  }
+}
+
+$font-size--key: map.get($SELECTOR_MAP, "font-size");
+@mixin generate_font_size($value) {
+  $selector_name: #{$font-size--key}--#{$value};
+  $calculated_font_size: $FONT_BASE_REM + ($value * map.get($BASE_SIZE_MAP, "font-size"));
+
+  .#{$selector_name} {
+    font-size: $calculated_font_size;
+  }
+
+  // same as above but with breakpoints
+  @each $mediaquery, $mq_key in $MEDIA_QUERY_KEY_MAP {
+    @include apply_media_query($mediaquery) {
+      .#{get_media_query_selector($selector_name, $mediaquery)} {
+        font-size: $calculated_font_size;
+      }
+    }
+  }
+}
+
+@for $value from 0 through 9 {
+  @include generate_font_size($value);
+}
+/* end -- font-size */
+
+/* start -- font-weight */
+$font-style--key: map.get($SELECTOR_MAP, "font-style");
+.#{$font-style--key}-thin {
   font-weight: 200;
 }
-.@{font-style--key}-normal {
+.#{$font-style--key}-normal {
   font-weight: 400;
 }
-.@{font-style--key}-bold {
+.#{$font-style--key}-bold {
   font-weight: 600;
 }
-.@{font-style--key}-italic {
+.#{$font-style--key}-italic {
   font-style: italic;
 }
+
+@each $mediaquery, $mq_key in $MEDIA_QUERY_KEY_MAP {
+  @include apply_media_query($mediaquery) {
+    .#{get_media_query_selector("#{$font-style--key}-thin", $mediaquery)} {
+      font-weight: 200;
+    }
+    .#{get_media_query_selector("#{$font-style--key}-normal", $mediaquery)} {
+      font-weight: 400;
+    }
+    .#{get_media_query_selector("#{$font-style--key}-bold", $mediaquery)} {
+      font-weight: 600;
+    }
+    .#{get_media_query_selector("#{$font-style--key}-italic", $mediaquery)} {
+      font-weight: italic;
+    }
+  }
+}
+/* end -- font-weight */
+

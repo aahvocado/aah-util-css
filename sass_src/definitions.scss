@@ -38,8 +38,9 @@ $BREAKPOINT_WIDTH_MAP: (
 );
 
 // -- Base Sizing per iteration
+$FONT_BASE_REM: 9px; // equal to 1rem
 $BASE_SIZE_MAP: (
-  "font": 12px,
+  "font-size": 3px,
   "padding": 3px,
   "margin": 3px,
   "border-radius": 3px,
