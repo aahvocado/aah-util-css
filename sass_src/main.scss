@@ -1,10 +1,2 @@
-// @use "sass:selector";
-@use "sass:map";
-
-@import 'keys.scss';
 @import 'definitions.scss';
-
-@import 'mixins/media-query.scss';
-@import 'mixins/pseudoselector.scss';
-
 @import 'all-util-styles.scss';

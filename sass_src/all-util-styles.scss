@@ -1,4 +1,11 @@
-// all utilities styles - these will depend on definitions.scss
+@use "sass:map";
+
+// make sure definitions.scss is imported before these
+@import 'keys.scss';
+
+@import 'mixins/media-query.scss';
+@import 'mixins/pseudoselector.scss';
+
 @import 'styles/adjacent.scss';
 @import 'styles/border-color.scss';
 @import 'styles/border-width.scss';
