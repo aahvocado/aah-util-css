@@ -56,7 +56,7 @@ $border--key: map.get($SELECTOR_MAP, "border");
   // no directions given means all sides
   @if not $direction {
     .#{$selector_name_base} {
-      border-width: #{$value};
+      border-width: #{$value}px;
       border-color: $color_value;
       border-style: solid;
     }
