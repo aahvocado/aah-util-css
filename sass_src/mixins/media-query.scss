@@ -48,11 +48,11 @@ $max-screen-width-m: $min-screen-width-l - 1;
       @content;
     }
   } @else if $mediaquery == "medium" {
-    @include apply_media_query-s() {
+    @include apply_media_query-m() {
       @content;
     }
   } @else if $mediaquery == "large" {
-    @include apply_media_query-s() {
+    @include apply_media_query-l() {
       @content;
     }
   } @else {
