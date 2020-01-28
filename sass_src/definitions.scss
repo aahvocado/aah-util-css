@@ -27,7 +27,10 @@ $MEDIA_QUERY_KEY_MAP: (
   "extra-small": "xs",
   "small": "s",
   "medium": "m",
-  "large": "l"
+  "large": "l",
+  "small-below": "ss",
+  "small-and-medium": "sm",
+  "medium-and-large": "ml"
 );
 
 $BREAKPOINT_WIDTH_MAP: (

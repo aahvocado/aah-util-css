@@ -37,6 +37,24 @@ $min-screen-width-l: $max-screen-width-m + 1;
   }
 }
 
+@mixin apply_media_query-small_below() {
+  @media (max-width: $max-screen-width-s) {
+    @content;
+  }
+}
+
+@mixin apply_media_query-small_and_medium() {
+  @media (min-width: $min-screen-width-s) and (max-width: $max-screen-width-m) {
+    @content;
+  }
+}
+
+@mixin apply_media_query-medium_and_large() {
+  @media (min-width: $min-screen-width-m) {
+    @content;
+  }
+}
+
 @mixin apply_media_query($mediaquery) {
   @if $mediaquery == "extra-small" {
     @include apply_media_query-xs() {
@@ -52,6 +70,18 @@ $min-screen-width-l: $max-screen-width-m + 1;
     }
   } @else if $mediaquery == "large" {
     @include apply_media_query-l() {
+      @content;
+    }
+  } @else if $mediaquery == "small-below" {
+    @include apply_media_query-small_below() {
+      @content;
+    }
+  } @else if $mediaquery == "small-and-medium" {
+    @include apply_media_query-small_and_medium() {
+      @content;
+    }
+  } @else if $mediaquery == "medium-and-large" {
+    @include apply_media_query-medium_and_large() {
       @content;
     }
   } @else {
