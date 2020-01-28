@@ -1,11 +1,10 @@
-$min-screen-width-xs: map.get($BREAKPOINT_WIDTH_MAP, "xs");
-$min-screen-width-s: map.get($BREAKPOINT_WIDTH_MAP, "s");
-$min-screen-width-m: map.get($BREAKPOINT_WIDTH_MAP, "m");
-$min-screen-width-l: map.get($BREAKPOINT_WIDTH_MAP, "l");
+$max-screen-width-xs: map.get($BREAKPOINT_WIDTH_MAP, "xs");
+$max-screen-width-s: map.get($BREAKPOINT_WIDTH_MAP, "s");
+$max-screen-width-m: map.get($BREAKPOINT_WIDTH_MAP, "m");
 
-$max-screen-width-xs: $min-screen-width-xs;
-$max-screen-width-s: $min-screen-width-m - 1;
-$max-screen-width-m: $min-screen-width-l - 1;
+$min-screen-width-s: $max-screen-width-xs + 1;
+$min-screen-width-m: $max-screen-width-s + 1;
+$min-screen-width-l: $max-screen-width-m + 1;
 
 // --
 @function get_media_query_selector($selector, $mediaquery) {
